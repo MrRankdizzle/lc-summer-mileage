@@ -44,7 +44,7 @@
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:780px;margin:0 auto;padding:0 20px 72px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,3.2vw,44px) 80px}
 
   /* ---------- shared type ---------- */
   .eyebrow{
@@ -82,7 +82,7 @@
   .kicker .rule{flex:1;height:1px;background:var(--line);}
   .masthead h1{
     font-family:var(--display);
-    font-size:clamp(42px,14.5vw,104px);
+    font-size:clamp(42px,13vw,96px);
     font-variation-settings:"wdth" 122;
     font-weight:800;letter-spacing:-.04em;line-height:.86;
     margin:0;color:var(--mustang);text-transform:uppercase;
@@ -370,6 +370,53 @@
 
   footer{margin-top:34px;font-size:12px;color:var(--ink-3);line-height:1.6;text-align:center}
 
+  /* ---------- large screens: editorial two-column ---------- */
+  @media (min-width:1000px){
+    section{
+      display:grid;
+      grid-template-columns:minmax(240px,300px) minmax(0,1fr);
+      column-gap:52px;align-items:start;
+      padding:56px 0;
+    }
+    .sec-head{position:sticky;top:24px}
+    .sec-head h2{font-size:30px;margin-bottom:8px}
+    .sec-head .lede{font-size:15.5px;line-height:1.58;margin-bottom:0}
+    .sec-body{min-width:0}
+
+    /* masthead: title left, intro right, sharing a baseline */
+    .masthead{
+      display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+      column-gap:52px;align-items:end;padding:56px 0 40px;
+    }
+    .masthead .kicker{grid-column:1 / -1}
+    .masthead h1{grid-column:1;font-size:clamp(84px,7.6vw,116px)}
+    .masthead .sub{grid-column:2;margin:0 0 12px;font-size:17.5px}
+
+    /* the closing panel stays full bleed */
+    section#log{display:block;padding-bottom:0}
+
+    /* content that reads better in more columns once there's room */
+    .faq{background:none;border:none;border-radius:0;overflow:visible;
+         display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;align-self:start}
+    .faq details:last-child{border-bottom:1px solid var(--line)}
+    .gloss{grid-template-columns:repeat(3,1fr)}
+
+    /* calculator: inputs beside the answer */
+    .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:26px;align-items:start}
+    .calc-row{grid-column:1;grid-row:1;margin-bottom:0}
+    .calc-out{grid-column:2;grid-row:1;flex-direction:column;align-items:flex-start;gap:6px;padding:18px 20px}
+    .calc-note{grid-column:1 / -1;grid-row:2;margin-top:18px}
+
+    .closer{padding:40px 44px}
+    .closer h2{font-size:32px}
+  }
+
+  @media (min-width:1240px){
+    .gloss{grid-template-columns:repeat(4,1fr)}
+    .grid2{grid-template-columns:repeat(3,1fr)}
+  }
+
   @media (max-width:560px){
     .grid2,.gloss{grid-template-columns:1fr}
     .wd-nums{grid-template-columns:1fr 1fr}
@@ -384,6 +431,7 @@
     html,body{background:#F1F6FA !important;color:#10233A !important}
     .ridge-card,.calc,.faq,.tablewrap,.tile,.gloss div,.weekdetail{background:#FFFFFF !important}
     .disclose{background:#F1F6FA !important;color:#17456F !important}
+    .faq details{background:#FFFFFF !important}
     .btn-primary{background:#17456F !important;color:#fff !important;border-color:#17456F !important}
     .btn-ghost{background:#E6F4FC !important;color:#17456F !important}
     thead th,.stat{background:#F1F6FA !important}
@@ -409,6 +457,8 @@
     body.pv-open .pv-overlay{position:static;background:none;padding:0;overflow:visible}
     body.pv-open .pv-sheet{box-shadow:none;border-radius:0;padding:0;max-width:none}
     body.pv-open .pv-note,body.pv-open .pv-actions{display:none !important}
+    section,.masthead,.calc,.faq{display:block !important}
+    .sec-head{position:static !important}
     .ridge-card,.helper,.calc{box-shadow:none}
     .btn,.helper-toggle,.clubs{display:none}
     details{page-break-inside:avoid}
@@ -429,8 +479,15 @@
 
   <!-- ============ PICK YOUR CLUB ============ -->
   <section id="pick" style="border-top:none;padding-top:8px">
+    <div class="sec-head">
+      <p class="eyebrow">Step one</p>
+      <h2>Pick your club</h2>
+      <p class="lede">Five plans, same eleven weeks. The number is roughly the miles you'll cover by the end of the summer.</p>
+    </div>
+
+    <div class="sec-body">
     <div class="picker-label">
-      <p class="eyebrow" style="margin:0">Step one — pick your club</p>
+      <p class="eyebrow" style="margin:0">Choose one</p>
       <button class="helper-toggle" id="helperBtn" aria-expanded="false" aria-controls="helperBox">Which one is mine?</button>
     </div>
 
@@ -489,13 +546,18 @@
     </div>
 
     <p class="prose" style="margin-top:18px">That shape is the whole point. The plan climbs for two or three weeks, then drops on purpose. The drop weeks are not days off from the plan — they <strong>are</strong> the plan. Fitness gets built during the hard weeks and collected during the easy ones.</p>
+    </div>
   </section>
 
   <!-- ============ FULL TABLE ============ -->
   <section id="all">
-    <p class="eyebrow">The whole summer</p>
+    <div class="sec-head">
+      <p class="eyebrow">The whole summer</p>
     <h2 id="tableTitle">All 11 weeks</h2>
     <p class="lede">Every week you'll run, at a glance. Print it, screenshot it, or tap a week to see where it sits on the curve above.</p>
+    </div>
+
+    <div class="sec-body">
     <div class="tablewrap">
       <table>
         <thead>
@@ -507,13 +569,19 @@
     <button class="btn btn-primary printbtn" id="printBtn">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
       Print this schedule</button>
+
+    </div>
   </section>
 
   <!-- ============ WEEKLY RHYTHM ============ -->
   <section id="rhythm">
-    <p class="eyebrow">Inside every week</p>
+    <div class="sec-head">
+      <p class="eyebrow">Inside every week</p>
     <h2>Miles are the frame, not the whole house</h2>
     <p class="lede">The number on the chart tells you how far. These six habits are what turn those miles into speed in September. Do them all summer, even on the small weeks.</p>
+    </div>
+
+    <div class="sec-body">
 
     <div class="grid2">
       <div class="tile">
@@ -548,13 +616,19 @@
         <p>Ten minutes, and a dynamic warmup before you run. This is the work people skip first and regret most.</p>
       </div>
     </div>
+
+    </div>
   </section>
 
   <!-- ============ LONG RUN CALC ============ -->
   <section id="longrun">
-    <p class="eyebrow">The 25% rule</p>
+    <div class="sec-head">
+      <p class="eyebrow">The 25% rule</p>
     <h2>How long is my long run?</h2>
     <p class="lede">Take your weekly mileage and multiply by 0.25. That's it — the rule scales with you all summer, so you never have to guess.</p>
+    </div>
+
+    <div class="sec-body">
 
     <div class="calc">
       <div class="calc-row">
@@ -584,16 +658,22 @@
       </div>
       <p class="calc-note">A long run should feel exactly like your easy days, just longer — if you finish it wrecked, it was too fast, not too far. The number of minutes will look different for everyone on this team depending on pace, and that is completely fine. Time on your feet is what builds the engine, not matching somebody else's clock.</p>
     </div>
+
+    </div>
   </section>
 
   <!-- ============ NEW RUNNER FAQ ============ -->
   <section id="faq">
-    <p class="eyebrow">New this year? Start here</p>
+    <div class="sec-head">
+      <p class="eyebrow">New this year? Start here</p>
     <h2>The questions everybody has</h2>
     <p class="lede">Nobody tells first-year runners this stuff, so here it is up front.</p>
+    </div>
+
+    <div class="sec-body">
 
     <div class="faq">
-      <details open>
+      <details>
         <summary>How fast should these miles be?</summary>
         <div class="answer">
           <p>Slower than you think — and that isn't softness, it's the mechanism. Easy aerobic running builds capillaries, mitochondria, and the heart's stroke volume, and it builds them without the recovery cost that hard running carries. You should be able to hold a full-sentence conversation the entire way.</p>
@@ -697,12 +777,18 @@
 
     <p class="plan-note" style="margin-top:16px">Sources behind these answers: Lauersen et al., <em>Br J Sports Med</em> (2014, 2018) on strength training and injury; Malisoux et al., <em>Scand J Med Sci Sports</em> (2015) on shoe rotation; Milewski et al., <em>J Pediatr Orthop</em> (2014) on sleep and adolescent injury; Périard and colleagues on heat acclimation; and Steve Magness, <em>The Science of Running</em>, for the training-design principles.</p>
 
+
+    </div>
   </section>
 
   <!-- ============ GLOSSARY ============ -->
   <section id="glossary">
-    <p class="eyebrow">Decoder</p>
+    <div class="sec-head">
+      <p class="eyebrow">Decoder</p>
     <h2>Words on the plan</h2>
+    </div>
+
+    <div class="sec-body">
     <dl class="gloss">
       <div><dt>mpd / mpw</dt><dd>Miles per day, miles per week.</dd></div>
       <div><dt>Long run</dt><dd>The week's longest run, about 25% of the weekly total, at easy effort.</dd></div>
@@ -717,6 +803,8 @@
       <div><dt>Cut-back week</dt><dd>A planned lower-mileage week. Built in on purpose so the training sticks.</dd></div>
       <div><dt>Base</dt><dd>The aerobic foundation you build all summer. Everything in the fall is built on top of it.</dd></div>
     </dl>
+
+    </div>
   </section>
 
   <!-- ============ CLOSER ============ -->
@@ -823,6 +911,7 @@
   var ORDER = ["150","200","300","400","500"];
   var state = { club:"150", week:0 };
   var detailOpen = false;
+  var ridgeDrawn = false;
 
   // ---------- classify each week from the data itself ----------
   function classify(weeks, i){
@@ -887,7 +976,12 @@
     var svg = document.getElementById("ridge");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
 
-    var W = 660, H = 190, padX = 26, top = 34, bottom = 154;
+    // size the chart to the space it actually has, so type and strokes stay
+    // the right size instead of scaling up like an image on big screens
+    var avail = (svg.parentNode && svg.parentNode.clientWidth) || 0;
+    var W = Math.max(560, Math.min(1120, avail ? avail - 16 : 660));
+    var H = 190, padX = 26, top = 34, bottom = 154;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     var max = Math.max.apply(null, weeks.map(function(w){ return w.m; }));
     var step = (W - padX*2) / (weeks.length - 1);
     var pts = weeks.map(function(w, i){
@@ -942,7 +1036,8 @@
     });
 
     // draw-on animation
-    if (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    if (!ridgeDrawn && (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches)){
+      ridgeDrawn = true;
       try {
         var len = line.getTotalLength();
         line.style.strokeDasharray = len;
@@ -1174,6 +1269,12 @@
   });
 
   window.addEventListener("afterprint", function(){ document.body.classList.remove("print-week"); });
+
+  var resizeTimer;
+  window.addEventListener("resize", function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(render, 160);
+  });
 
   render();
 })();
