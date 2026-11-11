@@ -96,6 +96,18 @@
     margin:18px 0 0;
   }
 
+  /* ---------- season switch ---------- */
+  .seasons{display:flex;gap:6px;padding:18px 0 0;flex-wrap:wrap}
+  .seasons a{
+    font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink-2);background:var(--card);border:1px solid var(--line);
+    border-radius:100px;padding:8px 14px;transition:border-color .12s ease,color .12s ease;
+  }
+  .seasons a:hover{border-color:var(--carolina);color:var(--mustang)}
+  .seasons a.on{background:var(--mustang);border-color:var(--mustang);color:#fff}
+  .seasons a:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+  .seasons + .masthead{padding-top:26px}
+
   /* ---------- club picker ---------- */
   .picker-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
   .clubs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
@@ -460,7 +472,7 @@
     section,.masthead,.calc,.faq{display:block !important}
     .sec-head{position:static !important}
     .ridge-card,.helper,.calc{box-shadow:none}
-    .btn,.helper-toggle,.clubs{display:none}
+    .btn,.helper-toggle,.clubs,.seasons{display:none}
     details{page-break-inside:avoid}
     details .answer{display:block !important}
     section{page-break-inside:avoid;border-top:1px solid #ccc}
@@ -469,6 +481,11 @@
 </head>
 <body>
 <div class="wrap">
+
+  <nav class="seasons" aria-label="Season">
+    <a href="index.html" class="on" aria-current="page">Summer mileage</a>
+    <a href="winter.html">Winter training</a>
+  </nav>
 
   <!-- ============ MASTHEAD ============ -->
   <header class="masthead">
@@ -814,6 +831,7 @@
       <p>We'd love for you to log your runs this summer and follow your coaches. This isn't a requirement and nobody is checking up on you.</p>
       <p>What it does do is let us see how your summer is going, so we can send a few words of encouragement when things start to feel hard. And at some point they will feel hard. That's not a sign you're doing it wrong — that's just what a real summer of training feels like, and it's a lot easier when somebody else can see the work you're putting in.</p>
       <p class="strong">Show up in mid-August having done the hard part. Go Mustangs!</p>
+      <p>Season over? The <a href="winter.html" style="color:#fff;font-weight:600">winter training guide</a> builds your off-season plan.</p>
     </div>
     <footer>
       Little Chute Cross Country · Summer mileage plan · 11 weeks<br>Not sure which club to run? Ask your coaches before you start.
