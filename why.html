@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#16244A">
+<title>The Why — Little Chute Cross Country</title>
+<meta name="description" content="The science behind how Little Chute cross country trains, eats, rests and races, with sources.">
+<meta property="og:title" content="The Why — Little Chute Cross Country">
+<meta property="og:description" content="The science behind how Little Chute cross country trains, eats, rests and races, with sources.">
+<meta property="og:image" content="https://lc-summer-mileage.vercel.app/img/share.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="why">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Little Chute Cross Country home">
+      <img src="img/lc-logo-sm.png" alt="" width="240" height="198">
+      <span class="brand-t"><b>Little Chute</b><i>Cross Country</i></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="fall.html">Fall Season</a><a href="summer.html">Summer</a><a href="winter.html">Winter</a><a href="why.html" aria-current="page">The Why</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero hero--slim" id="hero">
+  <div class="hero-photo" id="heroPhoto" hidden></div>
+  <img class="hero-mustang" src="img/mustang-white.svg" alt="" aria-hidden="true">
+  <div class="hero-in">
+    <p class="hero-kicker"><span class="slash"></span><span class="slash"></span>Our science library</p>
+    <h1>The<span>Why</span></h1>
+    <p class="hero-sub">Nothing we do is "because I said so." Every part of how this team trains, eats, rests and races has a reason. Here they are, with the research and the coaches we learned them from.</p>
+  </div>
+</div>
+<div class="wrap">
+
+  <section class="sec" id="library" style="border-top:none">
+    <div class="sec-head">
+      <p class="eyebrow">Ask why</p>
+      <h2>Find your question</h2>
+      <p class="lede">Each answer starts with what we do and why, then goes deeper for anyone who wants it. Sources are linked so you can check them yourself.</p>
+      <div class="card" style="margin-top:8px;padding:14px 16px">
+        <p class="eyebrow plain" style="margin-bottom:8px">How solid is it?</p>
+        <p style="margin:0 0 7px;font-size:13px;line-height:1.45;color:var(--ink-2)"><span class="evid strong" style="margin:0 6px 0 0">Strong research</span>Reviews of many studies, or expert consensus.</p>
+        <p style="margin:0 0 7px;font-size:13px;line-height:1.45;color:var(--ink-2)"><span class="evid good" style="margin:0 6px 0 0">Some research</span>Individual studies. They show a link, not proof.</p>
+        <p style="margin:0;font-size:13px;line-height:1.45;color:var(--ink-2)"><span class="evid coach" style="margin:0 6px 0 0">Coaching practice</span>What experienced coaches have found works.</p>
+      </div>
+    </div>
+    <div class="sec-body">
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <label for="whySearch" style="position:absolute;left:-9999px">Search the library</label>
+        <input type="search" id="whySearch" placeholder="Search: sleep, hills, iron, easy days..." autocomplete="off">
+      </div>
+      <div class="filters" id="whyFilters"></div>
+      <p class="why-count" id="whyCount" role="status"></p>
+      <div id="whyList"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="voices">
+    <div class="sec-head">
+      <p class="eyebrow">Who we learn from</p>
+      <h2>The coaches and scientists behind this</h2>
+      <p class="lede">Our training is modeled first on Steve Magness, and checked against other people who have spent careers on these questions.</p>
+    </div>
+    <div class="sec-body">
+      <div class="grid2" style="margin-top:0">
+        <div class="tile"><span class="freq">Coach, author, exercise scientist</span><h3>Steve Magness</h3><p>Build endurance and speed together, never leave anything behind, move from general to specific, and coach people instead of yelling at them.</p></div>
+        <div class="tile"><span class="freq">Coach and physiologist</span><h3>Jack Daniels</h3><p>Every run should have a purpose you can name. Easy running builds resistance to injury and the heart itself.</p></div>
+        <div class="tile"><span class="freq">High school coaching educator</span><h3>Jay Johnson</h3><p>Build the aerobic engine, strengthen the chassis, and rev the engine with strides. Keep young runners athletic.</p></div>
+        <div class="tile"><span class="freq">Sport scientist</span><h3>Stephen Seiler</h3><p>Documented that the world's best endurance athletes do about four in five sessions easy.</p></div>
+        <div class="tile"><span class="freq">Coach</span><h3>Arthur Lydiard</h3><p>The original base builder. Aerobic training is the training that makes all other training possible.</p></div>
+        <div class="tile"><span class="freq">Medical consensus</span><h3>AAP, IOC, ACSM</h3><p>Pediatricians and sports medicine bodies on rest, specialization, fueling, sleep, heat and cold for young athletes.</p></div>
+      </div>
+
+      <p class="subhead">Want to read more?</p>
+      <div class="books" id="books"></div>
+      <p class="plan-note" style="margin-top:18px">Coach viewpoints on this page are summarized in our words and linked to where they were said. Research summaries are written for a general reader; the linked papers have the detail and the limits. This is general guidance, not medical advice. For anything about your own health, talk with your doctor and your coaches.</p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <img src="img/lc-logo-sm.png" alt="Little Chute LC logo" width="240" height="198">
+      <div><b>Little Chute Cross Country</b>Mustangs. Rest, rebuild, get strong, race together.<br>Your coaches have the final say on training. This site is general guidance, not medical advice.</div>
+    </div>
+    <div>
+      <h4>The year</h4>
+      <ul>
+        <li><a href="fall.html">Fall season hub</a></li>
+        <li><a href="winter.html">Winter training plan</a></li>
+        <li><a href="summer.html">Summer mileage</a></li>
+        <li><a href="why.html">The Why: our science library</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>For families</h4>
+      <ul>
+        <li><a href="fall.html#calendar">Season calendar</a></li>
+        <li><a href="fall.html#meets">Meet information</a></li>
+        <li><a href="fall.html#parents">New to cross country?</a></li>
+        <li><a href="fall.html#contacts">Coaches and contacts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">Little Chute Cross Country &middot; Go Mustangs</div>
+</footer>
+
+<nav class="tabs" aria-label="Main"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Home</a><a href="fall.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Fall</a><a href="summer.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Summer</a><a href="winter.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5"/></svg>Winter</a><a href="why.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/><path d="M9 8h6M9 12h4"/></svg>The Why</a></nav>
+
+<script src="js/site.js"></script>
+<script src="data/why.js"></script>
+<script src="js/why.js"></script>
+</body>
+</html>

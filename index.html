@@ -2,1300 +2,209 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="only light">
 <meta name="supported-color-schemes" content="light">
-<title>Summer Mileage — Little Chute Cross Country</title>
+<meta name="theme-color" content="#16244A">
+<title>Little Chute Cross Country — Mustangs</title>
+<meta name="description" content="Everything for Little Chute cross country athletes and families: the fall season, summer mileage, winter training, and the science behind it.">
+<meta property="og:title" content="Little Chute Cross Country — Mustangs">
+<meta property="og:description" content="Everything for Little Chute cross country athletes and families: the fall season, summer mileage, winter training, and the science behind it.">
+<meta property="og:image" content="https://lc-summer-mileage.vercel.app/img/share.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    color-scheme: only light;
-    /* Little Chute Mustangs — Carolina blue, sky blue, white */
-    --ink:#10233A;
-    --ink-2:#4A5F76;
-    --ink-3:#8497A8;
-    --paper:#F1F6FA;
-    --card:#FFFFFF;
-    --line:#D8E3EC;
-    --line-2:#E9F0F6;
-    --mustang:#17456F;
-    --carolina:#2277B0;
-    --skyblue:#5CB3DE;
-    --sky-soft:#E6F4FC;
-    --navy:#12365C;
-    --sky-tint:#DDE9F3;
-    --radius:14px;
-    --shadow:0 1px 2px rgba(16,35,58,.05), 0 8px 24px -12px rgba(16,35,58,.22);
-    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
-    --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
-  }
-
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%;background:#F1F6FA;color-scheme:only light;scroll-behavior:smooth}
-  section{scroll-margin-top:18px}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--display);
-    font-size:16px;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,3.2vw,44px) 80px}
-
-  /* ---------- shared type ---------- */
-  .eyebrow{
-    font-family:var(--display);
-    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--ink-3);margin:0 0 10px;
-  }
-  .prose{font-family:var(--serif);font-size:17px;line-height:1.65;color:var(--ink-2)}
-  .prose p{margin:0 0 14px}
-  .prose strong{font-weight:600;color:var(--ink)}
-  h2{
-    font-family:var(--display);
-    font-size:clamp(22px,4.6vw,28px);
-    font-variation-settings:"wdth" 112;
-    font-weight:700;letter-spacing:-.01em;line-height:1.15;
-    margin:0 0 6px;color:var(--ink);
-  }
-  h3{
-    font-family:var(--display);
-    font-size:16px;font-weight:700;letter-spacing:-.005em;
-    margin:0 0 4px;color:var(--ink);
-  }
-  .lede{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--ink-2);margin:0 0 22px}
-
-  section{padding:44px 0;border-top:1px solid var(--line)}
-  section:first-of-type{border-top:none}
-
-  /* ---------- masthead ---------- */
-  .masthead{padding:38px 0 26px}
-  .masthead .kicker{
-    display:flex;align-items:center;gap:10px;
-    font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--carolina);
-    margin-bottom:16px;
-  }
-  .kicker .rule{flex:1;height:1px;background:var(--line);}
-  .masthead h1{
-    font-family:var(--display);
-    font-size:clamp(42px,13vw,96px);
-    font-variation-settings:"wdth" 122;
-    font-weight:800;letter-spacing:-.04em;line-height:.86;
-    margin:0;color:var(--mustang);text-transform:uppercase;
-  }
-  .masthead h1 .thin{
-    display:block;color:var(--ink);font-weight:400;
-    font-variation-settings:"wdth" 122;
-  }
-  .masthead .sub{
-    font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink-2);
-    margin:18px 0 0;
-  }
-
-  /* ---------- season switch ---------- */
-  .seasons{display:flex;gap:6px;padding:18px 0 0;flex-wrap:wrap}
-  .seasons a{
-    font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    text-decoration:none;color:var(--ink-2);background:var(--card);border:1px solid var(--line);
-    border-radius:100px;padding:8px 14px;transition:border-color .12s ease,color .12s ease;
-  }
-  .seasons a:hover{border-color:var(--carolina);color:var(--mustang)}
-  .seasons a.on{background:var(--mustang);border-color:var(--mustang);color:#fff}
-  .seasons a:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-  .seasons + .masthead{padding-top:26px}
-
-  /* ---------- club picker ---------- */
-  .picker-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
-  .clubs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-  .club{
-    appearance:none;cursor:pointer;
-    background:var(--card);border:1px solid var(--line);border-radius:12px;
-    padding:12px 4px 10px;text-align:center;color:var(--ink-2);
-    font-family:var(--display);transition:transform .12s ease, border-color .12s ease, background .12s ease;
-  }
-  .club .n{display:block;font-size:clamp(17px,4.6vw,22px);font-weight:800;font-variation-settings:"wdth" 118;letter-spacing:-.02em;line-height:1}
-  .club .t{display:block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
-  .club:hover{border-color:var(--carolina)}
-  .club[aria-pressed="true"]{background:var(--mustang);border-color:var(--mustang);color:#fff}
-  .club[aria-pressed="true"] .t{color:rgba(255,255,255,.62)}
-  .club:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-
-  .helper-toggle{
-    background:none;border:none;padding:0;cursor:pointer;
-    font-family:var(--display);font-size:13px;font-weight:600;color:var(--skyblue);
-    text-decoration:underline;text-underline-offset:3px;
-  }
-  .helper{
-    margin-top:12px;background:var(--sky-soft);border-radius:12px;padding:16px 18px;
-    font-family:var(--serif);font-size:15.5px;line-height:1.55;color:#14415F;
-  }
-  .helper[hidden]{display:none}
-  .helper ul{margin:8px 0 0;padding-left:18px}
-  .helper li{margin-bottom:5px}
-  .helper .last{margin:12px 0 0;font-family:var(--display);font-size:13px;font-weight:600;color:var(--navy)}
-
-  /* ---------- the ridgeline (signature) ---------- */
-  .ridge-card{
-    margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:var(--shadow);overflow:hidden;
-  }
-  .ridge-head{
-    display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
-    padding:18px 20px 6px;flex-wrap:wrap;
-  }
-  .bib{line-height:1}
-  .bib .num{
-    display:block;font-size:clamp(46px,13vw,74px);font-weight:800;
-    font-variation-settings:"wdth" 125;letter-spacing:-.045em;color:var(--mustang);
-  }
-  .bib .cap{
-    display:block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ink-3);margin-top:6px;
-  }
-  .ridge-meta{text-align:right;font-size:12.5px;color:var(--ink-2);line-height:1.7}
-  .ridge-meta b{font-weight:700;color:var(--ink);font-variation-settings:"wdth" 110}
-  .ridge-svg{display:block;width:100%;height:auto;padding:4px 8px 0}
-  .ridge-x{
-    display:grid;grid-template-columns:repeat(11,1fr);
-    padding:0 14px 14px;gap:2px;
-  }
-  .ridge-x span{
-    text-align:center;font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);
-    padding-top:2px;
-  }
-  .ridge-x span.on{color:var(--mustang);}
-  .legend{
-    display:flex;gap:16px;flex-wrap:wrap;padding:0 20px 16px;
-    font-size:11.5px;font-weight:600;color:var(--ink-2);
-  }
-  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0}
-  .dot-build{background:var(--carolina)}
-  .dot-cut{background:var(--skyblue)}
-  .dot-peak{background:var(--navy)}
-
-  /* ---------- expandable week detail (inside the chart card) ---------- */
-  .disclose{
-    width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
-    background:var(--paper);border:none;border-top:1px solid var(--line);
-    padding:14px 20px;cursor:pointer;text-align:left;
-    font-family:var(--display);font-size:13px;font-weight:700;color:var(--mustang);
-    transition:background .12s ease;
-  }
-  .disclose:hover{background:#E8F1F8}
-  .disclose:focus-visible{outline:2px solid var(--navy);outline-offset:-2px}
-  .disclose .chev{
-    flex:none;font-size:11px;color:var(--carolina);
-    transition:transform .2s ease;transform-origin:center;
-  }
-  .disclose[aria-expanded="true"] .chev{transform:rotate(180deg)}
-
-  .weekdetail{padding:20px;border-top:1px solid var(--line);background:var(--card)}
-  .weekdetail[hidden]{display:none}
-  .wd-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-  .wd-week{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-  .tag{
-    display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    padding:5px 10px;border-radius:100px;
-  }
-  .tag.build{background:#DCEDF8;color:#145A87}
-  .tag.cut{background:var(--sky-soft);color:#1E7BAD}
-  .tag.peak{background:var(--sky-tint);color:var(--navy)}
-  .tag.rest{background:#ECF0F4;color:#4F6274}
-  .wd-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-  .stat{background:var(--paper);border-radius:11px;padding:12px 12px 11px}
-  .stat .v{
-    display:block;font-size:clamp(21px,5.6vw,28px);font-weight:800;
-    font-variation-settings:"wdth" 118;letter-spacing:-.03em;line-height:1.05;color:var(--ink);
-  }
-  .stat .v small{font-size:.5em;font-weight:600;letter-spacing:0;color:var(--ink-3);margin-left:2px}
-  .stat .k{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:7px}
-  .wd-why{
-    font-family:var(--serif);font-size:16px;line-height:1.55;color:var(--ink-2);
-    border-left:3px solid var(--skyblue);padding-left:14px;margin:0 0 14px;
-  }
-  .wd-banked{font-size:12.5px;font-weight:600;color:var(--ink-3);margin:0 0 16px}
-  .wd-banked b{color:var(--mustang);font-variation-settings:"wdth" 110}
-  .wd-nav{display:flex;gap:8px}
-
-  /* ---------- buttons ---------- */
-  .btn{
-    cursor:pointer;font-family:var(--display);font-weight:700;letter-spacing:.005em;
-    border-radius:11px;
-    transition:background .14s ease,border-color .14s ease,color .14s ease,transform .08s ease;
-  }
-  .btn:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
-  .btn:active:not(:disabled){transform:translateY(1px)}
-
-  .btn-primary{
-    width:100%;display:flex;align-items:center;justify-content:center;gap:9px;
-    background:var(--mustang);border:1px solid var(--mustang);color:#fff;
-    padding:15px 18px;font-size:14px;
-    box-shadow:0 1px 2px rgba(16,35,58,.14), 0 10px 20px -14px rgba(23,69,111,.6);
-  }
-  .btn-primary:hover{background:var(--carolina);border-color:var(--carolina)}
-  .btn-primary .ico{
-    flex:none;width:15px;height:15px;stroke:currentColor;stroke-width:1.8;
-    fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.92;
-  }
-
-  .btn-ghost{
-    flex:1;background:var(--sky-soft);border:1px solid #C6E0F0;color:var(--mustang);
-    padding:11px 8px;font-size:13px;
-  }
-  .btn-ghost:hover:not(:disabled){background:#D6EBF8;border-color:var(--skyblue)}
-  .btn-ghost:disabled{background:var(--paper);border-color:var(--line);color:var(--ink-3);opacity:.65;cursor:default}
-
-  /* ---------- print preview overlay (fallback when popups are blocked) ---------- */
-  .pv-overlay{
-    position:fixed;inset:0;z-index:999;background:rgba(16,35,58,.6);
-    display:flex;align-items:flex-start;justify-content:center;
-    padding:18px;overflow:auto;-webkit-overflow-scrolling:touch;
-  }
-  .pv-overlay[hidden]{display:none}
-  .pv-sheet{
-    background:#fff;border-radius:14px;width:100%;max-width:720px;padding:22px;
-    box-shadow:0 24px 60px -20px rgba(16,35,58,.5);
-  }
-  .pv-note{
-    font-family:var(--serif);font-size:13.5px;line-height:1.5;color:#1E5B85;
-    background:var(--sky-soft);border-radius:9px;padding:11px 13px;margin:0 0 18px;
-  }
-  .pv-actions{display:flex;gap:8px;margin-top:20px}
-  .pv-actions .btn-primary{width:auto;flex:1}
-
-  .pv-doc h4{
-    font-family:var(--display);font-size:22px;font-weight:800;font-variation-settings:"wdth" 112;
-    letter-spacing:-.015em;color:var(--mustang);margin:0 0 3px;
-  }
-  .pv-doc .pv-sub{font-size:12.5px;color:var(--ink-2);margin:0 0 16px}
-  .pv-doc .pv-sub b{color:var(--ink)}
-  .pv-doc table{width:100%;min-width:0;border-collapse:collapse;margin-bottom:18px}
-  .pv-doc th{
-    font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
-    padding:7px 8px;border-bottom:1.5px solid var(--mustang);background:none;text-align:left;
-  }
-  .pv-doc td{padding:9px 8px;border-bottom:1px solid var(--line);font-size:13px}
-  .pv-doc td.wk{font-weight:700;white-space:nowrap;color:var(--ink)}
-  .pv-doc td.mi{font-weight:800;color:var(--mustang)}
-  .pv-doc td.note{font-size:11.5px;color:var(--ink-2);white-space:nowrap}
-  .pv-doc td.blank{width:84px}
-  .pv-doc tr.cut td,.pv-doc tr.rest td{background:#F4FAFD}
-  .pv-doc tr.peak td{background:#E8F1F8}
-  .pv-doc .pv-box{border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin-bottom:14px}
-  .pv-doc .pv-box h5{
-    font-family:var(--display);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--ink-3);margin:0 0 8px;font-weight:700;
-  }
-  .pv-doc .pv-box ul{margin:0;padding-left:17px;font-size:12.5px;line-height:1.75;color:var(--ink)}
-  .pv-doc .pv-foot{font-size:11px;color:var(--ink-3);line-height:1.6;margin:0}
-
-  /* ---------- table ---------- */
-  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
-  table{border-collapse:collapse;width:100%;min-width:520px;font-family:var(--display)}
-  th,td{text-align:left;padding:11px 14px;font-size:14px;border-bottom:1px solid var(--line-2)}
-  thead th{
-    font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
-    background:var(--paper);border-bottom:1px solid var(--line);white-space:nowrap;
-  }
-  tbody tr:last-child td{border-bottom:none}
-  tbody tr.on td{background:#F0F8FD}
-  td.wk{font-weight:700;color:var(--ink);white-space:nowrap}
-  td.mi{font-weight:800;font-variation-settings:"wdth" 115;letter-spacing:-.01em}
-  td.note{color:var(--ink-3);font-size:12.5px;white-space:nowrap}
-  tbody tr{cursor:pointer}
-  tbody tr:hover td{background:#F6FBFE}
-
-  /* ---------- rhythm grid ---------- */
-  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-  .tile{
-    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 16px 15px;
-  }
-  .tile .freq{
-    font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--carolina);
-    display:block;margin-bottom:7px;
-  }
-  .tile p{margin:5px 0 0;font-family:var(--serif);font-size:14.5px;line-height:1.5;color:var(--ink-2)}
-
-  /* ---------- calculator ---------- */
-  .calc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-top:20px}
-  .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
-  .field label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
-  .field input,.field select{
-    width:100%;font-family:var(--display);font-size:16px;font-weight:600;color:var(--ink);
-    background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 12px;
-  }
-  .field input:focus,.field select:focus{outline:2px solid var(--navy);outline-offset:1px}
-  .calc-out{
-    background:var(--sky-tint);border-radius:12px;padding:16px 18px;
-    display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
-  }
-  .calc-out .big{font-size:clamp(28px,8vw,38px);font-weight:800;font-variation-settings:"wdth" 118;letter-spacing:-.03em;color:var(--navy);line-height:1}
-  .calc-out .lbl{font-size:13px;font-weight:600;color:#1E5B85}
-  .calc-note{font-family:var(--serif);font-size:14px;color:var(--ink-3);margin:12px 0 0;line-height:1.5}
-
-  .printbtn{margin-top:16px}
-  .jump{
-    display:inline-flex;align-items:center;gap:6px;margin-top:9px;
-    font-family:var(--display);font-size:12.5px;font-weight:700;color:var(--carolina);
-    text-decoration:none;border-bottom:1.5px solid var(--skyblue);padding-bottom:1px;
-  }
-  .jump:hover{color:var(--mustang);border-bottom-color:var(--mustang)}
-  .jump:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
-  .plan-note{font-family:var(--serif);font-size:14px;color:var(--ink-3);margin:12px 0 0;line-height:1.5}
-
-  /* ---------- faq ---------- */
-  .faq{margin-top:20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden}
-  details{border-bottom:1px solid var(--line-2)}
-  details:last-child{border-bottom:none}
-  summary{
-    cursor:pointer;list-style:none;padding:16px 18px;
-    font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-  }
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:19px;font-weight:400;color:var(--ink-3);line-height:1;flex:none}
-  details[open] summary::after{content:"–"}
-  details[open] summary{color:var(--mustang)}
-  summary:focus-visible{outline:2px solid var(--navy);outline-offset:-2px}
-  .answer{padding:0 18px 20px;font-family:var(--serif);font-size:15.5px;line-height:1.65;color:var(--ink-2)}
-  .answer p{margin:0 0 11px}
-  .answer p:last-child{margin-bottom:0}
-
-  /* ---------- glossary ---------- */
-  .gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:20px}
-  .gloss div{background:var(--card);padding:14px 16px}
-  .gloss dt{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
-  .gloss dd{margin:0;font-family:var(--serif);font-size:14px;line-height:1.5;color:var(--ink-2)}
-
-  /* ---------- closer ---------- */
-  .closer{
-    background:var(--mustang);color:#fff;border-radius:var(--radius);padding:30px 26px;margin-top:20px;
-  }
-  .closer h2{color:#fff;margin-bottom:10px}
-  .closer p{font-family:var(--serif);font-size:16.5px;line-height:1.62;color:rgba(255,255,255,.82);margin:0 0 14px}
-  .closer p:last-child{margin-bottom:0}
-  .closer .strong{color:#fff}
-
-  footer{margin-top:34px;font-size:12px;color:var(--ink-3);line-height:1.6;text-align:center}
-
-  /* ---------- large screens: editorial two-column ---------- */
-  @media (min-width:1000px){
-    section{
-      display:grid;
-      grid-template-columns:minmax(240px,300px) minmax(0,1fr);
-      column-gap:52px;align-items:start;
-      padding:56px 0;
-    }
-    .sec-head{position:sticky;top:24px}
-    .sec-head h2{font-size:30px;margin-bottom:8px}
-    .sec-head .lede{font-size:15.5px;line-height:1.58;margin-bottom:0}
-    .sec-body{min-width:0}
-
-    /* masthead: title left, intro right, sharing a baseline */
-    .masthead{
-      display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
-      column-gap:52px;align-items:end;padding:56px 0 40px;
-    }
-    .masthead .kicker{grid-column:1 / -1}
-    .masthead h1{grid-column:1;font-size:clamp(84px,7.6vw,116px)}
-    .masthead .sub{grid-column:2;margin:0 0 12px;font-size:17.5px}
-
-    /* the closing panel stays full bleed */
-    section#log{display:block;padding-bottom:0}
-
-    /* content that reads better in more columns once there's room */
-    .faq{background:none;border:none;border-radius:0;overflow:visible;
-         display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
-    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;align-self:start}
-    .faq details:last-child{border-bottom:1px solid var(--line)}
-    .gloss{grid-template-columns:repeat(3,1fr)}
-
-    /* calculator: inputs beside the answer */
-    .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:26px;align-items:start}
-    .calc-row{grid-column:1;grid-row:1;margin-bottom:0}
-    .calc-out{grid-column:2;grid-row:1;flex-direction:column;align-items:flex-start;gap:6px;padding:18px 20px}
-    .calc-note{grid-column:1 / -1;grid-row:2;margin-top:18px}
-
-    .closer{padding:40px 44px}
-    .closer h2{font-size:32px}
-  }
-
-  @media (min-width:1240px){
-    .gloss{grid-template-columns:repeat(4,1fr)}
-    .grid2{grid-template-columns:repeat(3,1fr)}
-  }
-
-  @media (max-width:560px){
-    .grid2,.gloss{grid-template-columns:1fr}
-    .wd-nums{grid-template-columns:1fr 1fr}
-    .wd-nums .stat:first-child{grid-column:span 2}
-    .calc-row{grid-template-columns:1fr}
-    .ridge-meta{text-align:left}
-    .ridge-head{align-items:flex-start}
-  }
-
-  /* Some mobile browsers force a dark theme on pages. This locks the palette. */
-  @media (prefers-color-scheme:dark){
-    html,body{background:#F1F6FA !important;color:#10233A !important}
-    .ridge-card,.calc,.faq,.tablewrap,.tile,.gloss div,.weekdetail{background:#FFFFFF !important}
-    .disclose{background:#F1F6FA !important;color:#17456F !important}
-    .faq details{background:#FFFFFF !important}
-    .btn-primary{background:#17456F !important;color:#fff !important;border-color:#17456F !important}
-    .btn-ghost{background:#E6F4FC !important;color:#17456F !important}
-    thead th,.stat{background:#F1F6FA !important}
-    h2,h3,td.wk,summary,.gloss dt{color:#10233A !important}
-    .prose,.lede,.answer,.tile p,.gloss dd,.wc-why{color:#4A5F76 !important}
-    .closer{background:#17456F !important}
-    .closer h2{color:#fff !important}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none !important;transition:none !important}
-  }
-
-  @media print{
-    body{background:#fff}
-    body.print-week header.masthead,
-    body.print-week section:not(#all),
-    body.print-week footer,
-    body.print-week .printbtn{display:none !important}
-    body.print-week #all{padding-top:0;border-top:none}
-    .disclose{display:none}
-    body.pv-open .wrap{display:none !important}
-    body.pv-open .pv-overlay{position:static;background:none;padding:0;overflow:visible}
-    body.pv-open .pv-sheet{box-shadow:none;border-radius:0;padding:0;max-width:none}
-    body.pv-open .pv-note,body.pv-open .pv-actions{display:none !important}
-    section,.masthead,.calc,.faq{display:block !important}
-    .sec-head{position:static !important}
-    .ridge-card,.helper,.calc{box-shadow:none}
-    .btn,.helper-toggle,.clubs,.seasons{display:none}
-    details{page-break-inside:avoid}
-    details .answer{display:block !important}
-    section{page-break-inside:avoid;border-top:1px solid #ccc}
-  }
-</style>
+<link rel="stylesheet" href="css/site.css">
 </head>
-<body>
-<div class="wrap">
+<body data-page="home">
+<a class="skip" href="#main">Skip to content</a>
 
-  <nav class="seasons" aria-label="Season">
-    <a href="index.html" class="on" aria-current="page">Summer mileage</a>
-    <a href="winter.html">Winter training</a>
-  </nav>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Little Chute Cross Country home">
+      <img src="img/lc-logo-sm.png" alt="" width="240" height="198">
+      <span class="brand-t"><b>Little Chute</b><i>Cross Country</i></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="fall.html">Fall Season</a><a href="summer.html">Summer</a><a href="winter.html">Winter</a><a href="why.html">The Why</a></nav>
+  </div>
+</header>
 
-  <!-- ============ MASTHEAD ============ -->
-  <header class="masthead">
-    <div class="kicker"><span>Little Chute Mustangs</span><span class="rule"></span><span>Cross Country</span></div>
-    <h1>Summer<span class="thin">Mileage</span></h1>
-    <p class="sub">The season is won in June and July. This is the plan — what to run each week, how hard, and why it's built the way it is. Eleven weeks, five clubs, one starting line in August.</p>
-  </header>
-
-  <!-- ============ PICK YOUR CLUB ============ -->
-  <section id="pick" style="border-top:none;padding-top:8px">
-    <div class="sec-head">
-      <p class="eyebrow">Step one</p>
-      <h2>Pick your club</h2>
-      <p class="lede">Five plans, same eleven weeks. The number is roughly the miles you'll cover by the end of the summer.</p>
-    </div>
-
-    <div class="sec-body">
-    <div class="picker-label">
-      <p class="eyebrow" style="margin:0">Choose one</p>
-      <button class="helper-toggle" id="helperBtn" aria-expanded="false" aria-controls="helperBox">Which one is mine?</button>
-    </div>
-
-    <div class="clubs" id="clubs" role="group" aria-label="Choose a mileage club"></div>
-
-    <div class="helper" id="helperBox" hidden>
-      <strong>Use this test:</strong> look at Week 1 for a club. If that week looks like something you could run right now without wrecking yourself, that's your club. If it looks scary, drop down one.
-      <ul>
-        <li><strong>150</strong> — first summer of running, or coming straight off another sport. Five days a week.</li>
-        <li><strong>200</strong> — you ran a season before but took most of the winter or spring off.</li>
-        <li><strong>300</strong> — you trained through track and want a real varsity summer.</li>
-        <li><strong>400 / 500</strong> — multiple years of consistent training and a summer base already under you.</li>
-      </ul>
-      <p class="last">Your coaches have the final say. When it's close, take the smaller number and finish the summer healthy — that beats a big log and a hurt hamstring in August.</p>
-    </div>
-
-    <!-- signature: the 11-week ridgeline -->
-    <div class="ridge-card">
-      <div class="ridge-head">
-        <div class="bib">
-          <span class="num" id="bibNum">150</span>
-          <span class="cap" id="bibCap">Mile Club</span>
-        </div>
-        <div class="ridge-meta" id="ridgeMeta"></div>
-      </div>
-      <svg class="ridge-svg" id="ridge" viewBox="0 0 660 190" role="img" aria-label="Weekly mileage profile across 11 weeks"></svg>
-      <div class="ridge-x" id="ridgeX"></div>
-      <div class="legend">
-        <span><i class="dot-build"></i>Build week</span>
-        <span><i class="dot-cut"></i>Cut back</span>
-        <span><i class="dot-peak"></i>Biggest week</span>
-      </div>
-
-      <button class="disclose" id="detailBtn" aria-expanded="false" aria-controls="weekDetail">
-        <span id="discloseLabel">See what Week 1 looks like</span>
-        <span class="chev" aria-hidden="true">&#9660;</span>
-      </button>
-
-      <div class="weekdetail" id="weekDetail" hidden>
-        <div class="wd-top">
-          <span class="wd-week" id="wdWeek">Week 1 of 11</span>
-          <span class="tag build" id="wdTag">Build</span>
-        </div>
-        <div class="wd-nums">
-          <div class="stat"><span class="v" id="wdMiles">10<small>mi</small></span><span class="k" id="wdMilesK">This week</span></div>
-          <div class="stat"><span class="v" id="wdMpd">2<small>mi</small></span><span class="k" id="wdMpdK">Per day</span></div>
-          <div class="stat"><span class="v" id="wdLong">3<small>mi</small></span><span class="k" id="wdLongK">Long run</span></div>
-        </div>
-        <p class="wd-why" id="wdWhy"></p>
-        <p class="wd-banked" id="wdBanked"></p>
-        <div class="wd-nav">
-          <button class="btn btn-ghost" id="prevBtn">&larr; Previous week</button>
-          <button class="btn btn-ghost" id="nextBtn">Next week &rarr;</button>
-        </div>
-      </div>
-    </div>
-
-    <p class="prose" style="margin-top:18px">That shape is the whole point. The plan climbs for two or three weeks, then drops on purpose. The drop weeks are not days off from the plan — they <strong>are</strong> the plan. Fitness gets built during the hard weeks and collected during the easy ones.</p>
-    </div>
-  </section>
-
-  <!-- ============ FULL TABLE ============ -->
-  <section id="all">
-    <div class="sec-head">
-      <p class="eyebrow">The whole summer</p>
-    <h2 id="tableTitle">All 11 weeks</h2>
-    <p class="lede">Every week you'll run, at a glance. Print it, screenshot it, or tap a week to see where it sits on the curve above.</p>
-    </div>
-
-    <div class="sec-body">
-    <div class="tablewrap">
-      <table>
-        <thead>
-          <tr><th>Week</th><th>Miles</th><th>Per day</th><th>Long run</th><th>Banked</th><th>Notes</th></tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
-    <button class="btn btn-primary printbtn" id="printBtn">
-      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
-      Print this schedule</button>
-
-    </div>
-  </section>
-
-  <!-- ============ WEEKLY RHYTHM ============ -->
-  <section id="rhythm">
-    <div class="sec-head">
-      <p class="eyebrow">Inside every week</p>
-    <h2>Miles are the frame, not the whole house</h2>
-    <p class="lede">The number on the chart tells you how far. These six habits are what turn those miles into speed in September. Do them all summer, even on the small weeks.</p>
-    </div>
-
-    <div class="sec-body">
-
-    <div class="grid2">
-      <div class="tile">
-        <span class="freq">5–6 days a week</span>
-        <h3>Easy running</h3>
-        <p>The large majority of your miles. Conversational — you should be able to talk in full sentences the whole way.</p>
-      </div>
-      <div class="tile">
-        <span class="freq">1 day a week</span>
-        <h3>Long run — 25% of the week</h3>
-        <p>Your single most valuable run. Same easy effort, just longer. Take a quarter of your weekly total.</p>
-        <a class="jump" href="#longrun">Work out your number &rarr;</a>
-      </div>
-      <div class="tile">
-        <span class="freq">3 days a week</span>
-        <h3>Strides or flys</h3>
-        <p>4 × 100m strides, or 4 × 30m flys. Fast and relaxed, full recovery between. Tacked onto the end of an easy run.</p>
-      </div>
-      <div class="tile">
-        <span class="freq">1 day a week</span>
-        <h3>One quality run</h3>
-        <p>Rotate through fartlek, progression, tempo, or a stamina run. One per week — not two, and never on a long-run day.</p>
-      </div>
-      <div class="tile">
-        <span class="freq">2 days a week</span>
-        <h3>Strength work</h3>
-        <p>The best-supported injury prevention there is — around half the overuse injuries in the research. Lift on your harder days so easy days stay easy.</p>
-      </div>
-      <div class="tile">
-        <span class="freq">3 days a week</span>
-        <h3>Core X, hurdle mobility, bands</h3>
-        <p>Ten minutes, and a dynamic warmup before you run. This is the work people skip first and regret most.</p>
-      </div>
-    </div>
-
-    </div>
-  </section>
-
-  <!-- ============ LONG RUN CALC ============ -->
-  <section id="longrun">
-    <div class="sec-head">
-      <p class="eyebrow">The 25% rule</p>
-    <h2>How long is my long run?</h2>
-    <p class="lede">Take your weekly mileage and multiply by 0.25. That's it — the rule scales with you all summer, so you never have to guess.</p>
-    </div>
-
-    <div class="sec-body">
-
-    <div class="calc">
-      <div class="calc-row">
-        <div class="field">
-          <label for="mpw">Miles this week</label>
-          <input type="number" id="mpw" value="20" min="1" max="120" step="1" inputmode="numeric">
-        </div>
-        <div class="field">
-          <label for="pace">Your easy pace (min/mile)</label>
-          <select id="pace">
-            <option value="6.5">6:30</option>
-            <option value="7">7:00</option>
-            <option value="7.5">7:30</option>
-            <option value="8">8:00</option>
-            <option value="8.5">8:30</option>
-            <option value="9" selected>9:00</option>
-            <option value="9.5">9:30</option>
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
-          </select>
-        </div>
-      </div>
-      <div class="calc-out">
-        <span class="big" id="lrMiles">5.0 mi</span>
-        <span class="lbl" id="lrTime">about 45 minutes</span>
-      </div>
-      <p class="calc-note">A long run should feel exactly like your easy days, just longer — if you finish it wrecked, it was too fast, not too far. The number of minutes will look different for everyone on this team depending on pace, and that is completely fine. Time on your feet is what builds the engine, not matching somebody else's clock.</p>
-    </div>
-
-    </div>
-  </section>
-
-  <!-- ============ NEW RUNNER FAQ ============ -->
-  <section id="faq">
-    <div class="sec-head">
-      <p class="eyebrow">New this year? Start here</p>
-    <h2>The questions everybody has</h2>
-    <p class="lede">Nobody tells first-year runners this stuff, so here it is up front.</p>
-    </div>
-
-    <div class="sec-body">
-
-    <div class="faq">
-      <details>
-        <summary>How fast should these miles be?</summary>
-        <div class="answer">
-          <p>Slower than you think — and that isn't softness, it's the mechanism. Easy aerobic running builds capillaries, mitochondria, and the heart's stroke volume, and it builds them without the recovery cost that hard running carries. You should be able to hold a full-sentence conversation the entire way.</p>
-          <p>The classic first-year mistake is running easy days moderately hard. Everything collapses into one gray middle speed, the easy days stop being restorative, and the one weekly workout has nowhere left to go. Keep the easy days genuinely easy so the hard day can actually be hard.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Can I walk?</summary>
-        <div class="answer">
-          <p>Yes. If you're new, run-walk is a completely legitimate way to hit these numbers — run four minutes, walk one, repeat. The aerobic stimulus is still there and the miles still count.</p>
-          <p>Most people drop the walk breaks within three or four weeks without ever forcing it.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>I missed a few days. Do I make them up?</summary>
-        <div class="answer">
-          <p>No. Never stack missed miles onto the days that are left. The evidence on injury risk points at sudden spikes in load relative to what your body has actually been doing — cramming a lost week into three days is exactly that spike.</p>
-          <p>Missed a couple of days? Pick up with whatever's left of the week. Missed a full week or more? Restart at the last week you completed rather than jumping ahead to where the calendar says you should be.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>The cut-back weeks feel too easy. Can I run more?</summary>
-        <div class="answer">
-          <p>Don't. Training is a stimulus; the adaptation happens while you recover from it. Bone, tendon, and connective tissue remodel far more slowly than your cardiovascular system does, which is exactly why feeling good is not the same as being ready.</p>
-          <p>Trusting the down weeks is the biggest difference between runners who race well in October and runners who spend October in the training room.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Should I avoid the heat and humidity?</summary>
-        <div class="answer">
-          <p>No — and this is the one most people get backwards. Training in the heat is a stimulus, not just something to survive. Over roughly 5 to 14 days of regular heat exposure your body expands its blood plasma volume, starts sweating sooner and more efficiently, and drops your heart rate at any given pace.</p>
-          <p>That plasma expansion is a big part of why heat blocks get compared to altitude camps — both push on blood volume and oxygen delivery, just from different directions. Be honest about the limits, though: the performance benefit is best established for racing in the heat, and whether it transfers to cool-weather racing is still genuinely debated in the research. Either way, a 2:00 pm September meet in Wisconsin can be 85 degrees, so acclimating is race preparation.</p>
-          <p>How to actually do it: give it ten to fourteen days, and run by <em>effort</em> rather than pace. The same effort will be thirty to sixty-plus seconds per mile slower in heat and humidity — that's the physiology, not you being out of shape. Keep the hardest workouts and longest runs in the morning, and get the exposure on your easy days.</p>
-          <p>Where this stops being training: stop immediately for chills, goosebumps, a headache, confusion, nausea, or suddenly not sweating anymore. That's heat illness, it is a medical emergency and not a toughness test, and somebody needs to know right away.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>How do I tell soreness from an injury?</summary>
-        <div class="answer">
-          <p>General, both-sides, dull, and better once you're warmed up is normal training soreness. Sharp, one spot you can cover with a fingertip, worse the longer you run, or changing how you stride — that one is not.</p>
-          <p>Stop, take a couple of easy days, and tell one of your coaches. A three-day problem you mention is far cheaper than a six-week problem you hid.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>What shoes do I need, and when do I replace them?</summary>
-        <div class="answer">
-          <p>One pair of real running shoes, fitted at a running store. Pick by comfort — that's the most reliable guide anyone has found — not by looks, arch charts, or what a teammate wears.</p>
-          <p>The 300-to-500-mile replacement number is a manufacturer rule of thumb, not a strong research finding. What is measurable is that midsole foam loses a lot of its cushioning after a few hundred miles, and that changes how your legs absorb every step. If they feel flat, look creased through the midsole, or you're picking up new aches, they're done.</p>
-          <p>The better-supported move is rotating two pairs. A prospective study of recreational runners found notably lower injury rates among people using more than one pair, most likely because slightly different shoes vary where the stress lands. Two mid-priced pairs beat one expensive pair.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Do I need to stretch?</summary>
-        <div class="answer">
-          <p>Not the way you were probably taught. Stretching programs have repeatedly failed to show a protective effect against injury — the meta-analysis that found strength training cut overuse injuries roughly in half found no significant benefit from stretching in the same comparison.</p>
-          <p>What to do instead: a few minutes of dynamic warmup before you run — leg swings, skips, lunges, building into the first mile easy. Save longer static holds and mobility work for after a run or a separate time of day. Stretch because it feels good and keeps you moving well, not because you think it's protecting you.</p>
-          <p>If dynamic stretching is new to you, don't worry about getting it right off a page. We'll go through the routine together on our summer meet-up days so you know exactly what it looks like and can do it on your own the rest of the week.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Do I really need the lifting and core work?</summary>
-        <div class="answer">
-          <p>This is the highest-return thing on the entire page. In the best available meta-analysis, strength training reduced overuse injuries by about half, with a dose-response relationship — more of it kept producing more protection.</p>
-          <p>The mechanism is straightforward: running is thousands of single-leg landings, and stronger muscle and tendon absorbs and returns that force instead of passing it into bone and cartilage. Ten to fifteen minutes, two or three times a week, is enough to matter. Put it on your harder days so your easy days stay easy.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>How much sleep do I actually need?</summary>
-        <div class="answer">
-          <p>Eight to ten hours, and this is not a throwaway line. In a study of middle and high school athletes, those averaging under eight hours a night were roughly 1.7 times more likely to get injured — one of the strongest single predictors in the whole dataset.</p>
-          <p>Sleep is where growth hormone releases, glycogen refills, and tissue repairs. It's free, it's the most powerful recovery tool you have, and it's the first thing a teenager gives up. Phone out of the bedroom, consistent bedtime, and treat a bad sleep week as a reason to keep the running easy.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>What am I actually eating and drinking?</summary>
-        <div class="answer">
-          <p>Enough. Under-fueling is the most common and most damaging mistake in high school distance running — when you chronically take in less energy than you burn, hormones, bone density, immune function, and performance all decline together, and in growing athletes the bone consequences can follow you for decades. More food is almost always the right answer during a summer like this.</p>
-          <p>Carbohydrate is the fuel that actually runs this engine, so eat it at breakfast and around your harder days. Get protein at every meal, and eat something within about an hour of finishing a long run.</p>
-          <p>For fluid, drink to thirst across the whole day rather than chugging right before you head out. On anything long or hot, carry water and add sodium — sports drink, salty food, an electrolyte tab. Forcing down huge volumes of plain water is its own hazard.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>I'm starting late. Am I done for?</summary>
-        <div class="answer">
-          <p>Not at all. Start at Week 1 of the club below the one you were aiming for, and run the weeks in order from there. Consistent smaller weeks beat a panicked catch-up every time.</p>
-          <p>Six honest weeks of running will show up on the starting line. Six rushed weeks usually show up in the training room instead.</p>
-        </div>
-      </details>
-    </div>
-
-    <p class="plan-note" style="margin-top:16px">Sources behind these answers: Lauersen et al., <em>Br J Sports Med</em> (2014, 2018) on strength training and injury; Malisoux et al., <em>Scand J Med Sci Sports</em> (2015) on shoe rotation; Milewski et al., <em>J Pediatr Orthop</em> (2014) on sleep and adolescent injury; Périard and colleagues on heat acclimation; and Steve Magness, <em>The Science of Running</em>, for the training-design principles.</p>
-
-
-    </div>
-  </section>
-
-  <!-- ============ GLOSSARY ============ -->
-  <section id="glossary">
-    <div class="sec-head">
-      <p class="eyebrow">Decoder</p>
-    <h2>Words on the plan</h2>
-    </div>
-
-    <div class="sec-body">
-    <dl class="gloss">
-      <div><dt>mpd / mpw</dt><dd>Miles per day, miles per week.</dd></div>
-      <div><dt>Long run</dt><dd>The week's longest run, about 25% of the weekly total, at easy effort.</dd></div>
-      <div><dt>Strides</dt><dd>4 × 100m, relaxed and fast, full walk-back recovery. Form work, not a workout.</dd></div>
-      <div><dt>Flys</dt><dd>4 × 30m. Roll into it, hit near top speed for the middle, stay loose. Full recovery.</dd></div>
-      <div><dt>Fartlek</dt><dd>Swedish for "speed play." Alternating faster and easier segments by time — 1 on, 1 off.</dd></div>
-      <div><dt>Progression run</dt><dd>Start easy, finish faster. The last third is the quickest part.</dd></div>
-      <div><dt>Tempo</dt><dd>Sustained "comfortably hard" — around the fastest pace you could hold for an hour.</dd></div>
-      <div><dt>Stamina run</dt><dd>A steady run a notch quicker than easy, held long enough to be honest work.</dd></div>
-      <div><dt>Core X</dt><dd>The team's core circuit. Ten minutes, three times a week.</dd></div>
-      <div><dt>Bands</dt><dd>Resistance-band hip and glute work. Small muscles, big effect on staying healthy.</dd></div>
-      <div><dt>Cut-back week</dt><dd>A planned lower-mileage week. Built in on purpose so the training sticks.</dd></div>
-      <div><dt>Base</dt><dd>The aerobic foundation you build all summer. Everything in the fall is built on top of it.</dd></div>
-    </dl>
-
-    </div>
-  </section>
-
-  <!-- ============ CLOSER ============ -->
-  <section id="log" style="border-top:none;padding-bottom:0">
-    <div class="closer">
-      <h2>Log your runs on Strava</h2>
-      <p>We'd love for you to log your runs this summer and follow your coaches. This isn't a requirement and nobody is checking up on you.</p>
-      <p>What it does do is let us see how your summer is going, so we can send a few words of encouragement when things start to feel hard. And at some point they will feel hard. That's not a sign you're doing it wrong — that's just what a real summer of training feels like, and it's a lot easier when somebody else can see the work you're putting in.</p>
-      <p class="strong">Show up in mid-August having done the hard part. Go Mustangs!</p>
-      <p>Season over? The <a href="winter.html" style="color:#fff;font-weight:600">winter training guide</a> builds your off-season plan.</p>
-    </div>
-    <footer>
-      Little Chute Cross Country · Summer mileage plan · 11 weeks<br>Not sure which club to run? Ask your coaches before you start.
-    </footer>
-  </section>
-
-</div>
-
-<div class="pv-overlay" id="pvOverlay" hidden role="dialog" aria-modal="true" aria-label="Printable schedule">
-  <div class="pv-sheet">
-    <p class="pv-note" id="pvNote"></p>
-    <div class="pv-doc" id="pvDoc"></div>
-    <div class="pv-actions">
-      <button class="btn btn-primary" id="pvPrint">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
-        Print
-      </button>
-      <button class="btn btn-ghost" id="pvClose">Close</button>
+<main id="main">
+<div class="hero" id="hero">
+  <div class="hero-photo" id="heroPhoto" hidden></div>
+  <img class="hero-mustang" src="img/mustang-white.svg" alt="" aria-hidden="true">
+  <div class="hero-in">
+    <p class="hero-kicker"><span class="slash"></span><span class="slash"></span>Little Chute Mustangs</p>
+    <h1>Cross<span>Country</span></h1>
+    <p class="hero-sub">One place for the whole year: the fall season, the summer miles, the winter rebuild, and the reasons behind all of it. For athletes and for the families who cheer them on.</p>
+    <div class="hero-cta">
+      <a class="pill pill--solid" href="fall.html">Fall season hub</a>
+      <a class="pill pill--line" href="why.html">Why we train this way</a>
     </div>
   </div>
 </div>
+<div class="wrap">
 
-<script>
-(function(){
-  "use strict";
+  <div class="now" id="now">
+    <div class="now-badge" id="nowBadge" aria-hidden="true"></div>
+    <div>
+      <p class="eyebrow" id="nowEyebrow">Right now</p>
+      <h2 id="nowTitle">Welcome, Mustangs</h2>
+      <p id="nowText">Pick a season below to get started.</p>
+    </div>
+    <a class="pill pill--navy" id="nowLink" href="fall.html">Open</a>
+  </div>
 
-  var CLUBS = {
-    "150": { total:150, days:"5 days a week", weeks:[
-      {m:10, d:"2",   l:"3"},
-      {m:15, d:"3",   l:"4"},
-      {m:18, d:"3.6", l:"4–5"},
-      {m:12, d:"2.4", l:"3–4"},
-      {m:20, d:"4",   l:"5–6"},
-      {m:14, d:"2.8", l:"3–4"},
-      {m:16, d:"3.2", l:"4–5"},
-      {m:18, d:"3.6", l:"4–5"},
-      {m:20, d:"4",   l:"6"},
-      {m:7,  runs:2},
-      {m:14, d:"2.8", l:"4–5"}
-    ]},
-    "200": { total:200, days:"6 days a week", weeks:[
-      {m:15, d:"2.5", l:"3–4"},
-      {m:18, d:"3",   l:"4–5"},
-      {m:24, d:"4",   l:"6–7"},
-      {m:15, d:"2.5", l:"4–5"},
-      {m:22, d:"3.6", l:"5–6"},
-      {m:26, d:"4.3", l:"6–7"},
-      {m:16, d:"2.6", l:"4–5"},
-      {m:24, d:"4",   l:"6–7"},
-      {m:30, d:"5",   l:"8"},
-      {m:10, runs:3},
-      {m:24, d:"4",   l:"6–7"}
-    ]},
-    "300": { total:300, days:"6 days a week", weeks:[
-      {m:25, d:"4.1", l:"6–7"},
-      {m:28, d:"4.6", l:"7–8"},
-      {m:34, d:"5.6", l:"8–9"},
-      {m:25, d:"4.1", l:"6–7"},
-      {m:32, d:"5.3", l:"8–9"},
-      {m:36, d:"6",   l:"9–10"},
-      {m:28, d:"4.6", l:"7–8"},
-      {m:40, d:"6.6", l:"10"},
-      {m:34, d:"5.6", l:"9"},
-      {m:20, runs:3},
-      {m:34, d:"5.6", l:"9"}
-    ]},
-    "400": { total:400, days:"6 days a week", weeks:[
-      {m:26, d:"4.3", l:"6–7"},
-      {m:34, d:"5.6", l:"7–8"},
-      {m:42, d:"7",   l:"10"},
-      {m:40, d:"6.6", l:"10"},
-      {m:36, d:"6",   l:"8"},
-      {m:40, d:"6.6", l:"10"},
-      {m:40, d:"6.6", l:"10"},
-      {m:40, d:"6.6", l:"10"},
-      {m:40, d:"6.6", l:"10"},
-      {m:21, runs:3},
-      {m:40, d:"6.6", l:"10"}
-    ]},
-    "500": { total:500, days:"6 days a week", weeks:[
-      {m:34, d:"5.66",l:"7–8"},
-      {m:40, d:"6.6", l:"8"},
-      {m:48, d:"8",   l:"10"},
-      {m:44, d:"7.3", l:"10"},
-      {m:48, d:"8",   l:"8"},
-      {m:46, d:"7.6", l:"9"},
-      {m:50, d:"8.3", l:"11"},
-      {m:46, d:"7.6", l:"10"},
-      {m:52, d:"8.6", l:"12"},
-      {m:38, runs:4},
-      {m:54, d:"9",   l:"12"}
-    ]}
-  };
+  <section class="sec" id="year" style="border-top:none">
+    <div class="sec-head">
+      <p class="eyebrow">The year</p>
+      <h2>Four seasons, one plan</h2>
+      <p class="lede">Cross country is raced in the fall and built the rest of the year. Each season has one job, and each one sets up the next.</p>
+    </div>
+    <div class="sec-body">
+      <div class="year rv">
+        <div class="year-track" id="yearTrack" role="img" aria-label="The training year from June to May"></div>
+        <div class="year-months" aria-hidden="true"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span></div>
+      </div>
+      <div class="seasons4">
+        <a class="season rv" data-season="summer" href="summer.html" style="--bar:var(--skyblue)">
+          <p class="when">June to mid-August</p>
+          <h3>Summer</h3>
+          <p>Build the engine. Easy miles, a long run, strides, and strength. Five mileage clubs, eleven weeks.</p>
+          <span class="go">Summer mileage plan</span>
+        </a>
+        <a class="season rv" data-season="fall" href="fall.html" style="--bar:var(--mustang)">
+          <p class="when">Mid-August to early November</p>
+          <h3>Fall</h3>
+          <p>Race. The calendar, meet details, fundraising, and everything parents need for race day.</p>
+          <span class="go">Fall season hub</span>
+        </a>
+        <a class="season rv" data-season="winter" href="winter.html" style="--bar:#B8C6DC">
+          <p class="when">November to February</p>
+          <h3>Winter</h3>
+          <p>Rest, rebuild, get strong. Build a personal plan around your winter and download it as a PDF.</p>
+          <span class="go">Winter plan builder</span>
+        </a>
+        <a class="season rv" data-season="spring" href="why.html#seasons" style="--bar:var(--cb)">
+          <p class="when">March to May</p>
+          <h3>Spring</h3>
+          <p>Sharpen. Race on the track, or keep the winter habits going until summer mileage starts.</p>
+          <span class="go">How the seasons fit</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  var ORDER = ["150","200","300","400","500"];
-  var state = { club:"150", week:0 };
-  var detailOpen = false;
-  var ridgeDrawn = false;
+  <section class="sec" id="photos" hidden>
+    <div class="sec-head">
+      <p class="eyebrow">Last season</p>
+      <h2>The year in pictures</h2>
+      <p class="lede">Early mornings, muddy spikes, and a lot of people who showed up for each other.</p>
+    </div>
+    <div class="sec-body">
+      <div class="show" id="show" hidden aria-roledescription="carousel" aria-label="Season photos"></div>
+    </div>
+  </section>
 
-  // ---------- classify each week from the data itself ----------
-  function classify(weeks, i){
-    var w = weeks[i];
-    if (w.runs) return "rest";
-    var max = Math.max.apply(null, weeks.map(function(x){ return x.m; }));
-    var lastMax = -1;
-    weeks.forEach(function(x, j){ if (x.m === max) lastMax = j; });
-    if (i === lastMax) return "peak";
-    if (i > 0 && w.m < weeks[i-1].m) return "cut";
-    return "build";
-  }
+  <section class="sec" id="science">
+    <div class="sec-head">
+      <p class="eyebrow">The Why</p>
+      <h2>Nothing here is "because I said so"</h2>
+      <p class="lede">Every piece of how we train has a reason, and most of them have research behind them. The Why is our library of those reasons, written for athletes and parents.</p>
+      <a class="pill pill--navy" href="why.html" style="margin-top:6px">Open the library</a>
+    </div>
+    <div class="sec-body">
+      <div class="grid2" style="margin-top:0">
+        <a class="tile rv" href="why.html#easy" style="text-decoration:none">
+          <span class="freq">Training</span>
+          <h3>Why are easy days so slow?</h3>
+          <p>Because easy running builds the aerobic system without the recovery cost, and it lets the hard days be hard.</p>
+        </a>
+        <a class="tile rv" href="why.html#strength" style="text-decoration:none">
+          <span class="freq">Strength</span>
+          <h3>Why do runners lift?</h3>
+          <p>Strength training cuts overuse injuries substantially and makes every stride cost less energy.</p>
+        </a>
+        <a class="tile rv" href="why.html#sleep" style="text-decoration:none">
+          <span class="freq">Recovery</span>
+          <h3>Why does sleep matter so much?</h3>
+          <p>Teen athletes who sleep less than eight hours get hurt far more often. It is the best recovery tool there is.</p>
+        </a>
+        <a class="tile rv" href="why.html#fuel" style="text-decoration:none">
+          <span class="freq">Fuel</span>
+          <h3>Why "eat enough" comes first</h3>
+          <p>Under-fueling hurts bones, hormones, and performance together. Fueled is faster.</p>
+        </a>
+        <a class="tile rv" href="why.html#break" style="text-decoration:none">
+          <span class="freq">Seasons</span>
+          <h3>Why take time off after the season?</h3>
+          <p>Bodies and minds adapt during rest. A real break is part of the plan, not a pause in it.</p>
+        </a>
+        <a class="tile rv" href="why.html#tough" style="text-decoration:none">
+          <span class="freq">Mind</span>
+          <h3>What does "tough" actually mean?</h3>
+          <p>Not gritting your teeth. Real toughness is staying calm and making good choices when it gets hard.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  var TAGLABEL = { build:"Build", cut:"Cut back", peak:"Biggest week", rest:"Rest week" };
+  <section class="sec" id="families" style="display:block">
+    <div class="band rv">
+      <img class="m" src="img/mustang-white.svg" alt="" aria-hidden="true">
+      <div>
+        <h2>New to cross country?</h2>
+        <p>It is the simplest sport there is, and one of the best to watch once you know what you're looking at. The season hub has a short guide for families: how scoring works, where to stand, what your runner needs, and what to say at the finish line.</p>
+        <a class="pill pill--solid" href="fall.html#parents">Read the family guide</a>
+      </div>
+      <ul>
+        <li>How a meet works, start to finish</li>
+        <li>How team scoring works</li>
+        <li>Race-day packing checklist</li>
+        <li>Calendar, meets and fundraising</li>
+        <li>Coaches and contacts</li>
+      </ul>
+    </div>
+  </section>
 
-  function why(weeks, i){
-    var w = weeks[i], k = classify(weeks, i), prev = i > 0 ? weeks[i-1] : null;
-    if (k === "rest"){
-      return "A built-in break. Run " + w.runs + " times, keep them short and easy, and let everything catch up. Vacation, camp, and family trips land here on purpose \u2014 take it.";
-    }
-    if (i === 0){
-      return "Week one sets the tone. Start conservatively and finish every run feeling like you had another mile in you. Nothing this week should hurt.";
-    }
-    if (k === "cut"){
-      return "Down from " + prev.m + " miles on purpose. This is where the last few weeks of work actually turn into fitness \u2014 hold the line and don't add miles just because you feel good.";
-    }
-    if (k === "peak"){
-      return "The biggest week of the summer. Sleep, eat, and keep the easy days honestly easy \u2014 everything else this week depends on that.";
-    }
-    if (i === 10){
-      return "Last week before we're together. Come back sharp: hold the mileage, keep the strides in, and get one solid long run done.";
-    }
-    if (w.m === prev.m){
-      return "Same mileage as last week \u2014 hold it right there. Repeating a week is how a number stops feeling hard and starts feeling normal.";
-    }
-    return "A step up from " + prev.m + " miles. Add the distance to your easy days first, not to the quality run.";
-  }
+</div>
+</main>
 
-  // ---------- club buttons ----------
-  var clubsEl = document.getElementById("clubs");
-  ORDER.forEach(function(key){
-    var b = document.createElement("button");
-    b.className = "club";
-    b.type = "button";
-    b.setAttribute("aria-pressed", key === state.club ? "true" : "false");
-    b.dataset.club = key;
-    b.innerHTML = '<span class="n">' + key + '</span><span class="t">Club</span>';
-    b.addEventListener("click", function(){ state.club = key; state.week = 0; render(); });
-    clubsEl.appendChild(b);
-  });
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <img src="img/lc-logo-sm.png" alt="Little Chute LC logo" width="240" height="198">
+      <div><b>Little Chute Cross Country</b>Mustangs. Rest, rebuild, get strong, race together.<br>Your coaches have the final say on training. This site is general guidance, not medical advice.</div>
+    </div>
+    <div>
+      <h4>The year</h4>
+      <ul>
+        <li><a href="fall.html">Fall season hub</a></li>
+        <li><a href="winter.html">Winter training plan</a></li>
+        <li><a href="summer.html">Summer mileage</a></li>
+        <li><a href="why.html">The Why: our science library</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>For families</h4>
+      <ul>
+        <li><a href="fall.html#calendar">Season calendar</a></li>
+        <li><a href="fall.html#meets">Meet information</a></li>
+        <li><a href="fall.html#parents">New to cross country?</a></li>
+        <li><a href="fall.html#contacts">Coaches and contacts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">Little Chute Cross Country &middot; Go Mustangs</div>
+</footer>
 
-  // ---------- ridgeline ----------
-  var SVG_NS = "http://www.w3.org/2000/svg";
-  function el(name, attrs){
-    var n = document.createElementNS(SVG_NS, name);
-    for (var a in attrs){ n.setAttribute(a, attrs[a]); }
-    return n;
-  }
-  var COLOR = { build:"#2277B0", cut:"#5CB3DE", peak:"#12365C", rest:"#8AA0B4" };
+<nav class="tabs" aria-label="Main"><a href="index.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Home</a><a href="fall.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Fall</a><a href="summer.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Summer</a><a href="winter.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5"/></svg>Winter</a><a href="why.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/><path d="M9 8h6M9 12h4"/></svg>The Why</a></nav>
 
-  function drawRidge(weeks){
-    var svg = document.getElementById("ridge");
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-
-    // size the chart to the space it actually has, so type and strokes stay
-    // the right size instead of scaling up like an image on big screens
-    var avail = (svg.parentNode && svg.parentNode.clientWidth) || 0;
-    var W = Math.max(560, Math.min(1120, avail ? avail - 16 : 660));
-    var H = 190, padX = 26, top = 34, bottom = 154;
-    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
-    var max = Math.max.apply(null, weeks.map(function(w){ return w.m; }));
-    var step = (W - padX*2) / (weeks.length - 1);
-    var pts = weeks.map(function(w, i){
-      return { x: padX + i*step, y: bottom - (w.m / max) * (bottom - top), w:w, i:i };
-    });
-
-    // baseline
-    svg.appendChild(el("line", {x1:padX-10, y1:bottom, x2:W-padX+10, y2:bottom, stroke:"#D8E3EC", "stroke-width":1}));
-
-    // filled terrain
-    var d = "M" + padX + "," + bottom;
-    pts.forEach(function(p){ d += " L" + p.x.toFixed(1) + "," + p.y.toFixed(1); });
-    d += " L" + (W-padX) + "," + bottom + " Z";
-    svg.appendChild(el("path", {d:d, fill:"#2277B0", "fill-opacity":".09"}));
-
-    // ridge line
-    var dl = pts.map(function(p, i){ return (i?"L":"M") + p.x.toFixed(1) + "," + p.y.toFixed(1); }).join(" ");
-    var line = el("path", {d:dl, fill:"none", stroke:"#2277B0", "stroke-width":2, "stroke-linejoin":"round", "stroke-linecap":"round"});
-    svg.appendChild(line);
-
-    pts.forEach(function(p){
-      var kind = classify(weeks, p.i);
-      var on = p.i === state.week;
-
-      // stem
-      svg.appendChild(el("line", {
-        x1:p.x, y1:p.y, x2:p.x, y2:bottom,
-        stroke: on ? COLOR[kind] : "#D8E3EC",
-        "stroke-width": on ? 2 : 1,
-        "stroke-opacity": on ? .5 : 1
-      }));
-
-      // value label
-      var t = el("text", {
-        x:p.x, y:p.y - 13, "text-anchor":"middle",
-        "font-family":'Archivo, Helvetica Neue, Arial, sans-serif',
-        "font-size": on ? 19 : 13,
-        "font-weight": on ? 800 : 600,
-        fill: on ? COLOR[kind] : "#8497A8"
-      });
-      t.textContent = p.w.m;
-      svg.appendChild(t);
-
-      // dot
-      if (on) svg.appendChild(el("circle", {cx:p.x, cy:p.y, r:10, fill:COLOR[kind], "fill-opacity":".18"}));
-      svg.appendChild(el("circle", {cx:p.x, cy:p.y, r: on ? 5.5 : 4, fill:COLOR[kind], stroke:"#fff", "stroke-width":2}));
-
-      // tap target
-      var hit = el("rect", {x:p.x - step/2, y:0, width:step, height:H, fill:"transparent", style:"cursor:pointer"});
-      hit.addEventListener("click", function(){ state.week = p.i; render(); });
-      svg.appendChild(hit);
-    });
-
-    // draw-on animation
-    if (!ridgeDrawn && (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches)){
-      ridgeDrawn = true;
-      try {
-        var len = line.getTotalLength();
-        line.style.strokeDasharray = len;
-        line.style.strokeDashoffset = len;
-        line.style.transition = "stroke-dashoffset .9s cubic-bezier(.22,.61,.36,1)";
-        requestAnimationFrame(function(){ requestAnimationFrame(function(){ line.style.strokeDashoffset = 0; }); });
-      } catch(e){}
-    }
-  }
-
-  // ---------- render ----------
-  function render(){
-    var club = CLUBS[state.club];
-    var weeks = club.weeks;
-    var w = weeks[state.week];
-    var kind = classify(weeks, state.week);
-
-    // buttons
-    Array.prototype.forEach.call(clubsEl.children, function(b){
-      b.setAttribute("aria-pressed", b.dataset.club === state.club ? "true" : "false");
-    });
-
-    // bib + meta
-    document.getElementById("bibNum").textContent = state.club;
-    var sum = weeks.reduce(function(a,x){ return a + x.m; }, 0);
-    document.getElementById("ridgeMeta").innerHTML =
-      "<b>" + club.days + "</b><br>11 weeks &middot; <b>" + sum + "</b> total miles<br>Biggest week: <b>" +
-      Math.max.apply(null, weeks.map(function(x){return x.m;})) + " mi</b>";
-
-    drawRidge(weeks);
-
-    // x axis
-    var rx = document.getElementById("ridgeX");
-    rx.innerHTML = "";
-    weeks.forEach(function(_, i){
-      var s = document.createElement("span");
-      s.textContent = "W" + (i+1);
-      if (i === state.week) s.className = "on";
-      rx.appendChild(s);
-    });
-
-    // expandable week detail
-    var kind = classify(weeks, state.week);
-    document.getElementById("discloseLabel").textContent =
-      (detailOpen ? "Hide the detail for Week " : "See what Week ") + (state.week + 1) + (detailOpen ? "" : " looks like");
-    document.getElementById("wdWeek").textContent = "Week " + (state.week + 1) + " of 11";
-    var tg = document.getElementById("wdTag");
-    tg.className = "tag " + kind;
-    tg.textContent = TAGLABEL[kind];
-    document.getElementById("wdMiles").innerHTML = w.m + '<small>mi</small>';
-    document.getElementById("wdMpd").innerHTML = w.runs ? w.runs + '<small>runs</small>' : w.d + '<small>mi</small>';
-    document.getElementById("wdLong").innerHTML = w.runs ? '\u2014' : w.l + '<small>mi</small>';
-    document.getElementById("wdMpdK").textContent = w.runs ? "Times to run" : "Per day";
-    document.getElementById("wdWhy").textContent = why(weeks, state.week);
-
-    var banked = 0;
-    for (var bi = 0; bi <= state.week; bi++) banked += weeks[bi].m;
-    document.getElementById("wdBanked").innerHTML =
-      "Miles banked through this week: <b>" + banked + "</b> of " + sum;
-
-    document.getElementById("prevBtn").disabled = state.week === 0;
-    document.getElementById("nextBtn").disabled = state.week === weeks.length - 1;
-
-    // table
-    document.getElementById("tableTitle").textContent = "All 11 weeks — " + state.club + " Mile Club";
-    var tb = document.getElementById("tbody");
-    tb.innerHTML = "";
-    var run = 0;
-    weeks.forEach(function(wk, i){
-      run += wk.m;
-      var k = classify(weeks, i);
-      var tr = document.createElement("tr");
-      if (i === state.week) tr.className = "on";
-      tr.innerHTML =
-        '<td class="wk">Week ' + (i+1) + '</td>' +
-        '<td class="mi">' + wk.m + '</td>' +
-        '<td>' + (wk.runs ? "Run " + wk.runs + "×" : wk.d + " /day") + '</td>' +
-        '<td>' + (wk.runs ? "—" : wk.l + " mi") + '</td>' +
-        '<td>' + run + '</td>' +
-        '<td class="note">' + TAGLABEL[k] + '</td>';
-      tr.addEventListener("click", function(){ state.week = i; render(); });
-      tb.appendChild(tr);
-    });
-
-    // sync calculator to the selected week
-    var mpwInput = document.getElementById("mpw");
-    if (!mpwInput.dataset.touched){ mpwInput.value = w.m; calc(); }
-  }
-
-  // week detail disclosure
-  var detailBtn = document.getElementById("detailBtn");
-  var detailBox = document.getElementById("weekDetail");
-  detailBtn.addEventListener("click", function(){
-    detailOpen = !detailOpen;
-    if (detailOpen) detailBox.removeAttribute("hidden"); else detailBox.setAttribute("hidden","");
-    detailBtn.setAttribute("aria-expanded", detailOpen ? "true" : "false");
-    render();
-  });
-
-  document.getElementById("prevBtn").addEventListener("click", function(){
-    if (state.week > 0){ state.week--; render(); }
-  });
-  document.getElementById("nextBtn").addEventListener("click", function(){
-    if (state.week < 10){ state.week++; render(); }
-  });
-
-  // helper toggle
-  var hb = document.getElementById("helperBtn"), hx = document.getElementById("helperBox");
-  hb.addEventListener("click", function(){
-    var open = hx.hasAttribute("hidden");
-    if (open){ hx.removeAttribute("hidden"); } else { hx.setAttribute("hidden",""); }
-    hb.setAttribute("aria-expanded", open ? "true" : "false");
-    hb.textContent = open ? "Hide" : "Which one is mine?";
-  });
-
-  // calculator
-  function calc(){
-    var mpw = parseFloat(document.getElementById("mpw").value) || 0;
-    var pace = parseFloat(document.getElementById("pace").value);
-    var miles = mpw * 0.25;
-    document.getElementById("lrMiles").textContent = (Math.round(miles*10)/10) + " mi";
-    var mins = Math.round(miles * pace);
-    document.getElementById("lrTime").textContent = mins > 0
-      ? "about " + mins + " minutes at that pace"
-      : "enter your weekly miles";
-  }
-  document.getElementById("mpw").addEventListener("input", function(){
-    this.dataset.touched = "1"; calc();
-  });
-  document.getElementById("pace").addEventListener("change", calc);
-
-  /* ================= PRINT THE SCHEDULE ================= */
-  // Three routes, tried in order, so the button always does something:
-  //  1. open a clean standalone tab (best result, and prints correctly when the
-  //     guide is embedded in an iframe, where window.print() would print the host page)
-  //  2. if popups are blocked, show the schedule in an in-page preview
-  //  3. printing from that preview falls back to window.print()
-  function scheduleMarkup(){
-    var club = CLUBS[state.club], weeks = club.weeks;
-    var sum = weeks.reduce(function(a,x){ return a + x.m; }, 0);
-    var run = 0;
-
-    var rows = weeks.map(function(wk, i){
-      run += wk.m;
-      var k = classify(weeks, i);
-      return '<tr class="' + k + '">' +
-        '<td class="wk">Week ' + (i+1) + '</td>' +
-        '<td class="mi">' + wk.m + '</td>' +
-        '<td>' + (wk.runs ? "Run " + wk.runs + "\u00d7" : wk.d + " /day") + '</td>' +
-        '<td>' + (wk.runs ? "\u2014" : wk.l + " mi") + '</td>' +
-        '<td class="note">' + TAGLABEL[k] + '</td>' +
-        '<td class="blank"></td>' +
-      '</tr>';
-    }).join("");
-
-    return '<h4>' + state.club + ' Mile Club</h4>' +
-      '<p class="pv-sub">Little Chute Cross Country \u00b7 Summer mileage \u00b7 ' +
-      '<b>' + club.days + '</b> \u00b7 11 weeks \u00b7 <b>' + sum + ' total miles</b></p>' +
-      '<table><thead><tr><th>Week</th><th>Miles</th><th>Per day</th><th>Long run</th>' +
-      '<th>Week type</th><th>What I actually ran</th></tr></thead><tbody>' + rows + '</tbody></table>' +
-      '<div class="pv-box"><h5>Every week, no matter the mileage</h5><ul>' +
-      '<li>Run 5\u20136 days \u2014 easy enough to hold a conversation</li>' +
-      '<li>One long run, about 25% of the week</li>' +
-      '<li>Strides 3\u00d7 a week: 4 \u00d7 100m, or 4 \u00d7 30m flys</li>' +
-      '<li>One quality run: fartlek, progression, tempo, or stamina</li>' +
-      '<li>Strength 2\u00d7 a week \u2014 the best injury prevention there is</li>' +
-      '<li>Core X, hurdle mobility, and bands 3\u00d7 a week</li>' +
-      '<li>8\u201310 hours of sleep, and eat enough to cover the miles</li>' +
-      '</ul></div>' +
-      '<p class="pv-foot">Log every run on Strava. Cut-back weeks are part of the plan \u2014 do not add to them.<br>' +
-      'Questions about mileage, soreness, or which club to run: ask your coaches.</p>';
-  }
-
-  function standaloneDoc(){
-    return '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">' +
-      '<title>' + state.club + ' Mile Club \u2014 Summer Mileage</title><style>' +
-      'body{font-family:Archivo,Helvetica,Arial,sans-serif;color:#10233A;margin:32px;background:#fff}' +
-      'h4{font-size:25px;margin:0 0 3px;color:#17456F;letter-spacing:-.015em}' +
-      '.pv-sub{font-size:13px;color:#4A5F76;margin:0 0 18px}.pv-sub b{color:#10233A}' +
-      'table{border-collapse:collapse;width:100%;margin-bottom:22px}' +
-      'th{text-align:left;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#8497A8;' +
-      'padding:7px 9px;border-bottom:1.5px solid #17456F}' +
-      'td{padding:9px;border-bottom:1px solid #D8E3EC;font-size:13.5px}' +
-      'td.wk{font-weight:700;white-space:nowrap}td.mi{font-weight:800;color:#17456F}' +
-      'td.note{font-size:11.5px;color:#4A5F76;white-space:nowrap}td.blank{width:88px}' +
-      'tr.cut td,tr.rest td{background:#F4FAFD}tr.peak td{background:#E8F1F8}' +
-      '.pv-box{border:1px solid #D8E3EC;border-radius:8px;padding:14px 16px;margin-bottom:14px}' +
-      '.pv-box h5{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#8497A8;margin:0 0 8px}' +
-      '.pv-box ul{margin:0;padding-left:17px;font-size:12.5px;line-height:1.75}' +
-      '.pv-foot{font-size:11px;color:#8497A8;line-height:1.6;margin:0}' +
-      '@media print{body{margin:12mm}.pv-box,table{page-break-inside:avoid}}' +
-      '</style></head><body>' + scheduleMarkup() + '</body></html>';
-  }
-
-  var pvOverlay = document.getElementById("pvOverlay");
-
-  function openPreview(msg){
-    document.getElementById("pvDoc").innerHTML = scheduleMarkup();
-    document.getElementById("pvNote").textContent = msg;
-    pvOverlay.removeAttribute("hidden");
-    document.body.classList.add("pv-open");
-    document.getElementById("pvPrint").focus();
-  }
-  function closePreview(){
-    pvOverlay.setAttribute("hidden", "");
-    document.body.classList.remove("pv-open");
-    document.getElementById("printBtn").focus();
-  }
-
-  document.getElementById("printBtn").addEventListener("click", function(){
-    var wnd = null;
-    try { wnd = window.open("", "_blank"); } catch(e){ wnd = null; }
-    if (wnd && wnd.document){
-      wnd.document.open(); wnd.document.write(standaloneDoc()); wnd.document.close();
-      wnd.focus();
-      setTimeout(function(){ try { wnd.print(); } catch(e){} }, 350);
-    } else {
-      openPreview("Your browser blocked the print tab. Here is your schedule \u2014 print it below, or open the guide in its own tab and try again.");
-    }
-  });
-
-  document.getElementById("pvPrint").addEventListener("click", function(){
-    try { window.print(); } catch(e){}
-  });
-  document.getElementById("pvClose").addEventListener("click", closePreview);
-  pvOverlay.addEventListener("click", function(e){ if (e.target === pvOverlay) closePreview(); });
-  document.addEventListener("keydown", function(e){
-    if (e.key === "Escape" && !pvOverlay.hasAttribute("hidden")) closePreview();
-  });
-
-  window.addEventListener("afterprint", function(){ document.body.classList.remove("print-week"); });
-
-  var resizeTimer;
-  window.addEventListener("resize", function(){
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(render, 160);
-  });
-
-  render();
-})();
-</script>
+<script src="data/season.js"></script>
+<script src="data/photos.js"></script>
+<script src="js/site.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>

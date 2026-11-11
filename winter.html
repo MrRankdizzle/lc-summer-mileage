@@ -2,647 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="only light">
 <meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#16244A">
 <title>Winter Training — Little Chute Cross Country</title>
 <meta name="description" content="Build a personal off-season training plan for Little Chute cross country: running, strength, nutrition, and training partners, with a PDF to print.">
+<meta property="og:title" content="Winter Training — Little Chute Cross Country">
+<meta property="og:description" content="Build a personal off-season training plan for Little Chute cross country: running, strength, nutrition, and training partners, with a PDF to print.">
+<meta property="og:image" content="https://lc-summer-mileage.vercel.app/img/share.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    color-scheme: only light;
-    /* Little Chute Mustangs — Carolina blue, sky blue, white */
-    --ink:#10233A;
-    --ink-2:#4A5F76;
-    --ink-3:#8497A8;
-    --paper:#F1F6FA;
-    --card:#FFFFFF;
-    --line:#D8E3EC;
-    --line-2:#E9F0F6;
-    --mustang:#17456F;
-    --carolina:#2277B0;
-    --skyblue:#5CB3DE;
-    --sky-soft:#E6F4FC;
-    --navy:#12365C;
-    --sky-tint:#DDE9F3;
-    --radius:14px;
-    --shadow:0 1px 2px rgba(16,35,58,.05), 0 8px 24px -12px rgba(16,35,58,.22);
-    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
-    --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
-  }
-
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%;background:#F1F6FA;color-scheme:only light;scroll-behavior:smooth}
-  section{scroll-margin-top:18px}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--display);
-    font-size:16px;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,3.2vw,44px) 80px}
-
-  /* ---------- shared type ---------- */
-  .eyebrow{
-    font-family:var(--display);
-    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--ink-3);margin:0 0 10px;
-  }
-  .prose{font-family:var(--serif);font-size:17px;line-height:1.65;color:var(--ink-2)}
-  .prose p{margin:0 0 14px}
-  .prose strong{font-weight:600;color:var(--ink)}
-  h2{
-    font-family:var(--display);
-    font-size:clamp(22px,4.6vw,28px);
-    font-variation-settings:"wdth" 112;
-    font-weight:700;letter-spacing:-.01em;line-height:1.15;
-    margin:0 0 6px;color:var(--ink);
-  }
-  h3{
-    font-family:var(--display);
-    font-size:16px;font-weight:700;letter-spacing:-.005em;
-    margin:0 0 4px;color:var(--ink);
-  }
-  .lede{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--ink-2);margin:0 0 22px}
-
-  section{padding:44px 0;border-top:1px solid var(--line)}
-  section:first-of-type{border-top:none}
-
-  /* ---------- masthead ---------- */
-  .masthead{padding:38px 0 26px}
-  .masthead .kicker{
-    display:flex;align-items:center;gap:10px;
-    font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--carolina);
-    margin-bottom:16px;
-  }
-  .kicker .rule{flex:1;height:1px;background:var(--line);}
-  .masthead h1{
-    font-family:var(--display);
-    font-size:clamp(42px,13vw,96px);
-    font-variation-settings:"wdth" 122;
-    font-weight:800;letter-spacing:-.04em;line-height:.86;
-    margin:0;color:var(--mustang);text-transform:uppercase;
-  }
-  .masthead h1 .thin{
-    display:block;color:var(--ink);font-weight:400;
-    font-variation-settings:"wdth" 122;
-  }
-  .masthead .sub{
-    font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink-2);
-    margin:18px 0 0;
-  }
-
-  /* ---------- club picker ---------- */
-  .picker-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
-  .clubs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-  .club{
-    appearance:none;cursor:pointer;
-    background:var(--card);border:1px solid var(--line);border-radius:12px;
-    padding:12px 4px 10px;text-align:center;color:var(--ink-2);
-    font-family:var(--display);transition:transform .12s ease, border-color .12s ease, background .12s ease;
-  }
-  .club .n{display:block;font-size:clamp(17px,4.6vw,22px);font-weight:800;font-variation-settings:"wdth" 118;letter-spacing:-.02em;line-height:1}
-  .club .t{display:block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
-  .club:hover{border-color:var(--carolina)}
-  .club[aria-pressed="true"]{background:var(--mustang);border-color:var(--mustang);color:#fff}
-  .club[aria-pressed="true"] .t{color:rgba(255,255,255,.62)}
-  .club:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-
-  .helper-toggle{
-    background:none;border:none;padding:0;cursor:pointer;
-    font-family:var(--display);font-size:13px;font-weight:600;color:var(--skyblue);
-    text-decoration:underline;text-underline-offset:3px;
-  }
-  .helper{
-    margin-top:12px;background:var(--sky-soft);border-radius:12px;padding:16px 18px;
-    font-family:var(--serif);font-size:15.5px;line-height:1.55;color:#14415F;
-  }
-  .helper[hidden]{display:none}
-  .helper ul{margin:8px 0 0;padding-left:18px}
-  .helper li{margin-bottom:5px}
-  .helper .last{margin:12px 0 0;font-family:var(--display);font-size:13px;font-weight:600;color:var(--navy)}
-
-  /* ---------- the ridgeline (signature) ---------- */
-  .ridge-card{
-    margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    box-shadow:var(--shadow);overflow:hidden;
-  }
-  .ridge-head{
-    display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
-    padding:18px 20px 6px;flex-wrap:wrap;
-  }
-  .bib{line-height:1}
-  .bib .num{
-    display:block;font-size:clamp(46px,13vw,74px);font-weight:800;
-    font-variation-settings:"wdth" 125;letter-spacing:-.045em;color:var(--mustang);
-  }
-  .bib .cap{
-    display:block;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ink-3);margin-top:6px;
-  }
-  .ridge-meta{text-align:right;font-size:12.5px;color:var(--ink-2);line-height:1.7}
-  .ridge-meta b{font-weight:700;color:var(--ink);font-variation-settings:"wdth" 110}
-  .ridge-svg{display:block;width:100%;height:auto;padding:4px 8px 0}
-  .ridge-x{
-    display:grid;grid-template-columns:repeat(11,1fr);
-    padding:0 14px 14px;gap:2px;
-  }
-  .ridge-x span{
-    text-align:center;font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);
-    padding-top:2px;
-  }
-  .ridge-x span.on{color:var(--mustang);}
-  .legend{
-    display:flex;gap:16px;flex-wrap:wrap;padding:0 20px 16px;
-    font-size:11.5px;font-weight:600;color:var(--ink-2);
-  }
-  .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0}
-  .dot-build{background:var(--carolina)}
-  .dot-cut{background:var(--skyblue)}
-  .dot-peak{background:var(--navy)}
-
-  /* ---------- expandable week detail (inside the chart card) ---------- */
-  .disclose{
-    width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
-    background:var(--paper);border:none;border-top:1px solid var(--line);
-    padding:14px 20px;cursor:pointer;text-align:left;
-    font-family:var(--display);font-size:13px;font-weight:700;color:var(--mustang);
-    transition:background .12s ease;
-  }
-  .disclose:hover{background:#E8F1F8}
-  .disclose:focus-visible{outline:2px solid var(--navy);outline-offset:-2px}
-  .disclose .chev{
-    flex:none;font-size:11px;color:var(--carolina);
-    transition:transform .2s ease;transform-origin:center;
-  }
-  .disclose[aria-expanded="true"] .chev{transform:rotate(180deg)}
-
-  .weekdetail{padding:20px;border-top:1px solid var(--line);background:var(--card)}
-  .weekdetail[hidden]{display:none}
-  .wd-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-  .wd-week{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-  .tag{
-    display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    padding:5px 10px;border-radius:100px;
-  }
-  .tag.build{background:#DCEDF8;color:#145A87}
-  .tag.cut{background:var(--sky-soft);color:#1E7BAD}
-  .tag.peak{background:var(--sky-tint);color:var(--navy)}
-  .tag.rest{background:#ECF0F4;color:#4F6274}
-  .wd-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-  .stat{background:var(--paper);border-radius:11px;padding:12px 12px 11px}
-  .stat .v{
-    display:block;font-size:clamp(21px,5.6vw,28px);font-weight:800;
-    font-variation-settings:"wdth" 118;letter-spacing:-.03em;line-height:1.05;color:var(--ink);
-  }
-  .stat .v small{font-size:.5em;font-weight:600;letter-spacing:0;color:var(--ink-3);margin-left:2px}
-  .stat .k{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:7px}
-  .wd-why{
-    font-family:var(--serif);font-size:16px;line-height:1.55;color:var(--ink-2);
-    border-left:3px solid var(--skyblue);padding-left:14px;margin:0 0 14px;
-  }
-  .wd-banked{font-size:12.5px;font-weight:600;color:var(--ink-3);margin:0 0 16px}
-  .wd-banked b{color:var(--mustang);font-variation-settings:"wdth" 110}
-  .wd-nav{display:flex;gap:8px}
-
-  /* ---------- buttons ---------- */
-  .btn{
-    cursor:pointer;font-family:var(--display);font-weight:700;letter-spacing:.005em;
-    border-radius:11px;
-    transition:background .14s ease,border-color .14s ease,color .14s ease,transform .08s ease;
-  }
-  .btn:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
-  .btn:active:not(:disabled){transform:translateY(1px)}
-
-  .btn-primary{
-    width:100%;display:flex;align-items:center;justify-content:center;gap:9px;
-    background:var(--mustang);border:1px solid var(--mustang);color:#fff;
-    padding:15px 18px;font-size:14px;
-    box-shadow:0 1px 2px rgba(16,35,58,.14), 0 10px 20px -14px rgba(23,69,111,.6);
-  }
-  .btn-primary:hover{background:var(--carolina);border-color:var(--carolina)}
-  .btn-primary .ico{
-    flex:none;width:15px;height:15px;stroke:currentColor;stroke-width:1.8;
-    fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.92;
-  }
-
-  .btn-ghost{
-    flex:1;background:var(--sky-soft);border:1px solid #C6E0F0;color:var(--mustang);
-    padding:11px 8px;font-size:13px;
-  }
-  .btn-ghost:hover:not(:disabled){background:#D6EBF8;border-color:var(--skyblue)}
-  .btn-ghost:disabled{background:var(--paper);border-color:var(--line);color:var(--ink-3);opacity:.65;cursor:default}
-
-  /* ---------- print preview overlay (fallback when popups are blocked) ---------- */
-  .pv-overlay{
-    position:fixed;inset:0;z-index:999;background:rgba(16,35,58,.6);
-    display:flex;align-items:flex-start;justify-content:center;
-    padding:18px;overflow:auto;-webkit-overflow-scrolling:touch;
-  }
-  .pv-overlay[hidden]{display:none}
-  .pv-sheet{
-    background:#fff;border-radius:14px;width:100%;max-width:720px;padding:22px;
-    box-shadow:0 24px 60px -20px rgba(16,35,58,.5);
-  }
-  .pv-note{
-    font-family:var(--serif);font-size:13.5px;line-height:1.5;color:#1E5B85;
-    background:var(--sky-soft);border-radius:9px;padding:11px 13px;margin:0 0 18px;
-  }
-  .pv-actions{display:flex;gap:8px;margin-top:20px}
-  .pv-actions .btn-primary{width:auto;flex:1}
-
-  .pv-doc h4{
-    font-family:var(--display);font-size:22px;font-weight:800;font-variation-settings:"wdth" 112;
-    letter-spacing:-.015em;color:var(--mustang);margin:0 0 3px;
-  }
-  .pv-doc .pv-sub{font-size:12.5px;color:var(--ink-2);margin:0 0 16px}
-  .pv-doc .pv-sub b{color:var(--ink)}
-  .pv-doc table{width:100%;min-width:0;border-collapse:collapse;margin-bottom:18px}
-  .pv-doc th{
-    font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
-    padding:7px 8px;border-bottom:1.5px solid var(--mustang);background:none;text-align:left;
-  }
-  .pv-doc td{padding:9px 8px;border-bottom:1px solid var(--line);font-size:13px}
-  .pv-doc td.wk{font-weight:700;white-space:nowrap;color:var(--ink)}
-  .pv-doc td.mi{font-weight:800;color:var(--mustang)}
-  .pv-doc td.note{font-size:11.5px;color:var(--ink-2);white-space:nowrap}
-  .pv-doc td.blank{width:84px}
-  .pv-doc tr.cut td,.pv-doc tr.rest td{background:#F4FAFD}
-  .pv-doc tr.peak td{background:#E8F1F8}
-  .pv-doc .pv-box{border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin-bottom:14px}
-  .pv-doc .pv-box h5{
-    font-family:var(--display);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--ink-3);margin:0 0 8px;font-weight:700;
-  }
-  .pv-doc .pv-box ul{margin:0;padding-left:17px;font-size:12.5px;line-height:1.75;color:var(--ink)}
-  .pv-doc .pv-foot{font-size:11px;color:var(--ink-3);line-height:1.6;margin:0}
-
-  /* ---------- table ---------- */
-  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
-  table{border-collapse:collapse;width:100%;min-width:520px;font-family:var(--display)}
-  th,td{text-align:left;padding:11px 14px;font-size:14px;border-bottom:1px solid var(--line-2)}
-  thead th{
-    font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
-    background:var(--paper);border-bottom:1px solid var(--line);white-space:nowrap;
-  }
-  tbody tr:last-child td{border-bottom:none}
-  tbody tr.on td{background:#F0F8FD}
-  td.wk{font-weight:700;color:var(--ink);white-space:nowrap}
-  td.mi{font-weight:800;font-variation-settings:"wdth" 115;letter-spacing:-.01em}
-  td.note{color:var(--ink-3);font-size:12.5px;white-space:nowrap}
-  tbody tr{cursor:pointer}
-  tbody tr:hover td{background:#F6FBFE}
-
-  /* ---------- rhythm grid ---------- */
-  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-  .tile{
-    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 16px 15px;
-  }
-  .tile .freq{
-    font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--carolina);
-    display:block;margin-bottom:7px;
-  }
-  .tile p{margin:5px 0 0;font-family:var(--serif);font-size:14.5px;line-height:1.5;color:var(--ink-2)}
-
-  /* ---------- calculator ---------- */
-  .calc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-top:20px}
-  .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
-  .field label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
-  .field input,.field select{
-    width:100%;font-family:var(--display);font-size:16px;font-weight:600;color:var(--ink);
-    background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 12px;
-  }
-  .field input:focus,.field select:focus{outline:2px solid var(--navy);outline-offset:1px}
-  .calc-out{
-    background:var(--sky-tint);border-radius:12px;padding:16px 18px;
-    display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
-  }
-  .calc-out .big{font-size:clamp(28px,8vw,38px);font-weight:800;font-variation-settings:"wdth" 118;letter-spacing:-.03em;color:var(--navy);line-height:1}
-  .calc-out .lbl{font-size:13px;font-weight:600;color:#1E5B85}
-  .calc-note{font-family:var(--serif);font-size:14px;color:var(--ink-3);margin:12px 0 0;line-height:1.5}
-
-  .printbtn{margin-top:16px}
-  .jump{
-    display:inline-flex;align-items:center;gap:6px;margin-top:9px;
-    font-family:var(--display);font-size:12.5px;font-weight:700;color:var(--carolina);
-    text-decoration:none;border-bottom:1.5px solid var(--skyblue);padding-bottom:1px;
-  }
-  .jump:hover{color:var(--mustang);border-bottom-color:var(--mustang)}
-  .jump:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
-  .plan-note{font-family:var(--serif);font-size:14px;color:var(--ink-3);margin:12px 0 0;line-height:1.5}
-
-  /* ---------- faq ---------- */
-  .faq{margin-top:20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden}
-  details{border-bottom:1px solid var(--line-2)}
-  details:last-child{border-bottom:none}
-  summary{
-    cursor:pointer;list-style:none;padding:16px 18px;
-    font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-  }
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:19px;font-weight:400;color:var(--ink-3);line-height:1;flex:none}
-  details[open] summary::after{content:"–"}
-  details[open] summary{color:var(--mustang)}
-  summary:focus-visible{outline:2px solid var(--navy);outline-offset:-2px}
-  .answer{padding:0 18px 20px;font-family:var(--serif);font-size:15.5px;line-height:1.65;color:var(--ink-2)}
-  .answer p{margin:0 0 11px}
-  .answer p:last-child{margin-bottom:0}
-
-  /* ---------- glossary ---------- */
-  .gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:20px}
-  .gloss div{background:var(--card);padding:14px 16px}
-  .gloss dt{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
-  .gloss dd{margin:0;font-family:var(--serif);font-size:14px;line-height:1.5;color:var(--ink-2)}
-
-  /* ---------- closer ---------- */
-  .closer{
-    background:var(--mustang);color:#fff;border-radius:var(--radius);padding:30px 26px;margin-top:20px;
-  }
-  .closer h2{color:#fff;margin-bottom:10px}
-  .closer p{font-family:var(--serif);font-size:16.5px;line-height:1.62;color:rgba(255,255,255,.82);margin:0 0 14px}
-  .closer p:last-child{margin-bottom:0}
-  .closer .strong{color:#fff}
-
-  footer{margin-top:34px;font-size:12px;color:var(--ink-3);line-height:1.6;text-align:center}
-
-  /* ---------- large screens: editorial two-column ---------- */
-  @media (min-width:1000px){
-    section{
-      display:grid;
-      grid-template-columns:minmax(240px,300px) minmax(0,1fr);
-      column-gap:52px;align-items:start;
-      padding:56px 0;
-    }
-    .sec-head{position:sticky;top:24px}
-    .sec-head h2{font-size:30px;margin-bottom:8px}
-    .sec-head .lede{font-size:15.5px;line-height:1.58;margin-bottom:0}
-    .sec-body{min-width:0}
-
-    /* masthead: title left, intro right, sharing a baseline */
-    .masthead{
-      display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
-      column-gap:52px;align-items:end;padding:56px 0 40px;
-    }
-    .masthead .kicker{grid-column:1 / -1}
-    .masthead h1{grid-column:1;font-size:clamp(84px,7.6vw,116px)}
-    .masthead .sub{grid-column:2;margin:0 0 12px;font-size:17.5px}
-
-    /* the closing panel stays full bleed */
-    section#log{display:block;padding-bottom:0}
-
-    /* content that reads better in more columns once there's room */
-    .faq{background:none;border:none;border-radius:0;overflow:visible;
-         display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
-    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;align-self:start}
-    .faq details:last-child{border-bottom:1px solid var(--line)}
-    .gloss{grid-template-columns:repeat(3,1fr)}
-
-    /* calculator: inputs beside the answer */
-    .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:26px;align-items:start}
-    .calc-row{grid-column:1;grid-row:1;margin-bottom:0}
-    .calc-out{grid-column:2;grid-row:1;flex-direction:column;align-items:flex-start;gap:6px;padding:18px 20px}
-    .calc-note{grid-column:1 / -1;grid-row:2;margin-top:18px}
-
-    .closer{padding:40px 44px}
-    .closer h2{font-size:32px}
-  }
-
-  @media (min-width:1240px){
-    .gloss{grid-template-columns:repeat(4,1fr)}
-    .grid2{grid-template-columns:repeat(3,1fr)}
-  }
-
-  @media (max-width:560px){
-    .grid2,.gloss{grid-template-columns:1fr}
-    .wd-nums{grid-template-columns:1fr 1fr}
-    .wd-nums .stat:first-child{grid-column:span 2}
-    .calc-row{grid-template-columns:1fr}
-    .ridge-meta{text-align:left}
-    .ridge-head{align-items:flex-start}
-  }
-
-  /* Some mobile browsers force a dark theme on pages. This locks the palette. */
-  @media (prefers-color-scheme:dark){
-    html,body{background:#F1F6FA !important;color:#10233A !important}
-    .ridge-card,.calc,.faq,.tablewrap,.tile,.gloss div,.weekdetail{background:#FFFFFF !important}
-    .disclose{background:#F1F6FA !important;color:#17456F !important}
-    .faq details{background:#FFFFFF !important}
-    .btn-primary{background:#17456F !important;color:#fff !important;border-color:#17456F !important}
-    .btn-ghost{background:#E6F4FC !important;color:#17456F !important}
-    thead th,.stat{background:#F1F6FA !important}
-    h2,h3,td.wk,summary,.gloss dt{color:#10233A !important}
-    .prose,.lede,.answer,.tile p,.gloss dd,.wc-why{color:#4A5F76 !important}
-    .closer{background:#17456F !important}
-    .closer h2{color:#fff !important}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none !important;transition:none !important}
-  }
-
-  @media print{
-    body{background:#fff}
-    body.print-week header.masthead,
-    body.print-week section:not(#all),
-    body.print-week footer,
-    body.print-week .printbtn{display:none !important}
-    body.print-week #all{padding-top:0;border-top:none}
-    .disclose{display:none}
-    body.pv-open .wrap{display:none !important}
-    body.pv-open .pv-overlay{position:static;background:none;padding:0;overflow:visible}
-    body.pv-open .pv-sheet{box-shadow:none;border-radius:0;padding:0;max-width:none}
-    body.pv-open .pv-note,body.pv-open .pv-actions{display:none !important}
-    section,.masthead,.calc,.faq{display:block !important}
-    .sec-head{position:static !important}
-    .ridge-card,.helper,.calc{box-shadow:none}
-    .btn,.helper-toggle,.clubs{display:none}
-    details{page-break-inside:avoid}
-    details .answer{display:block !important}
-    section{page-break-inside:avoid;border-top:1px solid #ccc}
-  }
-
-  /* ================= WINTER PAGE ADDITIONS ================= */
-
-  /* ---------- season switch ---------- */
-  .seasons{display:flex;gap:6px;padding:18px 0 0;flex-wrap:wrap}
-  .seasons a{
-    font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    text-decoration:none;color:var(--ink-2);background:var(--card);border:1px solid var(--line);
-    border-radius:100px;padding:8px 14px;transition:border-color .12s ease,color .12s ease;
-  }
-  .seasons a:hover{border-color:var(--carolina);color:var(--mustang)}
-  .seasons a.on{background:var(--mustang);border-color:var(--mustang);color:#fff}
-  .seasons a:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-  .masthead{padding-top:26px}
-
-  /* ---------- wizard ---------- */
-  .wiz{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-  .wiz-top{padding:18px 20px 0}
-  .wiz-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:14px}
-  .wiz-steps i{display:block;height:5px;border-radius:5px;background:var(--line)}
-  .wiz-steps i.done{background:var(--skyblue)}
-  .wiz-steps i.on{background:var(--mustang)}
-  .wiz-count{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}
-  .wiz-title{font-size:22px;font-weight:800;font-variation-settings:"wdth" 114;letter-spacing:-.015em;color:var(--mustang);margin:0 0 4px}
-  .wiz-sub{font-family:var(--serif);font-size:15.5px;line-height:1.55;color:var(--ink-2);margin:0}
-  .wiz-body{padding:6px 20px 20px}
-  .q{margin-top:20px}
-  .q-label{display:block;font-size:14px;font-weight:700;color:var(--ink);margin:0 0 3px}
-  .q-hint{font-family:var(--serif);font-size:14px;line-height:1.5;color:var(--ink-3);margin:0 0 9px}
-  .opts{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-  .opts.tight{grid-template-columns:repeat(auto-fit,minmax(92px,1fr))}
-  .opt{
-    appearance:none;text-align:left;cursor:pointer;background:var(--paper);border:1px solid var(--line);
-    border-radius:12px;padding:12px 14px;font-family:var(--display);color:var(--ink);
-    transition:border-color .12s ease,background .12s ease;
-  }
-  .opt b{display:block;font-size:14.5px;font-weight:700;line-height:1.25}
-  .opt span{display:block;font-size:12.5px;color:var(--ink-2);margin-top:4px;line-height:1.4;font-weight:500}
-  .opt:hover{border-color:var(--carolina)}
-  .opt:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-  .opt[aria-pressed="true"]{background:var(--mustang);border-color:var(--mustang);color:#fff}
-  .opt[aria-pressed="true"] span{color:rgba(255,255,255,.76)}
-  .q input[type="text"],.q input[type="date"]{
-    width:100%;max-width:340px;font-family:var(--display);font-size:16px;font-weight:600;color:var(--ink);
-    background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 12px;
-  }
-  .q input:focus{outline:2px solid var(--navy);outline-offset:1px}
-  .wiz-err{font-size:13px;font-weight:700;color:#A33A2B;margin:16px 0 0}
-  .wiz-err[hidden]{display:none}
-  .wiz-nav{display:flex;gap:8px;padding:14px 20px;background:var(--paper);border-top:1px solid var(--line)}
-  .wiz-nav .btn-ghost{flex:0 0 auto;padding:13px 18px;background:var(--card)}
-  .wiz-nav .btn-primary{flex:1;width:auto}
-  .wiz-nav .btn-ghost[hidden]{display:none}
-  .privacy{font-size:12px;color:var(--ink-3);margin:10px 2px 0;line-height:1.5}
-
-  /* ---------- plan ---------- */
-  #plan[hidden]{display:none}
-  .plan-x{display:grid;padding:0 14px 14px;gap:2px}
-  .plan-x span{text-align:center;font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);padding-top:2px}
-  .plan-x span.on{color:var(--mustang)}
-  .dot-recharge{background:#8AA0B4}
-  .dot-rebuild{background:var(--skyblue)}
-  .dot-base{background:var(--carolina)}
-  .dot-bridge{background:var(--navy)}
-  .tag.recharge{background:#ECF0F4;color:#4F6274}
-  .tag.rebuild{background:var(--sky-soft);color:#1E7BAD}
-  .tag.base,.tag.maintain{background:#DCEDF8;color:#145A87}
-  .tag.bridge{background:var(--sky-tint);color:var(--navy)}
-  .weekdetail{display:block}
-  .days{list-style:none;margin:0 0 16px;padding:0;border:1px solid var(--line-2);border-radius:12px;overflow:hidden}
-  .days li{display:grid;grid-template-columns:74px minmax(0,1fr);gap:12px;padding:12px 14px;border-bottom:1px solid var(--line-2)}
-  .days li:last-child{border-bottom:none}
-  .days li.restday{background:#FAFCFD}
-  .days .dn{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mustang);line-height:1.3}
-  .days .dn small{display:block;font-size:11px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink-3)}
-  .days .dt{font-size:14.5px;font-weight:700;color:var(--ink);margin:0 0 2px}
-  .days .dd{font-family:var(--serif);font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
-  .chip{
-    display:inline-block;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    padding:3px 8px;border-radius:100px;margin:6px 6px 0 0;
-  }
-  .chip.buddy{background:#FFF1D6;color:#7A5200}
-  .chip.strength{background:#E7ECF7;color:#2B3F7A}
-  .plan-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:16px}
-  .plan-actions .row{display:flex;gap:8px}
-  .pdf-msg{font-size:13px;font-weight:600;color:var(--ink-2);margin:10px 0 0}
-  .pdf-msg[hidden]{display:none}
-  .subhead{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 10px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
-  .card ul{margin:0;padding-left:18px;font-family:var(--serif);font-size:15.5px;line-height:1.6;color:var(--ink-2)}
-  .card li{margin-bottom:7px}
-  .card li:last-child{margin-bottom:0}
-  .card li strong{font-weight:600;color:var(--ink)}
-
-  /* ---------- strength ---------- */
-  .seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:3px;margin-top:20px}
-  .seg button{
-    appearance:none;border:none;background:none;cursor:pointer;font-family:var(--display);font-size:12.5px;font-weight:700;
-    color:var(--ink-2);padding:8px 14px;border-radius:100px;
-  }
-  .seg button[aria-pressed="true"]{background:var(--mustang);color:#fff}
-  .seg button:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-  .tablewrap.mt{margin-top:12px}
-  td.ex{font-weight:700;color:var(--ink)}
-  td.ex small{display:block;font-weight:500;font-size:12px;color:var(--ink-3);margin-top:2px}
-  #strength tbody tr,#plan .ov tbody tr.nohand{cursor:default}
-  #strength tbody tr:hover td{background:none}
-
-  /* ---------- plates ---------- */
-  .plates{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
-  .plate{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
-  .plate svg{width:96px;height:96px;display:block;margin:0 auto 10px}
-  .plate h3{margin-bottom:4px}
-  .plate p{margin:0;font-family:var(--serif);font-size:13.5px;line-height:1.45;color:var(--ink-2)}
-  .platekey{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;font-weight:600;color:var(--ink-2);margin-top:12px}
-  .platekey i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
-
-  /* ---------- invite ---------- */
-  .invite{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-top:20px;box-shadow:var(--shadow)}
-  .invite textarea{
-    width:100%;min-height:104px;resize:vertical;font-family:var(--serif);font-size:15.5px;line-height:1.5;color:var(--ink);
-    background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0 12px;
-  }
-  .invite textarea:focus{outline:2px solid var(--navy);outline-offset:1px}
-  .invite .row{display:flex;gap:8px}
-  .invite .btn-primary{width:auto;flex:1}
-
-  .callout{
-    margin-top:16px;background:var(--sky-soft);border-radius:12px;padding:16px 18px;
-    font-family:var(--serif);font-size:15.5px;line-height:1.55;color:#14415F;
-  }
-  .callout strong{font-weight:600;color:var(--navy)}
-
-  @media (min-width:1000px){
-    .masthead h1{font-size:clamp(76px,6.6vw,104px)}
-    section#build,section#plan{scroll-margin-top:8px}
-  }
-  @media (max-width:560px){
-    .plates{grid-template-columns:1fr}
-    .plate{display:grid;grid-template-columns:80px 1fr;column-gap:14px;text-align:left;align-items:center}
-    .plate svg{width:80px;height:80px;margin:0;grid-row:span 2}
-    .days li{grid-template-columns:54px minmax(0,1fr);gap:10px;padding:12px}
-    .opts{grid-template-columns:1fr}
-    .opts.tight{grid-template-columns:repeat(auto-fit,minmax(70px,1fr))}
-    .plan-actions .row,.invite .row{flex-direction:column}
-  }
-  @media (prefers-color-scheme:dark){
-    .wiz,.card,.invite,.plate,.seasons a:not(.on){background:#FFFFFF !important}
-    .opt:not([aria-pressed="true"]){background:#F1F6FA !important;color:#10233A !important}
-    .opt[aria-pressed="true"],.seasons a.on,.seg button[aria-pressed="true"]{background:#17456F !important;color:#fff !important}
-    .wiz-nav{background:#F1F6FA !important}
-    .q input,.invite textarea{background:#F1F6FA !important;color:#10233A !important}
-    .q-label,.days .dt,td.ex{color:#10233A !important}
-  }
-  @media print{
-    .seasons,.wiz,.plan-actions,.seg,.invite .row{display:none !important}
-    #plan[hidden]{display:none !important}
-  }
-</style>
+<link rel="stylesheet" href="css/site.css">
 </head>
-<body>
+<body data-page="winter">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Little Chute Cross Country home">
+      <img src="img/lc-logo-sm.png" alt="" width="240" height="198">
+      <span class="brand-t"><b>Little Chute</b><i>Cross Country</i></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="fall.html">Fall Season</a><a href="summer.html">Summer</a><a href="winter.html" aria-current="page">Winter</a><a href="why.html">The Why</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero hero--slim" id="hero">
+  <div class="hero-photo" id="heroPhoto" hidden></div>
+  <img class="hero-mustang" src="img/mustang-white.svg" alt="" aria-hidden="true">
+  <div class="hero-in">
+    <p class="hero-kicker"><span class="slash"></span><span class="slash"></span>November to February &middot; Off-season</p>
+    <h1>Winter<span>Training</span></h1>
+    <p class="hero-sub">Summer builds the engine. Winter is where you rest it, rebuild it, and get strong enough to use it. Answer a few questions and this page builds a plan around your winter, then hands it to you as a PDF.</p>
+    <div class="hero-cta"><a class="pill pill--solid" href="#build">Build my plan</a><a class="pill pill--line" href="why.html">The science behind it</a></div>
+  </div>
+</div>
+<nav class="jumpbar" aria-label="On this page"><a href="#idea">The winter idea</a><a href="#build">Build your plan</a><a href="#strength">Strength</a><a href="#fuel">Fuel</a><a href="#together">Teammates</a><a href="#faq">Winter questions</a></nav>
 <div class="wrap">
 
-  <nav class="seasons" aria-label="Season">
-    <a href="index.html">Summer mileage</a>
-    <a href="winter.html" class="on" aria-current="page">Winter training</a>
-  </nav>
-
-  <!-- ============ MASTHEAD ============ -->
-  <header class="masthead">
-    <div class="kicker"><span>Little Chute Mustangs</span><span class="rule"></span><span>Cross Country</span></div>
-    <h1>Winter<span class="thin">Training</span></h1>
-    <p class="sub">Summer builds the engine. Winter is where you rest it, rebuild it, and get strong enough to use it. Answer a few questions and this page builds a plan around your winter — your sport, your schedule, your teammates — then hands it to you as a PDF.</p>
-  </header>
-
   <!-- ============ THE IDEA ============ -->
-  <section id="idea" style="border-top:none;padding-top:8px">
+  <section class="sec" id="idea" style="border-top:none;padding-top:8px">
     <div class="sec-head">
       <p class="eyebrow">The winter idea</p>
       <h2>Six things the research agrees on</h2>
@@ -653,7 +57,7 @@
         <div class="tile">
           <span class="freq">First</span>
           <h3>Stop for a bit</h3>
-          <p>Take one to two weeks completely off after the season. Pediatric sports medicine guidance is to spend two to three months a year away from your main sport, in chunks. You lose a little fitness. It comes back in a few weeks. Burnout and stress fractures do not.</p>
+          <p>Take one to two weeks with no planned running after the season. Pediatricians recommend at least three months a year away from your main sport, in one-month blocks. You lose a little fitness and it comes back in a few weeks. Burnout and stress fractures take much longer.</p>
         </div>
         <div class="tile">
           <span class="freq">Most of the winter</span>
@@ -663,7 +67,7 @@
         <div class="tile">
           <span class="freq">2 days a week</span>
           <h3>Get strong</h3>
-          <p>This is the season for it. Strength training cuts overuse injuries by about half and improves running economy — you use less energy at the same pace. For teenagers it is safe and effective when you learn the technique first and add weight slowly.</p>
+          <p>This is the season for it. In the research, strength training cut sports injuries to less than a third, and it improves running economy — you use less energy at the same pace. For teenagers it is safe and effective when you learn the technique first and add weight slowly.</p>
         </div>
         <div class="tile">
           <span class="freq">If you want to</span>
@@ -673,7 +77,7 @@
         <div class="tile">
           <span class="freq">2–3 days a week</span>
           <h3>Keep a little speed</h3>
-          <p>Strides and short hill sprints, all winter. They take five minutes, they don't make you tired, and they keep your legs remembering how to run fast so spring doesn't feel like starting over.</p>
+          <p>Strides and short hill sprints, all winter. Steve Magness's rule is never leave anything behind: they take five minutes, they don't make you tired, and they keep your legs remembering how to run fast.</p>
         </div>
         <div class="tile">
           <span class="freq">As often as you can</span>
@@ -685,7 +89,7 @@
   </section>
 
   <!-- ============ BUILD YOUR PLAN ============ -->
-  <section id="build">
+  <section class="sec" id="build">
     <div class="sec-head">
       <p class="eyebrow">Step by step</p>
       <h2>Build your winter plan</h2>
@@ -713,7 +117,7 @@
   </section>
 
   <!-- ============ YOUR PLAN ============ -->
-  <section id="plan" hidden>
+  <section class="sec" id="plan" hidden>
     <div class="sec-head">
       <p class="eyebrow">Your plan</p>
       <h2 id="planTitle">Your winter plan</h2>
@@ -780,7 +184,7 @@
   </section>
 
   <!-- ============ STRENGTH ============ -->
-  <section id="strength">
+  <section class="sec" id="strength">
     <div class="sec-head">
       <p class="eyebrow">Twice a week</p>
       <h2>The strength routine</h2>
@@ -803,7 +207,7 @@
   </section>
 
   <!-- ============ NUTRITION ============ -->
-  <section id="fuel">
+  <section class="sec" id="fuel">
     <div class="sec-head">
       <p class="eyebrow">Fuel</p>
       <h2>Eat like you're still in season</h2>
@@ -906,11 +310,11 @@
   </section>
 
   <!-- ============ TOGETHER ============ -->
-  <section id="together">
+  <section class="sec" id="together">
     <div class="sec-head">
       <p class="eyebrow">Teammates</p>
       <h2>Winter is easier with company</h2>
-      <p class="lede">In studies of exercise partners, people keep going noticeably longer when someone else is counting on them. A dark Tuesday in January is exactly when that matters.</p>
+      <p class="lede">In one well-known experiment, people exercising with a partner kept going about twice as long as people on their own. A dark Tuesday in January is exactly when that matters.</p>
     </div>
     <div class="sec-body">
       <div class="grid2" style="margin-top:0">
@@ -952,7 +356,7 @@
   </section>
 
   <!-- ============ WINTER FAQ ============ -->
-  <section id="faq">
+  <section class="sec" id="faq">
     <div class="sec-head">
       <p class="eyebrow">Cold, dark, and icy</p>
       <h2>Winter questions</h2>
@@ -986,7 +390,7 @@
         <details>
           <summary>I'm in a winter sport. Am I falling behind?</summary>
           <div class="answer">
-            <p>No. You are doing exactly what pediatric sports medicine recommends. Kids who specialize in one sport year-round get hurt more often, and the jumping, cutting, and sprinting in sports like basketball build bone and athleticism that distance running alone doesn't.</p>
+            <p>No. You are doing exactly what pediatric sports medicine recommends. Kids who specialize in one sport year-round are more likely to get overuse injuries, and the jumping, cutting, and sprinting in sports like basketball build bone and athleticism that distance running alone doesn't.</p>
             <p>During your season, your sport is your training. One or two short, easy runs a week keeps the feel for running. Don't stack a full running plan on top of practices and games — that's two seasons at once, and something will break.</p>
           </div>
         </details>
@@ -1007,7 +411,7 @@
         <details>
           <summary>Should I be doing hard workouts in the winter?</summary>
           <div class="answer">
-            <p>Not many. One light quality session a week, once you've rebuilt your base, is plenty: hill sprints, a fartlek, a progression run, or a steady run. Everything else stays easy.</p>
+            <p>Not many. One light quality session a week, once you've rebuilt your base, is plenty: a fartlek, a progression run, or a steady run. Everything else stays easy. The short hill sprints after an easy run don't count as a workout; done right, they leave you feeling better than when you started.</p>
             <p>The hard, race-specific work belongs to the season. Showing up to spring healthy with a big easy base beats showing up sharp and worn out in February every time.</p>
           </div>
         </details>
@@ -1020,1123 +424,59 @@
         </details>
       </div>
 
-      <p class="plan-note" style="margin-top:16px">Sources behind this page: Brenner and the AAP Council on Sports Medicine and Fitness, <em>Pediatrics</em> (2016) on specialization and time off; Jayanthi et al., <em>Am J Sports Med</em> (2015) on specialization and injury; Seiler, <em>Int J Sports Physiol Perform</em> (2010) on easy-hard training distribution; Mujika and Padilla, <em>Sports Med</em> (2000) on detraining; Lauersen et al., <em>Br J Sports Med</em> (2014, 2018) and Blagrove et al., <em>Sports Med</em> (2018) on strength training for injury and running economy; Lloyd et al., <em>Br J Sports Med</em> (2014), the international consensus on youth resistance training; Fredericson et al., <em>Clin J Sport Med</em> (2005) on ball sports and stress fractures; Mountjoy et al., <em>Br J Sports Med</em> (2018, 2023), the IOC consensus on REDs; Desbrow et al., <em>Int J Sport Nutr Exerc Metab</em> (2014) on adolescent athlete nutrition; the Athlete's Plates from the U.S. Olympic &amp; Paralympic Committee and University of Colorado sport dietitians; Webb, Kline and Holick, <em>J Clin Endocrinol Metab</em> (1988) on winter vitamin D; AAP Committee on Nutrition, <em>Pediatrics</em> (2011) on energy drinks; Castellani et al., <em>Med Sci Sports Exerc</em> (2006), the ACSM position on cold-weather exercise; Irwin et al., <em>Ann Behav Med</em> (2012) on training partners; Milewski et al., <em>J Pediatr Orthop</em> (2014) on sleep.</p>
+      <a class="why-link" href="why.html">Read the full science behind this page in The Why &rarr;</a>
+          <p class="plan-note" style="margin-top:16px">Sources behind this page: Brenner and the AAP Council on Sports Medicine and Fitness, <em>Pediatrics</em> (2016) on specialization and time off; Jayanthi et al., <em>Am J Sports Med</em> (2015) on specialization and injury; Seiler, <em>Int J Sports Physiol Perform</em> (2010) on easy-hard training distribution; Mujika and Padilla, <em>Sports Med</em> (2000) on detraining; Lauersen et al., <em>Br J Sports Med</em> (2014, 2018) and Blagrove et al., <em>Sports Med</em> (2018) on strength training for injury and running economy; Lloyd et al., <em>Br J Sports Med</em> (2014), the international consensus on youth resistance training; Fredericson et al., <em>Clin J Sport Med</em> (2005) on ball sports and stress fractures; Mountjoy et al., <em>Br J Sports Med</em> (2018, 2023), the IOC consensus on REDs; Desbrow et al., <em>Int J Sport Nutr Exerc Metab</em> (2014) on adolescent athlete nutrition; the Athlete's Plates from the U.S. Olympic &amp; Paralympic Committee and University of Colorado sport dietitians; Webb, Kline and Holick, <em>J Clin Endocrinol Metab</em> (1988) on winter vitamin D; AAP Committee on Nutrition, <em>Pediatrics</em> (2011) on energy drinks; Castellani et al., <em>Med Sci Sports Exerc</em> (2006), the ACSM position on cold-weather exercise; Irwin et al., <em>Ann Behav Med</em> (2012) on training partners; Milewski et al., <em>J Pediatr Orthop</em> (2014) on sleep.</p>
       <p class="plan-note">This page is general training guidance, not medical advice. If you have an injury, a health condition, or questions about nutrition, talk with your doctor and your coaches.</p>
     </div>
   </section>
 
   <!-- ============ CLOSER ============ -->
-  <section id="log" style="border-top:none;padding-bottom:0">
+  <section class="sec" id="log" style="border-top:none;padding-bottom:0">
     <div class="closer">
       <h2>Small, steady, and together</h2>
       <p>Nobody is checking your winter, and nobody needs it to be perfect. A plan you follow at eighty percent beats a perfect one you quit in January.</p>
       <p>If you log your runs on Strava, your coaches and teammates can see the work and cheer you on. When June comes, the summer mileage plan picks up right where this one leaves off.</p>
       <p class="strong">Rest, rebuild, get strong. Go Mustangs!</p>
     </div>
-    <footer>
-      Little Chute Cross Country · Winter training guide<br>Your coaches have the final say on your plan. Ask them before you start.
-    </footer>
+    <p class="plan-note" style="text-align:center;margin-top:22px">Your coaches have the final say on your plan. Ask them before you start.</p>
   </section>
 
 </div>
 
-<script>
-(function(){
-  "use strict";
 
-  var STORE = "lc-winter-plan-v1";
-  var SITE = "https://lc-summer-mileage.vercel.app/winter.html";
-  var DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-  var DAYFULL = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-  var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-  function $(id){ return document.getElementById(id); }
-  function esc(s){
-    return String(s).replace(/[&<>"']/g, function(c){
-      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
-    });
-  }
-  function half(n){ return Math.round(n * 2) / 2; }
-  function fmt(n){ return String(half(n)).replace(/\.0$/, ""); }
-
-  // ---------- dates ----------
-  function iso(d){
-    var m = d.getMonth() + 1, day = d.getDate();
-    return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (day < 10 ? "0" : "") + day;
-  }
-  function parseDate(s){
-    var p = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || "");
-    if (!p) return null;
-    var d = new Date(+p[1], +p[2] - 1, +p[3], 12);
-    return isNaN(d.getTime()) ? null : d;
-  }
-  function addDays(d, n){ var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
-  function toMonday(d){ return addDays(d, -((d.getDay() + 6) % 7)); }
-  function nextMonday(){
-    var d = new Date(); d.setHours(12, 0, 0, 0);
-    return addDays(d, (8 - d.getDay()) % 7);
-  }
-  function shortDate(d){ return MONTHS[d.getMonth()] + " " + d.getDate(); }
-
-  // ---------- the model ----------
-  var LEVELS = {
-    starter:  { i:0, label:"Starter",  peak:14, maxDays:5, days:4 },
-    builder:  { i:1, label:"Builder",  peak:22, maxDays:6, days:5 },
-    varsity:  { i:2, label:"Varsity",  peak:32, maxDays:6, days:6 },
-    advanced: { i:3, label:"Advanced", peak:42, maxDays:6, days:6 }
-  };
-
-  var PHASES = {
-    recharge: { label:"Recharge",         color:"#8AA0B4" },
-    rebuild:  { label:"Rebuild",          color:"#5CB3DE" },
-    base:     { label:"Base",             color:"#2277B0" },
-    bridge:   { label:"Bridge to spring", color:"#12365C" },
-    maintain: { label:"In season",        color:"#2277B0" }
-  };
-
-  // which day does what, for each number of running days (index 0 = Monday)
-  var TEMPLATES = {
-    6: { roles:["easyS","qual","easy","easyS","easy","long","rest"], str:[1,3] },
-    5: { roles:["easyS","qual","off","easyS","easy","long","rest"],  str:[1,3] },
-    4: { roles:["easyS","off","qual","off","easyS","long","rest"],   str:[0,2] },
-    3: { roles:["off","easyS","off","qual","off","long","rest"],     str:[1,3] }
-  };
-  var LONGPCT = { 3:0.40, 4:0.33, 5:0.28, 6:0.25 };
-
-  var XT = { bike:"bike", pool:"pool", ski:"skis or snowshoes", court:"open gym" };
-
-  var A = {
-    name:"", level:null, state:null,
-    sport:"no", weeks:"12", start:iso(nextMonday()),
-    days:null, where:"both", xt:[], gym:"home",
-    partners:"some", buddy:["long"],
-    runTime:"after", diet:"all"
-  };
-  var plan = null;
-  var sel = 0;
-  var step = 0;
-  var gymView = "home";
-
-  // ---------- quality sessions ----------
-  function quality(q, i, per){
-    var n, t, s, lead = per + " mi total. ", g;
-    switch (q){
-      case "hills":
-        n = [4,6,8,8][i]; t = "Hill sprints"; s = "Hill sprints " + n + " x 8 sec";
-        lead = per + " mi easy, then ";
-        g = n + " × 8-second hill sprints. Fast and smooth, walk back down, and wait until you feel fully recovered before the next one. These build power; they shouldn't leave you tired.";
-        break;
-      case "fartlek":
-        n = [5,6,8,10][i]; t = "Fartlek"; s = "Fartlek " + n + " x 1 min";
-        g = "In the middle of the run, " + n + " × 1 minute quick, 1 minute easy jog. Quick means 5K effort, not a sprint.";
-        break;
-      case "progression":
-        n = [5,8,10,15][i]; t = "Progression run"; s = "Progression, last " + n + " min";
-        lead = per + " mi. ";
-        g = "Start easy, and run the last " + n + " minutes at a steady, strong effort. You should finish feeling good, not wrecked.";
-        break;
-      case "steady":
-        n = [10,15,20,25][i]; t = "Steady run"; s = "Steady " + n + " min";
-        g = "In the middle of the run, " + n + " minutes at steady effort: a notch quicker than easy, still able to say a short sentence.";
-        break;
-      case "tempo":
-        n = ["2 × 5","12","16","20"][i]; t = "Tempo"; s = "Tempo " + n.replace("×","x") + " min";
-        g = "After an easy mile, " + n + " minutes at tempo effort: comfortably hard, a pace you could hold for about an hour." +
-            (i === 0 ? " Take 2 minutes easy between the two." : "") + " Easy jog to finish.";
-        break;
-      case "hillreps":
-        n = [4,5,6,8][i]; t = "Hill repeats"; s = "Hills " + n + " x 60 sec";
-        g = "After an easy mile, " + n + " × 60 seconds up a steady hill at a hard but smooth effort. Jog down for recovery. Easy jog to finish.";
-        break;
-      case "tune":
-        n = [4,5,6,6][i]; t = "Light fartlek"; s = "Light fartlek " + n + " x 1 min";
-        g = "In the middle of the run, " + n + " × 1 minute quick, 2 minutes easy. Keep it snappy and short. You should finish wanting more.";
-        break;
-      default: return null;
-    }
-    return { t:t, s:s, d:lead + g, g:g };
-  }
-  function qualityName(q){
-    return { hills:"Hill sprints", fartlek:"Fartlek", progression:"Progression run", steady:"Steady run",
-             tempo:"Tempo", hillreps:"Hill repeats", tune:"Light fartlek" }[q] || "";
-  }
-
-  // ---------- build the plan from the answers ----------
-  function buildPlan(a){
-    var L = LEVELS[a.level], N = parseInt(a.weeks, 10), weeks = [], i;
-    var start = toMonday(parseDate(a.start) || nextMonday());
-    var inSport = a.sport === "yes";
-    var D = inSport ? 2 : Math.max(3, Math.min(L.maxDays, parseInt(a.days, 10) || L.days));
-
-    if (inSport){
-      var per = [2, 2.5, 3, 4][L.i];
-      for (i = 0; i < N; i++){
-        var off = (a.state === "ended" && i === 0);
-        weeks.push({
-          phase: off ? "recharge" : "maintain", kind: off ? "recharge" : "maintain",
-          m: off ? 0 : per * 2, long:0, per:per, q:null, sportOff:off,
-          key: off ? "No extra running" : "1–2 easy runs"
-        });
-      }
-    } else {
-      var re = a.state === "ended" ? 2 : 0;
-      var R = N - re;
-      var nRebuild = a.state === "running" ? 1 : (R >= 10 ? 3 : 2);
-      var nBridge = R >= 10 ? 3 : 2;
-      var nBase = R - nRebuild - nBridge;
-      var P = nRebuild + nBase - 1;
-      var s0 = a.state === "running" ? 0.6 : 0.45;
-      var stp = Math.min((1 - s0) / P, 0.08);
-      var top = s0 + stp * P;
-      var BASEQ = ["hills","fartlek","progression","steady"], bq = 0;
-      var BRIDGEQ = nBridge === 3 ? ["tempo","hillreps","tune"] : ["tempo","tune"];
-      var BRIDGEF = nBridge === 3 ? [0.92, 0.92, 0.82] : [0.92, 0.82];
-
-      for (i = 0; i < re; i++){
-        weeks.push({ phase:"recharge", kind:"recharge", m:0, long:0, per:0, q:null, second:i === 1,
-                     key: i === 0 ? "No running" : "Optional easy jogs" });
-      }
-      for (i = 0; i <= P; i++){
-        var f = s0 + stp * i, ph = i < nRebuild ? "rebuild" : "base";
-        var cut = (i % 4 === 3 && i !== P && ph === "base");
-        if (cut) f *= 0.8;
-        var w = { phase:ph, kind: cut ? "cut" : ph, f:f, q:null, first:i === 0, strides:i > 0 };
-        if (ph === "base" && !cut){ w.q = BASEQ[bq % BASEQ.length]; bq++; }
-        weeks.push(w);
-      }
-      for (i = 0; i < nBridge; i++){
-        weeks.push({ phase:"bridge", kind:"bridge", f:top * BRIDGEF[i], q:BRIDGEQ[i], strides:true, last:i === nBridge - 1 });
-      }
-      // turn fractions into real numbers that add up
-      weeks.forEach(function(w){
-        if (w.phase === "recharge") return;
-        var target = Math.max(D + 1, L.peak * w.f);
-        var lng = half(target * LONGPCT[D]);
-        var p = Math.max(1, half((target - lng) / (D - 1)));
-        if (lng < p + 0.5) lng = p + 0.5;
-        w.long = lng; w.per = p; w.m = lng + p * (D - 1);
-        w.key = w.q ? qualityName(w.q) : (w.strides ? "Easy miles + strides" : "Easy miles only");
-      });
-      // biggest week
-      var max = 0, at = -1;
-      weeks.forEach(function(w, j){ if (w.m >= max && w.phase === "base"){ max = w.m; at = j; } });
-      if (at >= 0 && weeks[at].kind === "base") weeks[at].kind = "peak";
-    }
-
-    weeks.forEach(function(w, j){ w.n = j + 1; w.start = addDays(start, 7 * j); });
-    return { a:a, L:L, D:D, weeks:weeks, start:start, end:addDays(start, 7 * N - 1), inSport:inSport,
-             peak: Math.max.apply(null, weeks.map(function(w){ return w.m; })) };
-  }
-
-  function buddyFor(a){ return a.partners === "solo" ? [] : a.buddy; }
-  function xtName(a){
-    var names = a.xt.filter(function(k){ return XT[k]; }).map(function(k){ return XT[k]; });
-    return names.length ? names.slice(0, 2).join(" or ") : "";
-  }
-
-  // ---------- one week, day by day ----------
-  function weekDays(w){
-    var a = plan.a, L = plan.L, out = [], buddy = buddyFor(a), xt = xtName(a), i;
-    function add(i, t, s, d, tags, rest){
-      out.push({ i:i, name:DAYS[i], date:addDays(w.start, i), t:t, s:s, d:d, tags:tags || [], rest:!!rest });
-    }
-    var B = function(k){ return buddy.indexOf(k) >= 0 ? ["buddy"] : []; };
-
-    if (plan.inSport){
-      for (i = 0; i < 5; i++){
-        var extra = (i === 2 && !w.sportOff)
-          ? " No practice or a light day? Optional " + fmt(w.per) + " mi easy with 4 strides."
-          : "";
-        add(i, "Practice or game", "Practice", "Your sport is your training today. No extra running needed." + extra);
-      }
-      if (w.sportOff){
-        add(5, "Off", "Off", "No running this week. Your cross country season just ended; let your legs catch up.", [], true);
-      } else {
-        add(5, "Easy run", "Easy " + fmt(w.per) + " + strides",
-          fmt(w.per) + " mi easy, then 4 × 100m strides. If you have a game or tournament today, skip it.", B("long"));
-      }
-      add(6, "Rest", "Rest", "Full rest. One day a week with nothing on it.", [], true);
-      return out;
-    }
-
-    if (w.phase === "recharge"){
-      var R1 = [
-        ["Off", "No running this week. That is the assignment."],
-        ["Off", "Catch up on sleep and schoolwork."],
-        ["Off, or play", "Something fun that isn't running: open gym, a hike, sledding."],
-        ["Off", "Still off. You are not losing anything that matters."],
-        ["Off", "Eat well, sleep in tomorrow."],
-        ["Play", "Do something active with friends that is not running."],
-        ["Off", "Write down two things that went well this fall and one thing to work on."]
-      ];
-      var R2 = [
-        ["Off", "One more easy week."],
-        ["Optional jog", "15–20 minutes very easy, only if you want to."],
-        ["Learn the strength routine", "One easy round of the early-weeks column. Perfect form, no rush."],
-        ["Optional jog", "15–20 minutes very easy, only if you want to."],
-        ["Off", "Rest up."],
-        ["Play", "Something active with friends."],
-        ["Off", "Real training starts tomorrow. Lay out your gear."]
-      ];
-      (w.second ? R2 : R1).forEach(function(r, j){
-        var tags = [];
-        if (w.second && j === 2){ tags.push("strength"); if (buddy.indexOf("strength") >= 0) tags.push("buddy"); }
-        if (j === 5 && buddy.length) tags.push("buddy");
-        add(j, r[0], r[0], r[1], tags, r[0] === "Off");
-      });
-      return out;
-    }
-
-    var T = TEMPLATES[plan.D], per = fmt(w.per);
-    T.roles.forEach(function(role, j){
-      var t, s, d, tags = [], rest = false;
-      if (role === "qual" && !w.q) role = "easyS";
-      if (role === "easyS" && !w.strides) role = "easy";
-
-      if (role === "easy"){
-        t = "Easy run"; s = "Easy " + per;
-        d = per + " mi easy. Full sentences the whole way.";
-      } else if (role === "easyS"){
-        t = "Easy run + strides"; s = "Easy " + per + " + strides";
-        d = per + " mi easy, then 4 × 100m strides: fast, relaxed, full walk-back recovery.";
-      } else if (role === "qual"){
-        var q = quality(w.q, L.i, per);
-        t = q.t; s = q.s; d = q.d; tags = tags.concat(B("workout"));
-      } else if (role === "long"){
-        t = "Long run"; s = "Long run " + fmt(w.long);
-        d = fmt(w.long) + " mi at easy effort. The most valuable run of your week. If you finish wrecked, it was too fast, not too far.";
-        tags = tags.concat(B("long"));
-      } else if (role === "off"){
-        if (xt){
-          t = "Cross-train or rest"; s = "Cross-train 30 min or rest";
-          d = "30–40 minutes easy on the " + xt + ", at the same conversational effort as an easy run. Or take the day off.";
-        } else {
-          t = "Rest"; s = "Rest"; d = "Rest day. A walk is fine."; rest = true;
-        }
-      } else {
-        t = "Rest"; s = "Rest"; d = "Full rest. This is when the training sinks in."; rest = true;
-      }
-      if (T.str.indexOf(j) >= 0){
-        tags.push("strength");
-        if (buddy.indexOf("strength") >= 0 && tags.indexOf("buddy") < 0) tags.push("buddy");
-        s += " + strength";
-        d += " Strength routine afterward.";
-      }
-      add(j, t, s, d, tags, rest);
-    });
-    return out;
-  }
-
-  function whyWeek(w){
-    if (plan.inSport){
-      return w.sportOff
-        ? "One season just ended and another is starting. No extra running at all this week."
-        : "Your sport is your training. One or two short, easy runs keep the feel for running without piling a second season on top of the first.";
-    }
-    if (w.phase === "recharge"){
-      return w.second
-        ? "Still resting. A short jog or two if you miss it, and a first look at the strength routine. Nothing this week should feel like training."
-        : "No running this week, on purpose. Your bones, tendons, and head all need the break more than your lungs do. You'll lose a little fitness and get all of it back.";
-    }
-    if (w.phase === "rebuild"){
-      return w.first
-        ? "Back to running. Everything is easy, and nothing should feel like work yet. Finish every run feeling like you could have kept going."
-        : "Still rebuilding. A few more miles than last week, all of them easy, with strides back in to wake your legs up.";
-    }
-    if (w.kind === "cut"){
-      return "A lighter week on purpose. This is where the last few weeks turn into fitness. No workout, just easy miles and strides. Don't add to it because you feel good.";
-    }
-    if (w.kind === "peak"){
-      return "Your biggest week of the winter. Sleep, eat, and keep the easy days honestly easy. Everything else this week depends on that.";
-    }
-    if (w.phase === "base"){
-      return "Base building. Mostly easy miles, one light quality session, and a long run. Add distance to the easy days first.";
-    }
-    return w.last
-      ? "Last week of the plan, and a little lighter so you finish fresh. Take a day or two easy afterward, then you're ready for whatever spring brings."
-      : "Bridge to spring. Mileage levels off and the quality session gets a bit more focused, so the first week of the next season isn't a shock.";
-  }
-
-  var KINDLABEL = { recharge:"Recharge", rebuild:"Rebuild", base:"Base", cut:"Lighter week", peak:"Biggest week",
-                    bridge:"Bridge to spring", maintain:"In season" };
-
-  // ---------- personal cards ----------
-  function fuelCard(a){
-    var out = [];
-    if (a.runTime === "before"){
-      out.push(["Morning runs:", "eat something small first (half a banana, a piece of toast, a few sips of juice), then a real breakfast with protein right after. Running on empty every morning adds up."]);
-    } else if (a.runTime === "evening"){
-      out.push(["Evening runs:", "give dinner two to three hours to settle, or run first and eat after. Have a snack with protein before bed, like cereal and milk, yogurt, or a sandwich, so you recover overnight."]);
-    } else {
-      out.push(["After-school runs:", "lunch was hours ago. Eat a carbohydrate snack around last period, like a granola bar, banana, pretzels, or a bagel, and have dinner or a real snack within an hour of finishing."]);
-    }
-    if (a.sport === "yes"){
-      out.push(["Practice plus a run:", "on days with both, eat like it's a hard day. Half your plate grains and starches, plus a snack between school and practice."]);
-    }
-    out.push(["Build your plate to the day:", "easy or rest day, half fruits and vegetables. Long run or workout day, half grains and starches. Protein on the plate every time."]);
-    out.push(["Protein at every meal:", "a palm-sized portion, spread across the day, instead of one big serving at dinner."]);
-    if (a.diet === "veg"){
-      out.push(["No meat:", "beans, lentils, tofu, eggs, and fortified cereal for iron and protein, with vitamin C at the same meal. Fully vegan? You need a reliable source of B12. Ask your doctor about checking iron and vitamin D."]);
-    } else if (a.diet === "nodairy"){
-      out.push(["No dairy:", "fortified soy or oat milk, calcium-set tofu, and canned salmon for calcium and vitamin D. Check labels and aim for about 1,300 mg of calcium a day."]);
-    } else {
-      out.push(["Bone and blood:", "about four servings of milk, yogurt, or cheese a day for calcium; iron-rich foods like red meat, beans, and fortified cereal most days; and vitamin D from food, because the winter sun here can't make it for you."]);
-    }
-    out.push(["Drink through the day:", "keep a water bottle at school. Cold air hides thirst."]);
-    out.push(["Never diet in the off-season:", "tired or cold all the time, missed periods, or one injury after another means tell a coach, parent, or doctor."]);
-    return out;
-  }
-
-  function dayOf(role){
-    var T = TEMPLATES[plan.D];
-    if (!T) return "";
-    return DAYFULL[T.roles.indexOf(role)];
-  }
-  function strengthDays(){
-    var T = TEMPLATES[plan.D];
-    if (!T) return "";
-    return T.str.map(function(i){ return DAYFULL[i]; }).join(" and ");
-  }
-
-  function teamCard(a){
-    var out = [];
-    if (a.partners === "solo"){
-      out.push(["Flying solo:", "that works. Before every run, tell someone your route and when you'll be back."]);
-      out.push(["Stay connected:", "text a teammate when you finish, or log it on Strava. Knowing someone will notice makes it easier to get out the door."]);
-      out.push(["Leave the door open:", "one shared run a month still helps. The invite further down this page is ready when you are."]);
-      return out;
-    }
-    var who = a.partners === "group" ? "your group" : "your teammate";
-    if (plan.inSport){
-      out.push(["Weekend easy run:", "meet " + who + " on Saturday when there's no game. Easy pace, strides after."]);
-    } else {
-      if (a.buddy.indexOf("long") >= 0){
-        out.push(["Long run:", "Saturdays with " + who + ". Same time and place every week, at an easy pace for the slowest runner."]);
-      }
-      if (a.buddy.indexOf("workout") >= 0){
-        out.push(["Quality day:", dayOf("qual") + "s with " + who + ". Warm up and cool down together even if you split up for the fast parts."]);
-      }
-      if (a.buddy.indexOf("strength") >= 0){
-        out.push(["Strength:", strengthDays() + " with " + who + ". Watch each other's form and count reps out loud."]);
-      }
-      if (!a.buddy.length){
-        out.push(["Pick one:", "choose one run a week to share with " + who + ". The long run is the easiest place to start."]);
-      }
-    }
-    out.push(["Different paces?", "Run out and back. Everyone goes out for half their time, then turns around, so you start and finish together."]);
-    if (a.partners === "group"){
-      out.push(["Keep it simple:", "one person sends the time and place each week. Rotate who that is."]);
-    }
-    out.push(["Can't meet up?", "Text each other when you're done. That still counts."]);
-    return out;
-  }
-
-  function inviteText(){
-    var url = /^https?:/.test(location.protocol) ? location.href.split("#")[0].split("?")[0] : SITE;
-    var what = "some runs";
-    if (plan && !plan.inSport){
-      var b = buddyFor(plan.a), bits = [];
-      if (b.indexOf("long") >= 0) bits.push("Saturday long runs");
-      if (b.indexOf("workout") >= 0) bits.push("the " + dayOf("qual") + " workout");
-      if (b.indexOf("strength") >= 0) bits.push("strength days");
-      if (bits.length) what = bits.length > 1 ? bits.slice(0, -1).join(", ") + " and " + bits[bits.length - 1] : bits[0];
-    } else if (plan && plan.inSport){
-      what = "an easy run on Saturdays";
-    }
-    var when = plan ? " starting " + shortDate(plan.start) : "";
-    return "Hey! I'm doing the Little Chute winter training plan" + when + ". Want to do " + what +
-      " together? It takes two minutes to build yours: " + url;
-  }
-
-  // ---------- wizard ----------
-  var STEPS = [
-    { title:"About you", sub:"So the plan starts where you actually are.", qs:[
-      { key:"name", type:"text", label:"First name", hint:"Optional. It goes at the top of your PDF.", ph:"Your first name" },
-      { key:"level", type:"single", label:"Which sounds most like your fall?", hint:"When it's close, pick the smaller one.", opts:[
-        { v:"starter",  b:"Starter",  s:"New to running, or my weeks were under 15 miles" },
-        { v:"builder",  b:"Builder",  s:"I ran about 15–25 miles a week" },
-        { v:"varsity",  b:"Varsity",  s:"I ran about 25–35 miles a week" },
-        { v:"advanced", b:"Advanced", s:"35 or more miles a week, with a few years behind me" }
-      ]},
-      { key:"state", type:"single", label:"Where are you right now?", opts:[
-        { v:"ended",   b:"Season just ended",  s:"I haven't taken a real break yet" },
-        { v:"rested",  b:"I've had my break",  s:"Not running much at the moment" },
-        { v:"running", b:"Already running",    s:"A few easy runs a week for the last few weeks" }
-      ]}
-    ]},
-    { title:"Your winter", sub:"A winter sport changes the plan, in a good way.", qs:[
-      { key:"sport", type:"single", label:"Are you playing a winter sport?", opts:[
-        { v:"no",  b:"No, running is my focus", s:"I can follow a running plan all winter" },
-        { v:"yes", b:"Yes, I'm in a winter sport", s:"Basketball, wrestling, hockey, swimming, skiing, dance..." }
-      ]},
-      { key:"weeks", type:"single", tight:true, label:"How many weeks until your next season starts?", hint:"Count from when you'll start this plan to the first spring practice. Twelve is a good default.", opts:[
-        { v:"8", b:"8 weeks" }, { v:"12", b:"12 weeks" }, { v:"16", b:"16 weeks" }
-      ]},
-      { key:"start", type:"date", label:"When does week 1 start?", hint:"Weeks run Monday to Sunday. Pick any day and the plan starts on that week's Monday." }
-    ]},
-    { title:"Your week", sub:"Be honest about your schedule. A plan you can actually follow beats a bigger one you can't.", qs:[
-      { key:"days", type:"single", tight:true, label:"How many days a week can you run?", hint:"School, a job, family: count the days that really work.",
-        show:function(a){ return a.sport !== "yes"; },
-        opts:function(a){
-          var max = a.level ? LEVELS[a.level].maxDays : 6, o = [];
-          for (var d = 3; d <= max; d++) o.push({ v:String(d), b:d + " days" });
-          return o;
-        }},
-      { key:"where", type:"single", label:"Where will you run?", opts:[
-        { v:"out",  b:"Outside", s:"Roads, trails, the track if it's clear" },
-        { v:"mill", b:"Treadmill", s:"At home, school, or a gym" },
-        { v:"both", b:"A mix", s:"Outside when I can, inside when I can't" }
-      ]},
-      { key:"xt", type:"multi", label:"Anything you can cross-train on?", hint:"Pick any that apply, or none. These fill your non-running days.", opts:[
-        { v:"bike",  b:"Bike or trainer" },
-        { v:"pool",  b:"Pool" },
-        { v:"ski",   b:"Skis or snowshoes" },
-        { v:"court", b:"Open gym" }
-      ]},
-      { key:"gym", type:"single", label:"Where will you do strength work?", opts:[
-        { v:"home", b:"At home", s:"Bodyweight and a backpack" },
-        { v:"room", b:"Weight room", s:"School or a gym, with someone to teach the lifts" }
-      ]}
-    ]},
-    { title:"Your people", sub:"Winter running sticks better with company. Even one shared run a week helps.", qs:[
-      { key:"partners", type:"single", label:"Who could you train with?", opts:[
-        { v:"some",  b:"A teammate or two", s:"I can think of someone to ask" },
-        { v:"group", b:"A group", s:"Several of us want to do this together" },
-        { v:"solo",  b:"Mostly on my own", s:"That's what works for me right now" }
-      ]},
-      { key:"buddy", type:"multi", label:"Which sessions would you share?", hint:"Pick any. Your plan will mark these days.",
-        show:function(a){ return a.partners !== "solo" && a.sport !== "yes"; },
-        opts:[
-          { v:"long",     b:"Long run", s:"The easiest one to share" },
-          { v:"workout",  b:"Quality day", s:"Fartleks, hills, tempo" },
-          { v:"strength", b:"Strength", s:"A partner to check form" }
-        ]}
-    ]},
-    { title:"Your fuel", sub:"Last step. This shapes the nutrition card in your plan.", qs:[
-      { key:"runTime", type:"single", label:"When will you usually train?", opts:[
-        { v:"before",  b:"Before school" },
-        { v:"after",   b:"After school" },
-        { v:"evening", b:"In the evening" }
-      ]},
-      { key:"diet", type:"single", label:"Anything about how you eat we should know?", opts:[
-        { v:"all",     b:"I eat pretty much everything" },
-        { v:"veg",     b:"Vegetarian or vegan" },
-        { v:"nodairy", b:"No dairy" }
-      ]}
-    ]}
-  ];
-
-  function renderStep(focusKey, focusVal){
-    var S = STEPS[step];
-    var dots = $("wizSteps"); dots.innerHTML = "";
-    STEPS.forEach(function(_, i){
-      var d = document.createElement("i");
-      d.className = i < step ? "done" : (i === step ? "on" : "");
-      dots.appendChild(d);
-    });
-    $("wizCount").textContent = "Step " + (step + 1) + " of " + STEPS.length;
-    $("wizTitle").textContent = S.title;
-    $("wizSub").textContent = S.sub;
-    $("wizErr").setAttribute("hidden", "");
-
-    var box = $("wizQs"); box.innerHTML = "";
-    S.qs.forEach(function(q){
-      if (q.show && !q.show(A)) return;
-      var wrap = document.createElement("div"); wrap.className = "q";
-      var lab = document.createElement(q.type === "text" || q.type === "date" ? "label" : "p");
-      lab.className = "q-label"; lab.textContent = q.label;
-      wrap.appendChild(lab);
-      if (q.hint){
-        var h = document.createElement("p"); h.className = "q-hint"; h.textContent = q.hint; wrap.appendChild(h);
-      }
-      if (q.type === "text" || q.type === "date"){
-        var inp = document.createElement("input");
-        inp.type = q.type; inp.id = "q_" + q.key; lab.setAttribute("for", inp.id);
-        inp.value = A[q.key] || "";
-        if (q.ph) inp.placeholder = q.ph;
-        if (q.type === "text"){ inp.maxLength = 30; inp.autocomplete = "given-name"; }
-        inp.addEventListener("input", function(){ A[q.key] = inp.value; save(); });
-        wrap.appendChild(inp);
-      } else {
-        var opts = typeof q.opts === "function" ? q.opts(A) : q.opts;
-        var g = document.createElement("div");
-        g.className = "opts" + (q.tight ? " tight" : "");
-        g.setAttribute("role", "group"); g.setAttribute("aria-label", q.label);
-        opts.forEach(function(o){
-          var b = document.createElement("button");
-          b.type = "button"; b.className = "opt";
-          b.dataset.key = q.key; b.dataset.val = o.v;
-          var on = q.type === "multi" ? A[q.key].indexOf(o.v) >= 0 : String(A[q.key]) === o.v;
-          b.setAttribute("aria-pressed", on ? "true" : "false");
-          b.innerHTML = "<b>" + esc(o.b) + "</b>" + (o.s ? "<span>" + esc(o.s) + "</span>" : "");
-          b.addEventListener("click", function(){
-            if (q.type === "multi"){
-              var at = A[q.key].indexOf(o.v);
-              if (at >= 0) A[q.key].splice(at, 1); else A[q.key].push(o.v);
-            } else {
-              A[q.key] = o.v;
-              if (q.key === "level"){
-                var L = LEVELS[o.v];
-                if (!A.days || +A.days > L.maxDays || !A.daysTouched) A.days = String(L.days);
-              }
-              if (q.key === "days") A.daysTouched = true;
-            }
-            save();
-            renderStep(q.key, o.v);
-          });
-          g.appendChild(b);
-        });
-        wrap.appendChild(g);
-      }
-      box.appendChild(wrap);
-    });
-
-    $("wizBack").hidden = step === 0;
-    $("wizNext").textContent = step === STEPS.length - 1 ? "Build my plan" : "Next";
-
-    if (focusKey){
-      var again = box.querySelector('.opt[data-key="' + focusKey + '"][data-val="' + focusVal + '"]');
-      if (again) again.focus();
-    }
-  }
-
-  function validate(){
-    if (step === 0){
-      if (!A.level) return "Pick the option that sounds most like your fall.";
-      if (!A.state) return "Tell us where you are right now.";
-    }
-    if (step === 1 && !parseDate(A.start)) return "Pick a start date for week 1.";
-    return "";
-  }
-
-  $("wizNext").addEventListener("click", function(){
-    var err = validate();
-    if (err){
-      var e = $("wizErr"); e.textContent = err; e.removeAttribute("hidden");
-      return;
-    }
-    if (step < STEPS.length - 1){
-      step++; renderStep(); $("wizTitle").focus();
-      $("build").scrollIntoView({ block:"start" });
-    } else {
-      finish(true);
-    }
-  });
-  $("wizBack").addEventListener("click", function(){
-    if (step > 0){ step--; renderStep(); $("wizTitle").focus(); }
-  });
-
-  function finish(scroll){
-    if (!A.days) A.days = String(LEVELS[A.level].days);
-    plan = buildPlan(A);
-    A.built = true; save();
-    sel = currentWeekIndex();
-    gymView = A.gym;
-    $("build").setAttribute("hidden", "");
-    $("build").style.display = "none";
-    $("plan").removeAttribute("hidden");
-    renderPlan();
-    renderStrength();
-    $("inviteText").value = inviteText();
-    if (scroll){
-      $("plan").scrollIntoView({ block:"start" });
-      $("planTitle").setAttribute("tabindex", "-1"); $("planTitle").focus({ preventScroll:true });
-    }
-  }
-
-  function currentWeekIndex(){
-    var now = new Date(); now.setHours(12, 0, 0, 0);
-    var diff = Math.floor((now - plan.start) / (7 * 864e5));
-    return diff >= 0 && diff < plan.weeks.length ? diff : 0;
-  }
-
-  // ---------- plan rendering ----------
-  var SVG_NS = "http://www.w3.org/2000/svg";
-  function el(name, attrs){
-    var n = document.createElementNS(SVG_NS, name);
-    for (var k in attrs){ n.setAttribute(k, attrs[k]); }
-    return n;
-  }
-
-  function drawChart(){
-    var svg = $("pChart");
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var weeks = plan.weeks, n = weeks.length;
-    var avail = (svg.parentNode && svg.parentNode.clientWidth) || 0;
-    var W = Math.max(320, Math.min(1120, avail ? avail - 16 : 660));
-    var H = 190, padX = 6, top = 36, bottom = 164;
-    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
-    var max = Math.max(1, plan.peak);
-    var stepW = (W - padX * 2) / n, bw = Math.min(46, stepW * 0.62);
-
-    svg.appendChild(el("line", { x1:padX, y1:bottom, x2:W - padX, y2:bottom, stroke:"#D8E3EC", "stroke-width":1 }));
-    weeks.forEach(function(w, i){
-      var cx = padX + stepW * (i + 0.5), on = i === sel;
-      var h = w.m > 0 ? Math.max(8, (w.m / max) * (bottom - top)) : 5;
-      var color = w.kind === "cut" ? "#5CB3DE" : PHASES[w.phase].color;
-      if (on) svg.appendChild(el("rect", { x:cx - stepW / 2 + 1, y:6, width:stepW - 2, height:bottom - 6, rx:8, fill:"#2277B0", "fill-opacity":".07" }));
-      svg.appendChild(el("rect", { x:cx - bw / 2, y:bottom - h, width:bw, height:h, rx:Math.min(5, h / 2), fill:color, "fill-opacity": on ? 1 : .62 }));
-      var t = el("text", {
-        x:cx, y:bottom - h - 8, "text-anchor":"middle",
-        "font-family":"Archivo, Helvetica Neue, Arial, sans-serif",
-        "font-size": on ? (stepW < 30 ? 14 : 17) : (stepW < 30 ? 8.5 : 12), "font-weight": on ? 800 : 600,
-        fill: on ? "#17456F" : "#8497A8"
-      });
-      t.textContent = w.m > 0 ? fmt(w.m) : "off";
-      svg.appendChild(t);
-      var hit = el("rect", { x:cx - stepW / 2, y:0, width:stepW, height:H, fill:"transparent", style:"cursor:pointer" });
-      hit.addEventListener("click", function(){ sel = i; renderPlan(); });
-      svg.appendChild(hit);
-    });
-
-    var px = $("pX"); px.innerHTML = "";
-    px.style.gridTemplateColumns = "repeat(" + n + ",1fr)";
-    weeks.forEach(function(_, i){
-      var s = document.createElement("span");
-      s.textContent = (n > 12 ? "" : "W") + (i + 1);
-      if (i === sel) s.className = "on";
-      px.appendChild(s);
-    });
-  }
-
-  function renderPlan(){
-    var a = plan.a, weeks = plan.weeks, w = weeks[sel];
-    var nm = a.name.trim();
-    $("planTitle").textContent = nm ? nm + "'s winter plan" : "Your winter plan";
-    $("planLede").textContent = plan.inSport
-      ? "Built around your winter sport: practices and games do the heavy lifting, with a little easy running to keep the feel. Tap any week to see it day by day."
-      : "Rest first, rebuild easy, then build a base with one light quality day a week. Tap any week to see it day by day.";
-
-    $("pBig").textContent = fmt(plan.peak);
-    $("pBigCap").textContent = plan.inSport ? "Easy miles a week" : "Miles in your biggest week";
-    $("pMeta").innerHTML =
-      "<b>" + esc(plan.L.label) + "</b> &middot; " + weeks.length + " weeks<br>" +
-      "<b>" + shortDate(plan.start) + "</b> to <b>" + shortDate(plan.end) + "</b><br>" +
-      (plan.inSport ? "Your sport, plus <b>1–2 easy runs</b>" : "Running <b>" + plan.D + " days</b> a week") +
-      " &middot; strength <b>" + (plan.inSport ? "with your team" : "2 days") + "</b>";
-
-    drawChart();
-
-    var used = {}; weeks.forEach(function(x){ used[x.phase] = 1; });
-    $("pLegend").innerHTML = ["recharge","rebuild","base","bridge","maintain"].filter(function(k){ return used[k]; })
-      .map(function(k){ return '<span><i style="background:' + PHASES[k].color + '"></i>' + PHASES[k].label + "</span>"; }).join("") +
-      (weeks.some(function(x){ return x.kind === "cut"; }) ? '<span><i style="background:#5CB3DE;outline:1.5px solid #2277B0;outline-offset:1px"></i>Lighter week</span>' : "");
-
-    $("pWeek").textContent = "Week " + w.n + " of " + weeks.length + " · " + shortDate(w.start) + " to " + shortDate(addDays(w.start, 6));
-    var tag = $("pTag");
-    tag.className = "tag " + (w.kind === "cut" ? "rebuild" : w.kind === "peak" ? "bridge" : w.phase);
-    tag.textContent = KINDLABEL[w.kind];
-    $("pMiles").innerHTML = w.m > 0 ? fmt(w.m) + "<small>mi</small>" : "Off";
-    $("pLong").innerHTML = w.long > 0 ? fmt(w.long) + "<small>mi</small>" : "—";
-    $("pKey").textContent = w.key;
-    $("pWhy").textContent = whyWeek(w);
-
-    var list = $("pDays"); list.innerHTML = "";
-    weekDays(w).forEach(function(d){
-      var li = document.createElement("li");
-      if (d.rest) li.className = "restday";
-      var chips = d.tags.map(function(t){
-        return t === "buddy" ? '<span class="chip buddy">With a teammate</span>' : '<span class="chip strength">Strength</span>';
-      }).join("");
-      li.innerHTML =
-        '<div class="dn">' + d.name + "<small>" + shortDate(d.date) + "</small></div>" +
-        '<div><p class="dt">' + esc(d.t) + '</p><p class="dd">' + esc(d.d) + "</p>" + chips + "</div>";
-      list.appendChild(li);
-    });
-    $("pPrev").disabled = sel === 0;
-    $("pNext").disabled = sel === weeks.length - 1;
-
-    var tb = $("pTbody"); tb.innerHTML = "";
-    weeks.forEach(function(x, i){
-      var tr = document.createElement("tr");
-      if (i === sel) tr.className = "on";
-      tr.innerHTML =
-        '<td class="wk">Week ' + x.n + "</td>" +
-        "<td>" + shortDate(x.start) + "</td>" +
-        '<td class="note">' + KINDLABEL[x.kind] + "</td>" +
-        '<td class="mi">' + (x.m > 0 ? fmt(x.m) : "Off") + "</td>" +
-        "<td>" + (x.long > 0 ? fmt(x.long) + " mi" : "—") + "</td>" +
-        "<td>" + esc(x.key) + "</td>";
-      tr.addEventListener("click", function(){
-        sel = i; renderPlan();
-        $("pDetail").scrollIntoView({ block:"nearest" });
-      });
-      tb.appendChild(tr);
-    });
-
-    function fill(id, rows){
-      $(id).innerHTML = rows.map(function(r){ return "<li><strong>" + esc(r[0]) + "</strong> " + esc(r[1]) + "</li>"; }).join("");
-    }
-    fill("pFuel", fuelCard(a));
-    fill("pTeam", teamCard(a));
-  }
-
-  $("pPrev").addEventListener("click", function(){ if (sel > 0){ sel--; renderPlan(); } });
-  $("pNext").addEventListener("click", function(){ if (plan && sel < plan.weeks.length - 1){ sel++; renderPlan(); } });
-
-  $("editBtn").addEventListener("click", function(){
-    step = 0;
-    $("build").removeAttribute("hidden"); $("build").style.display = "";
-    renderStep();
-    $("build").scrollIntoView({ block:"start" });
-    $("wizTitle").focus({ preventScroll:true });
-  });
-  $("resetBtn").addEventListener("click", function(){
-    if (!window.confirm("Start over? This clears your answers and your plan on this device.")) return;
-    try { localStorage.removeItem(STORE); } catch(e){}
-    A = { name:"", level:null, state:null, sport:"no", weeks:"12", start:iso(nextMonday()), days:null,
-          where:"both", xt:[], gym:"home", partners:"some", buddy:["long"], runTime:"after", diet:"all" };
-    plan = null; step = 0; sel = 0;
-    $("plan").setAttribute("hidden", "");
-    $("build").removeAttribute("hidden"); $("build").style.display = "";
-    renderStep();
-    $("inviteText").value = inviteText();
-    $("build").scrollIntoView({ block:"start" });
-  });
-
-  // ---------- strength ----------
-  var STRENGTH = {
-    home: {
-      rows: [
-        ["Squat", "Sit back and down, stand up tall", "2 × 10, bodyweight", "3 × 8 each leg as a split squat, back foot on a chair"],
-        ["Reverse lunge", "Step back, front knee tracks over your foot", "2 × 8 each leg", "3 × 10 each leg, wearing a loaded backpack"],
-        ["Glute bridge", "Squeeze at the top for two seconds", "2 × 12", "3 × 8 each leg, one leg at a time"],
-        ["Single-leg deadlift", "Hinge at the hip with a flat back and reach for the floor", "2 × 6 each leg", "3 × 8 each leg, holding a backpack"],
-        ["Calf raise", "On a stair, slow on the way down", "2 × 15, both legs", "3 × 12 each leg, one leg at a time"],
-        ["Side plank", "Straight line from ear to ankle", "2 × 20 sec each side", "3 × 30 sec each side, top leg lifted"],
-        ["Dead bug", "Low back stays pressed into the floor", "2 × 8 each side", "3 × 10 each side, slower"],
-        ["Pogo hops", "Quick and springy, stiff ankles", "Skip these for now", "2 × 15, then 2 × 6 squat jumps"]
-      ],
-      note: "<strong>How hard should it be?</strong> Finish every set knowing you could have done two or three more good reps. If your form changes, the set is over. The single-leg versions in the second column are the ones that matter most for runners, so earn your way there."
-    },
-    room: {
-      rows: [
-        ["Goblet squat", "One dumbbell held at your chest", "2 × 10, light", "3 × 6–8, heavier"],
-        ["Romanian deadlift", "Dumbbells, hinge at the hip, flat back", "2 × 10, light", "3 × 8"],
-        ["Split squat", "Dumbbells at your sides", "2 × 8 each leg", "3 × 8 each leg, back foot on a bench"],
-        ["Step-up", "Knee-high box, drive up, lower slowly", "2 × 8 each leg", "3 × 8 each leg, holding dumbbells"],
-        ["Calf raise", "Slow on the way down", "2 × 15, both legs", "3 × 10 each leg, holding a dumbbell"],
-        ["Pull-up or row", "Assisted pull-up, or a dumbbell row", "2 × 8", "3 × 8"],
-        ["Side plank", "Straight line from ear to ankle", "2 × 20 sec each side", "3 × 30 sec each side"],
-        ["Box jump", "Land soft and quiet, step down", "Skip these for now", "3 × 5 on a low box"]
-      ],
-      note: "<strong>Weight room rules.</strong> Learn every lift from a coach before you add weight to it. Technique first, load second. Finish each set with two or three good reps left, never max out, and never lift alone. Barbell squats and deadlifts are great later on, once a coach has taught you and says you're ready."
-    }
-  };
-
-  function renderStrength(){
-    var S = STRENGTH[gymView];
-    $("sBody").innerHTML = S.rows.map(function(r){
-      return '<tr><td class="ex">' + esc(r[0]) + "<small>" + esc(r[1]) + "</small></td><td>" + esc(r[2]) + "</td><td>" + esc(r[3]) + "</td></tr>";
-    }).join("");
-    $("sNote").innerHTML = S.note;
-    Array.prototype.forEach.call(document.querySelectorAll(".seg button"), function(b){
-      b.setAttribute("aria-pressed", b.dataset.gym === gymView ? "true" : "false");
-    });
-  }
-  Array.prototype.forEach.call(document.querySelectorAll(".seg button"), function(b){
-    b.addEventListener("click", function(){ gymView = b.dataset.gym; renderStrength(); });
-  });
-
-  // ---------- invite ----------
-  function say(id, msg){
-    var m = $(id); m.textContent = msg; m.removeAttribute("hidden");
-    clearTimeout(m._t); m._t = setTimeout(function(){ m.setAttribute("hidden", ""); }, 6000);
-  }
-  function copyInvite(){
-    var ta = $("inviteText");
-    function fallback(){
-      ta.focus(); ta.select();
-      var ok = false;
-      try { ok = document.execCommand("copy"); } catch(e){}
-      say("shareMsg", ok ? "Copied. Paste it into a text or group chat." : "Select the message and copy it, then paste it into a text.");
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(ta.value).then(function(){
-        say("shareMsg", "Copied. Paste it into a text or group chat.");
-      }, fallback);
-    } else { fallback(); }
-  }
-  $("copyBtn").addEventListener("click", copyInvite);
-  $("shareBtn").addEventListener("click", function(){
-    if (navigator.share){
-      navigator.share({ text:$("inviteText").value }).catch(function(){});
-    } else { copyInvite(); }
-  });
-
-  // ---------- storage ----------
-  function save(){
-    try { localStorage.setItem(STORE, JSON.stringify(A)); } catch(e){}
-  }
-  function load(){
-    try {
-      var raw = localStorage.getItem(STORE);
-      if (!raw) return;
-      var o = JSON.parse(raw);
-      if (!o || typeof o !== "object") return;
-      Object.keys(A).concat(["built","daysTouched"]).forEach(function(k){
-        if (o[k] !== undefined && o[k] !== null) A[k] = o[k];
-      });
-      if (!Array.isArray(A.xt)) A.xt = [];
-      if (!Array.isArray(A.buddy)) A.buddy = ["long"];
-      if (typeof A.name !== "string") A.name = "";
-      if (!LEVELS[A.level]){ A.level = null; A.built = false; }
-      if (["ended","rested","running"].indexOf(A.state) < 0){ A.state = null; A.built = false; }
-      if (["8","12","16"].indexOf(String(A.weeks)) < 0) A.weeks = "12";
-      if (!parseDate(A.start)) A.start = iso(nextMonday());
-    } catch(e){}
-  }
-
-  // ---------- PDF ----------
-  var pdfLoading = null;
-  function loadScript(src){
-    return new Promise(function(res, rej){
-      var s = document.createElement("script");
-      s.src = src; s.onload = res; s.onerror = function(){ rej(new Error("load " + src)); };
-      document.head.appendChild(s);
-    });
-  }
-  function ensurePdf(){
-    if (window.jspdf && window.jspdf.jsPDF && window.jspdf.jsPDF.API.autoTable) return Promise.resolve();
-    if (!pdfLoading){
-      pdfLoading = loadScript("vendor/jspdf.umd.min.js")
-        .then(function(){ return loadScript("vendor/jspdf.plugin.autotable.min.js"); })
-        .catch(function(e){ pdfLoading = null; throw e; });
-    }
-    return pdfLoading;
-  }
-
-  // the built-in PDF fonts only cover basic Latin, so keep the text inside it
-  function P(s){
-    return String(s)
-      .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
-      .replace(/[–—]/g, "-").replace(/×/g, "x").replace(/·/g, "-")
-      .replace(/−/g, "-").replace(/[^\x20-\x7E -ÿ]/g, "");
-  }
-
-  function buildPdf(){
-    var J = window.jspdf.jsPDF;
-    var doc = new J({ unit:"pt", format:"letter", orientation:"portrait" });
-    var a = plan.a, weeks = plan.weeks, M = 44;
-    var NAVY = [23,69,111], INK = [16,35,58], INK2 = [74,95,118], INK3 = [132,151,168], LINE = [216,227,236], TINT = [241,246,250];
-    var y = M;
-    function PW(){ return doc.internal.pageSize.getWidth(); }
-    function PH(){ return doc.internal.pageSize.getHeight(); }
-    function need(h){ if (y + h > PH() - M - 14){ doc.addPage("letter", "portrait"); y = M; } }
-    function color(c){ doc.setTextColor(c[0], c[1], c[2]); }
-    function kicker(t){
-      doc.setFont("helvetica", "bold"); doc.setFontSize(8); color(INK3);
-      doc.text(P(t).toUpperCase(), M, y + 8, { charSpace:1.2 }); y += 18;
-    }
-    function h1(t){
-      doc.setFont("helvetica", "bold"); doc.setFontSize(24); color(NAVY);
-      doc.text(P(t), M, y + 20); y += 32;
-    }
-    function h2(t){
-      need(60);
-      doc.setFont("helvetica", "bold"); doc.setFontSize(14); color(NAVY);
-      doc.text(P(t), M, y + 12); y += 22;
-    }
-    function para(t, c){
-      doc.setFont("helvetica", "normal"); doc.setFontSize(10); color(c || INK2);
-      var lines = doc.splitTextToSize(P(t), PW() - M * 2);
-      need(lines.length * 13.5 + 6);
-      doc.text(lines, M, y + 9); y += lines.length * 13.5 + 6;
-    }
-    function bullets(rows){
-      var indent = 12, width = PW() - M * 2 - indent;
-      rows.forEach(function(r){
-        doc.setFontSize(10);
-        var lead = P(r[0]) + " ";
-        doc.setFont("helvetica", "bold");
-        var lw = doc.getTextWidth(lead);
-        doc.setFont("helvetica", "normal");
-        var lines = doc.splitTextToSize(P(r[1]), width);
-        // first line shares the row with the bold lead-in
-        var first = doc.splitTextToSize(P(r[1]), width - lw);
-        var rest = first.length > 1 ? doc.splitTextToSize(first.slice(1).join(" "), width) : [];
-        lines = rest;
-        var h = (1 + lines.length) * 13.5 + 4;
-        need(h);
-        doc.setFillColor(34, 119, 176); doc.circle(M + 3, y + 6, 1.8, "F");
-        doc.setFont("helvetica", "bold"); color(INK);
-        doc.text(lead, M + indent, y + 9);
-        doc.setFont("helvetica", "normal"); color(INK2);
-        doc.text(first[0] || "", M + indent + lw, y + 9);
-        if (lines.length) doc.text(lines, M + indent, y + 9 + 13.5);
-        y += h;
-      });
-      y += 6;
-    }
-    function table(opts){
-      var base = {
-        startY:y, margin:{ left:M, right:M, top:M, bottom:M + 10 }, theme:"grid",
-        styles:{ font:"helvetica", fontSize:9, cellPadding:{ top:5, right:6, bottom:5, left:6 }, textColor:INK, lineColor:LINE, lineWidth:.5, overflow:"linebreak", valign:"middle" },
-        headStyles:{ fillColor:NAVY, textColor:255, fontSize:7.5, fontStyle:"bold", cellPadding:{ top:5, right:6, bottom:5, left:6 } },
-        alternateRowStyles:{ fillColor:[250,252,253] }
-      };
-      for (var k in opts) base[k] = opts[k];
-      doc.autoTable(base);
-      y = doc.lastAutoTable.finalY + 18;
-    }
-
-    // ----- page 1: overview -----
-    var nm = a.name.trim();
-    kicker("Little Chute Mustangs - Cross Country");
-    h1(nm ? nm + "'s Winter Training Plan" : "Winter Training Plan");
-    doc.setFont("helvetica", "normal"); doc.setFontSize(10.5); color(INK2);
-    doc.text(P(plan.L.label + " level  |  " + weeks.length + " weeks  |  " + shortDate(plan.start) + " to " + shortDate(plan.end) + ", " + plan.end.getFullYear() +
-      "  |  " + (plan.inSport ? "winter sport + 1-2 easy runs" : plan.D + " running days a week") + (plan.inSport ? "" : "  |  strength 2 days")), M, y + 8);
-    y += 26;
-
-    para(plan.inSport
-      ? "How this plan works: during your winter sport, practices and games are your training. One or two short, easy runs a week keep the feel for running. Do not stack a full running plan on top of your season. When your sport ends, take a few easy days, then build a new plan at lc-summer-mileage.vercel.app/winter.html."
-      : "How this plan works: rest first, rebuild with easy running, then build a base with one light quality session a week and a long run. Every few weeks is lighter on purpose - that is when training turns into fitness. Nearly all of your running should be easy enough to talk in full sentences.");
-
-    table({
-      head:[["Week", "Starts", "Phase", "Miles", "Long run", "Key session", "Done"]],
-      body: weeks.map(function(w){
-        return ["Week " + w.n, shortDate(w.start), KINDLABEL[w.kind], w.m > 0 ? fmt(w.m) : "Off",
-                w.long > 0 ? fmt(w.long) + " mi" : "-", P(w.key), ""];
-      }),
-      columnStyles:{ 0:{ fontStyle:"bold", cellWidth:54 }, 1:{ cellWidth:52 }, 2:{ cellWidth:92 }, 3:{ fontStyle:"bold", textColor:NAVY, cellWidth:44 }, 4:{ cellWidth:58 }, 6:{ cellWidth:40 } },
-      didParseCell:function(d){
-        if (d.section !== "body") return;
-        var k = weeks[d.row.index].kind;
-        if (k === "cut" || k === "recharge") d.cell.styles.fillColor = [244,250,253];
-        if (k === "peak") d.cell.styles.fillColor = [232,241,248];
-      }
-    });
-    para("Snow, ice, or a treadmill day? Go by time instead of distance: multiply the miles by your normal easy pace and run that many minutes. Missed a week? Do not make it up. Pick up at the last week you finished.", INK3);
-
-    // ----- calendar (landscape) -----
-    doc.addPage("letter", "landscape"); y = M;
-    doc.setFont("helvetica", "bold"); doc.setFontSize(14); color(NAVY);
-    doc.text("Day by day", M, y + 12); y += 22;
-    doc.setFont("helvetica", "normal"); doc.setFontSize(9); color(INK2);
-    doc.text(P("Numbers are miles. Strides are 4 x 100m, fast and relaxed. * = a session to share with a teammate."), M, y + 6); y += 16;
-
-    var cal = weeks.map(function(w){
-      var row = ["Week " + w.n + "\n" + shortDate(w.start)];
-      weekDays(w).forEach(function(d){
-        row.push(P(d.s) + (d.tags.indexOf("buddy") >= 0 ? " *" : ""));
-      });
-      return row;
-    });
-    table({
-      head:[["Week"].concat(DAYFULL)],
-      body:cal,
-      styles:{ font:"helvetica", fontSize: weeks.length > 12 ? 7 : 7.6, cellPadding:{ top:3.5, right:4, bottom:3.5, left:4 }, textColor:INK, lineColor:LINE, lineWidth:.5, overflow:"linebreak", valign:"middle" },
-      columnStyles:{ 0:{ fontStyle:"bold", cellWidth:50 } },
-      didParseCell:function(d){
-        if (d.section !== "body") return;
-        var k = weeks[d.row.index].kind;
-        if (k === "cut" || k === "recharge") d.cell.styles.fillColor = [244,250,253];
-        if (k === "peak") d.cell.styles.fillColor = [232,241,248];
-        if (d.column.index > 0 && /^(Rest|Off)$/.test(d.cell.raw)) d.cell.styles.textColor = INK3;
-      }
-    });
-
-    // ----- details (portrait) -----
-    doc.addPage("letter", "portrait"); y = M;
-    h2("Your quality sessions");
-    var seen = {}, qrows = [];
-    weeks.forEach(function(w){
-      if (w.q && !seen[w.q]){
-        seen[w.q] = 1;
-        var q = quality(w.q, plan.L.i, fmt(w.per));
-        qrows.push([q.t + ":", q.g]);
-      }
-    });
-    if (qrows.length){ bullets(qrows); }
-    else { para("No workouts in this plan. Your sport provides the hard days. Keep every run easy and finish with strides."); }
-
-    h2(plan.inSport ? "Strength - if your team doesn't lift" : "Strength - 2 days a week, about 20 minutes");
-    if (plan.inSport) para("If your winter sport has its own lifting program, that is your strength work; do not add this on top. If it doesn't, do this routine once a week on a lighter day.");
-    var S = STRENGTH[a.gym] || STRENGTH.home;
-    table({
-      head:[["Exercise", "How", "Early weeks", "Once it's easy"]],
-      body:S.rows.map(function(r){ return [P(r[0]), P(r[1]), P(r[2]), P(r[3])]; }),
-      styles:{ font:"helvetica", fontSize:8.5, cellPadding:{ top:4, right:6, bottom:4, left:6 }, textColor:INK, lineColor:LINE, lineWidth:.5, overflow:"linebreak", valign:"middle" },
-      columnStyles:{ 0:{ fontStyle:"bold", cellWidth:96 }, 1:{ textColor:INK2 }, 2:{ cellWidth:108 } }
-    });
-    y -= 6;
-    para(a.gym === "room"
-      ? "Learn every lift from a coach before adding weight. Finish each set with two or three good reps left. Never max out and never lift alone."
-      : "Finish every set knowing you could have done two or three more good reps. Move to the next column only when every rep looks the same as the first.", INK3);
-
-    h2("Your fuel card");
-    bullets(fuelCard(a));
-
-    h2("Your training partners");
-    bullets(teamCard(a));
-
-    h2("Winter rules");
-    var rules = [
-      ["Cold:", "layers, no cotton, mittens. Wind chill below zero, cover all skin and shorten it, or go inside. Below about -18 F wind chill, train indoors."],
-      ["Dark and ice:", "light, reflective gear, run facing traffic, shorten your stride on anything slick."],
-      ["Sick:", "symptoms above the neck only, easy running is fine. Fever, body aches, or chest cough, rest."],
-      ["Sleep:", "eight to ten hours. It is the best recovery tool you have."],
-      ["Pain:", "sharp, in one spot, or changing your stride means stop and tell a coach."]
-    ];
-    if (a.where === "mill" || a.where === "both"){
-      rules.splice(2, 0, ["Treadmill:", "set a 1% incline and go by time and effort. For strides, speed up for 20 seconds, ease off for a minute, four times."]);
-    }
-    bullets(rules);
-
-    // ----- footers -----
-    var pages = doc.internal.getNumberOfPages();
-    for (var p = 1; p <= pages; p++){
-      doc.setPage(p);
-      doc.setFont("helvetica", "normal"); doc.setFontSize(8); color(INK3);
-      doc.text("Little Chute Cross Country - Winter training plan. General guidance, not medical advice. Your coaches have the final say.", M, PH() - 26);
-      doc.text(p + " / " + pages, PW() - M, PH() - 26, { align:"right" });
-    }
-    return doc;
-  }
-
-  function pdfName(){
-    var nm = (plan.a.name || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    return "winter-training-plan" + (nm ? "-" + nm : "") + ".pdf";
-  }
-
-  $("pdfBtn").addEventListener("click", function(){
-    var btn = $("pdfBtn");
-    if (!plan || btn.disabled) return;
-    btn.disabled = true;
-    say("pdfMsg", "Building your PDF...");
-    ensurePdf().then(function(){
-      var doc = buildPdf();
-      doc.save(pdfName());
-      say("pdfMsg", "Done. Check your downloads for " + pdfName() + ".");
-    }).catch(function(err){
-      if (window.console) console.error(err);
-      say("pdfMsg", "Couldn't build the PDF here, so the print window is opening instead. Choose “Save as PDF”.");
-      setTimeout(function(){ try { window.print(); } catch(e){} }, 400);
-    }).then(function(){ btn.disabled = false; });
-  });
-
-  // hooks for automated checks
-  window.__winter = {
-    buildPlan:buildPlan, buildPdf:function(){ return ensurePdf().then(buildPdf); },
-    getPlan:function(){ return plan; }, weekDays:function(i){ return weekDays(plan.weeks[i]); }
-  };
-
-  // ---------- go ----------
-  var resizeTimer;
-  window.addEventListener("resize", function(){
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function(){ if (plan) drawChart(); }, 160);
-  });
-
-  load();
-  renderStep();
-  renderStrength();
-  $("inviteText").value = inviteText();
-  if (A.built && A.level && A.state){
-    try { finish(false); } catch(e){ if (window.console) console.error(e); }
-  }
-})();
-</script>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <img src="img/lc-logo-sm.png" alt="Little Chute LC logo" width="240" height="198">
+      <div><b>Little Chute Cross Country</b>Mustangs. Rest, rebuild, get strong, race together.<br>Your coaches have the final say on training. This site is general guidance, not medical advice.</div>
+    </div>
+    <div>
+      <h4>The year</h4>
+      <ul>
+        <li><a href="fall.html">Fall season hub</a></li>
+        <li><a href="winter.html">Winter training plan</a></li>
+        <li><a href="summer.html">Summer mileage</a></li>
+        <li><a href="why.html">The Why: our science library</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>For families</h4>
+      <ul>
+        <li><a href="fall.html#calendar">Season calendar</a></li>
+        <li><a href="fall.html#meets">Meet information</a></li>
+        <li><a href="fall.html#parents">New to cross country?</a></li>
+        <li><a href="fall.html#contacts">Coaches and contacts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">Little Chute Cross Country &middot; Go Mustangs</div>
+</footer>
+
+<nav class="tabs" aria-label="Main"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Home</a><a href="fall.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Fall</a><a href="summer.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Summer</a><a href="winter.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5"/></svg>Winter</a><a href="why.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/><path d="M9 8h6M9 12h4"/></svg>The Why</a></nav>
+
+<script src="js/site.js"></script>
+<script src="js/winter.js"></script>
 </body>
 </html>

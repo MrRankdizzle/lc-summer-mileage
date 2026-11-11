@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#16244A">
+<title>Fall Season — Little Chute Cross Country</title>
+<meta name="description" content="The Little Chute cross country season hub: calendar, meets, fundraising, and everything athletes and parents need.">
+<meta property="og:title" content="Fall Season — Little Chute Cross Country">
+<meta property="og:description" content="The Little Chute cross country season hub: calendar, meets, fundraising, and everything athletes and parents need.">
+<meta property="og:image" content="https://lc-summer-mileage.vercel.app/img/share.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="fall">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Little Chute Cross Country home">
+      <img src="img/lc-logo-sm.png" alt="" width="240" height="198">
+      <span class="brand-t"><b>Little Chute</b><i>Cross Country</i></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="fall.html" aria-current="page">Fall Season</a><a href="summer.html">Summer</a><a href="winter.html">Winter</a><a href="why.html">The Why</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero hero--slim" id="hero">
+  <div class="hero-photo" id="heroPhoto" hidden></div>
+  <img class="hero-mustang" src="img/mustang-white.svg" alt="" aria-hidden="true">
+  <div class="hero-in">
+    <p class="hero-kicker"><span class="slash"></span><span class="slash"></span><span id="heroKicker">Mid-August to early November &middot; Race season</span></p>
+    <h1>Fall<span>Season</span></h1>
+    <p class="hero-sub" id="heroSub">Everything athletes and families need for the season, in one place.</p>
+    <div class="count" id="count" hidden></div>
+  </div>
+</div>
+<nav class="jumpbar" aria-label="On this page">
+  <a href="#news">News</a><a href="#calendar">Calendar</a><a href="#meets">Meets</a><a href="#raceday">Race day</a><a href="#parents">Family guide</a><a href="#fundraising">Fundraising</a><a href="#contacts">Contacts</a>
+</nav>
+<div class="wrap">
+
+  <section class="sec" id="news" style="border-top:none">
+    <div class="sec-head">
+      <p class="eyebrow">Latest</p>
+      <h2>News and practice</h2>
+      <p class="lede">Announcements from the coaches, and when and where we practice.</p>
+    </div>
+    <div class="sec-body">
+      <div id="practice"></div>
+      <div id="announcements"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="calendar">
+    <div class="sec-head">
+      <p class="eyebrow">Calendar</p>
+      <h2>The season, day by day</h2>
+      <p class="lede">Meets, team events, fundraisers, and deadlines. Add the whole thing to your phone's calendar with one tap.</p>
+      <button class="pill pill--soft" id="icsBtn" type="button" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        Add to my calendar</button>
+    </div>
+    <div class="sec-body">
+      <div class="filters" id="calFilters" hidden></div>
+      <div id="calList"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="meets">
+    <div class="sec-head">
+      <p class="eyebrow">Meets</p>
+      <h2>Where and when we race</h2>
+      <p class="lede">Race times, bus times, addresses, and results as they come in.</p>
+    </div>
+    <div class="sec-body">
+      <div id="meetList"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="raceday">
+    <div class="sec-head">
+      <p class="eyebrow">For athletes</p>
+      <h2>Race day, sorted</h2>
+      <p class="lede">Pack the night before and follow the same routine every time. Race day should feel boring right up until the gun.</p>
+    </div>
+    <div class="sec-body">
+      <p class="subhead" style="margin-top:0">Pack your bag</p>
+      <div class="check" id="check">
+        <label><input type="checkbox" data-k="uniform"><span>Uniform<small>Jersey and shorts, both of them</small></span></label>
+        <label><input type="checkbox" data-k="spikes"><span>Racing shoes<small>Spikes or flats, with spikes tightened</small></span></label>
+        <label><input type="checkbox" data-k="trainers"><span>Training shoes<small>For the warm-up and cool-down</small></span></label>
+        <label><input type="checkbox" data-k="socks"><span>Extra socks<small>Dry feet for the ride home</small></span></label>
+        <label><input type="checkbox" data-k="layers"><span>Warm layers<small>Sweats, a hat and gloves once it's cold</small></span></label>
+        <label><input type="checkbox" data-k="rain"><span>Rain jacket<small>We race rain or shine</small></span></label>
+        <label><input type="checkbox" data-k="water"><span>Water bottle, full</span></label>
+        <label><input type="checkbox" data-k="snack"><span>Food<small>A snack for before and real food for after</small></span></label>
+        <label><input type="checkbox" data-k="watch"><span>Watch</span></label>
+        <label><input type="checkbox" data-k="meds"><span>Inhaler or medication<small>If you use one</small></span></label>
+        <label><input type="checkbox" data-k="bag"><span>Plastic bag and a towel<small>For muddy shoes</small></span></label>
+        <label><input type="checkbox" data-k="clothes"><span>Dry clothes for after</span></label>
+      </div>
+      <button class="helper-toggle" id="checkReset" type="button" style="margin-top:10px">Clear the checklist</button>
+
+      <p class="subhead">The routine</p>
+      <ol class="steps">
+        <li><div><span class="t">All week</span><h3>Sleep and eat like it matters</h3><p>Eight to ten hours a night. One short night before a race won't hurt you if the rest of the week was good, so don't panic if nerves keep you up.</p></div></li>
+        <li><div><span class="t">The night before</span><h3>Normal dinner, packed bag</h3><p>A regular dinner with plenty of carbohydrate: pasta, rice, potatoes, bread. Nothing new and nothing huge. Pack your bag and lay out your uniform.</p></div></li>
+        <li><div><span class="t">Race morning</span><h3>Eat three to four hours out</h3><p>A familiar meal with carbohydrate and a little protein. If you get hungry closer to the race, a small snack about an hour before: a banana, a granola bar, a few pretzels. Sip water through the morning.</p></div></li>
+        <li><div><span class="t">45 minutes before</span><h3>Warm up with the team</h3><p>Ten to fifteen minutes of easy jogging, the dynamic drills, then four to six strides. Finish about ten minutes before the start so you go to the line warm, not tired.</p></div></li>
+        <li><div><span class="t">The race</span><h3>Get out, settle, then compete</h3><p>Start strong enough to find your position, then settle into an effort you can hold. The middle mile is where races are won: stay with your pack, and start passing people in the last mile.</p></div></li>
+        <li><div><span class="t">After</span><h3>Cool down, refuel, cheer</h3><p>Jog easy with your teammates, eat and drink within the hour, and get back to the course to cheer for the other race. Then tell your coach one thing that went well.</p></div></li>
+      </ol>
+      <a class="why-link" href="why.html#raceday">Why this routine? The science is in The Why &rarr;</a>
+    </div>
+  </section>
+
+  <section class="sec" id="parents">
+    <div class="sec-head">
+      <p class="eyebrow">For families</p>
+      <h2>New to cross country? Start here</h2>
+      <p class="lede">It's the simplest sport there is. Everybody starts together, runs the same course, and the first team home wins. Here's what you're watching.</p>
+    </div>
+    <div class="sec-body">
+      <div class="score rv">
+        <p class="eyebrow plain" style="margin-bottom:14px">How team scoring works</p>
+        <div class="score-teams">
+          <div class="score-team">
+            <h3>Team A <b>30</b></h3>
+            <div class="score-row" aria-label="Team A finishing places: 1, 4, 5, 9, 11, then 12 and 14 which do not score">
+              <span class="bibn">1</span><span class="bibn">4</span><span class="bibn">5</span><span class="bibn">9</span><span class="bibn">11</span><span class="bibn x">12</span><span class="bibn x">14</span>
+            </div>
+          </div>
+          <div class="score-team win">
+            <h3>Team B <b>26</b></h3>
+            <div class="score-row" aria-label="Team B finishing places: 2, 3, 6, 7, 8, then 10 and 13 which do not score">
+              <span class="bibn b">2</span><span class="bibn b">3</span><span class="bibn b">6</span><span class="bibn b">7</span><span class="bibn b">8</span><span class="bibn x">10</span><span class="bibn x">13</span>
+            </div>
+          </div>
+        </div>
+        <p>Each team's first five finishers score, and their places are added up. <strong style="color:var(--ink)">Low score wins.</strong> Team A had the race winner, but Team B wins the meet, 26 to 30, because their five ran close together. That's why you'll hear coaches talk about "the pack" all season.</p>
+        <p>Runners six and seven don't add to their own team's score, but every opponent they beat gets pushed back a place. A sixth runner can win a meet.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>How long is the race?</summary>
+          <div class="answer">
+            <p>High school races are 5 kilometers, which is 3.1 miles, on grass, trails, and hills. Most meets run separate boys and girls races, and many split varsity and junior varsity. Varsity is a team's top seven runners that day.</p>
+            <p>Every course is different, so times don't compare neatly from one meet to the next. A slower time on a hilly, muddy course can be a better race than a fast time on a flat one.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Where should I stand?</summary>
+          <div class="answer">
+            <p>Watch the start, since it's the most exciting ten seconds in high school sports, then move. Most courses loop back on themselves, so you can usually see your runner two or three times by walking between spots. Ask another parent where the one-mile and two-mile marks are, and get to the finish with a few minutes to spare.</p>
+            <p>Stay off the marked course and never cross in front of runners.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What should I yell?</summary>
+          <div class="answer">
+            <p>Their name, and anything about effort. "Go get the next one." "Strong up the hill." Cheer for every Mustang who goes by, not just your own, and for the last runner as loudly as the first.</p>
+            <p>Skip times, places, and instructions. They can't process them mid-race, and it's the coaches' job.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Can I run alongside my kid?</summary>
+          <div class="answer">
+            <p>No. Running next to an athlete is considered pacing and can get them disqualified. Cheer from a standing position at the side of the course.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What happens at the finish?</summary>
+          <div class="answer">
+            <p>Runners cross the line and keep walking through a roped-off lane called the chute, in the order they finished. Don't reach in or pull them out; the order matters for scoring.</p>
+            <p>They may look terrible for a few minutes. That's what a hard, honest race looks like, and it passes quickly. Give them space, water, and a jacket. Then they'll cool down with the team before they're free.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What do I say after the race?</summary>
+          <div class="answer">
+            <p>"I love watching you run." That's the whole script. If they want to talk about the race, let them lead. If it went badly, food and a quiet ride home work better than analysis.</p>
+            <p>Improvement in this sport is measured against yourself. A personal record, or PR, is a big deal whether it comes in first place or fiftieth.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What about bad weather?</summary>
+          <div class="answer">
+            <p>Cross country goes on in rain, mud, wind, and cold. Only lightning stops a meet, and then it's usually a delay rather than a cancellation. Dress in layers, wear shoes you don't mind getting muddy, and bring a chair and an umbrella.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What does my runner need from me?</summary>
+          <div class="answer">
+            <p>Mostly the unglamorous things: eight to ten hours of sleep, enough food (teenage distance runners need a lot more than you'd guess), a full water bottle, shoes that aren't worn out, and paperwork turned in on time.</p>
+            <p>And patience. Fitness in this sport builds over months and years, and it rarely moves in a straight line. If your runner seems tired all the time, keeps getting hurt, or stops enjoying it, tell the coaches. We'd much rather hear it early.</p>
+            <p><a class="why-link" href="why.html" style="margin-top:0">The reasons behind how we train are in The Why &rarr;</a></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="fundraising">
+    <div class="sec-head">
+      <p class="eyebrow">Fundraising</p>
+      <h2>Supporting the team</h2>
+      <p class="lede">What we're raising money for, how it's going, and how to help.</p>
+    </div>
+    <div class="sec-body"><div id="fundList"></div></div>
+  </section>
+
+  <section class="sec" id="contacts">
+    <div class="sec-head">
+      <p class="eyebrow">Contacts and forms</p>
+      <h2>Who to ask, what to turn in</h2>
+      <p class="lede">Coaches, and the links and paperwork you'll need during the season.</p>
+    </div>
+    <div class="sec-body">
+      <div id="people"></div>
+      <p class="subhead" id="linksHead" hidden>Forms and links</p>
+      <div class="linklist" id="links"></div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <img src="img/lc-logo-sm.png" alt="Little Chute LC logo" width="240" height="198">
+      <div><b>Little Chute Cross Country</b>Mustangs. Rest, rebuild, get strong, race together.<br>Your coaches have the final say on training. This site is general guidance, not medical advice.</div>
+    </div>
+    <div>
+      <h4>The year</h4>
+      <ul>
+        <li><a href="fall.html">Fall season hub</a></li>
+        <li><a href="winter.html">Winter training plan</a></li>
+        <li><a href="summer.html">Summer mileage</a></li>
+        <li><a href="why.html">The Why: our science library</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>For families</h4>
+      <ul>
+        <li><a href="fall.html#calendar">Season calendar</a></li>
+        <li><a href="fall.html#meets">Meet information</a></li>
+        <li><a href="fall.html#parents">New to cross country?</a></li>
+        <li><a href="fall.html#contacts">Coaches and contacts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">Little Chute Cross Country &middot; Go Mustangs</div>
+</footer>
+
+<nav class="tabs" aria-label="Main"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Home</a><a href="fall.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Fall</a><a href="summer.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Summer</a><a href="winter.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5"/></svg>Winter</a><a href="why.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/><path d="M9 8h6M9 12h4"/></svg>The Why</a></nav>
+
+<script src="data/season.js"></script>
+<script src="js/site.js"></script>
+<script src="js/fall.js"></script>
+</body>
+</html>

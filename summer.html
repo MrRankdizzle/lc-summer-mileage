@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#16244A">
+<title>Summer Mileage — Little Chute Cross Country</title>
+<meta name="description" content="The Little Chute cross country summer mileage plan: five clubs, eleven weeks, and the reasons behind every week.">
+<meta property="og:title" content="Summer Mileage — Little Chute Cross Country">
+<meta property="og:description" content="The Little Chute cross country summer mileage plan: five clubs, eleven weeks, and the reasons behind every week.">
+<meta property="og:image" content="https://lc-summer-mileage.vercel.app/img/share.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="summer">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="index.html" aria-label="Little Chute Cross Country home">
+      <img src="img/lc-logo-sm.png" alt="" width="240" height="198">
+      <span class="brand-t"><b>Little Chute</b><i>Cross Country</i></span>
+    </a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="fall.html">Fall Season</a><a href="summer.html" aria-current="page">Summer</a><a href="winter.html">Winter</a><a href="why.html">The Why</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero hero--slim" id="hero">
+  <div class="hero-photo" id="heroPhoto" hidden></div>
+  <img class="hero-mustang" src="img/mustang-white.svg" alt="" aria-hidden="true">
+  <div class="hero-in">
+    <p class="hero-kicker"><span class="slash"></span><span class="slash"></span>June to August &middot; Base season</p>
+    <h1>Summer<span>Mileage</span></h1>
+    <p class="hero-sub">The season is won in June and July. This is the plan: what to run each week, how hard, and why it's built the way it is. Eleven weeks, five clubs, one starting line in August.</p>
+    <div class="hero-cta"><a class="pill pill--solid" href="#pick">Pick your club</a><a class="pill pill--line" href="why.html">Why we train this way</a></div>
+  </div>
+</div>
+<nav class="jumpbar" aria-label="On this page"><a href="#pick">Pick your club</a><a href="#all">All 11 weeks</a><a href="#rhythm">Weekly rhythm</a><a href="#longrun">Long run calculator</a><a href="#faq">Questions</a><a href="#glossary">Glossary</a><a href="#log">Strava</a></nav>
+<div class="wrap">
+
+  <!-- ============ PICK YOUR CLUB ============ -->
+  <section class="sec" id="pick" style="border-top:none;padding-top:8px">
+    <div class="sec-head">
+      <p class="eyebrow">Step one</p>
+      <h2>Pick your club</h2>
+      <p class="lede">Five plans, same eleven weeks. The number is roughly the miles you'll cover by the end of the summer.</p>
+    </div>
+
+    <div class="sec-body">
+    <div class="picker-label">
+      <p class="eyebrow" style="margin:0">Choose one</p>
+      <button class="helper-toggle" id="helperBtn" aria-expanded="false" aria-controls="helperBox">Which one is mine?</button>
+    </div>
+
+    <div class="clubs" id="clubs" role="group" aria-label="Choose a mileage club"></div>
+
+    <div class="helper" id="helperBox" hidden>
+      <strong>Use this test:</strong> look at Week 1 for a club. If that week looks like something you could run right now without wrecking yourself, that's your club. If it looks scary, drop down one.
+      <ul>
+        <li><strong>150</strong> — first summer of running, or coming straight off another sport. Five days a week.</li>
+        <li><strong>200</strong> — you ran a season before but took most of the winter or spring off.</li>
+        <li><strong>300</strong> — you trained through track and want a real varsity summer.</li>
+        <li><strong>400 / 500</strong> — multiple years of consistent training and a summer base already under you.</li>
+      </ul>
+      <p class="last">Your coaches have the final say. When it's close, take the smaller number and finish the summer healthy — that beats a big log and a hurt hamstring in August.</p>
+    </div>
+
+    <!-- signature: the 11-week ridgeline -->
+    <div class="ridge-card">
+      <div class="ridge-head">
+        <div class="bib">
+          <span class="num" id="bibNum">150</span>
+          <span class="cap" id="bibCap">Mile Club</span>
+        </div>
+        <div class="ridge-meta" id="ridgeMeta"></div>
+      </div>
+      <svg class="ridge-svg" id="ridge" viewBox="0 0 660 190" role="img" aria-label="Weekly mileage profile across 11 weeks"></svg>
+      <div class="ridge-x" id="ridgeX"></div>
+      <div class="legend">
+        <span><i class="dot-build"></i>Build week</span>
+        <span><i class="dot-cut"></i>Cut back</span>
+        <span><i class="dot-peak"></i>Biggest week</span>
+      </div>
+
+      <button class="disclose" id="detailBtn" aria-expanded="false" aria-controls="weekDetail">
+        <span id="discloseLabel">See what Week 1 looks like</span>
+        <span class="chev" aria-hidden="true">&#9660;</span>
+      </button>
+
+      <div class="weekdetail" id="weekDetail" hidden>
+        <div class="wd-top">
+          <span class="wd-week" id="wdWeek">Week 1 of 11</span>
+          <span class="tag build" id="wdTag">Build</span>
+        </div>
+        <div class="wd-nums">
+          <div class="stat"><span class="v" id="wdMiles">10<small>mi</small></span><span class="k" id="wdMilesK">This week</span></div>
+          <div class="stat"><span class="v" id="wdMpd">2<small>mi</small></span><span class="k" id="wdMpdK">Per day</span></div>
+          <div class="stat"><span class="v" id="wdLong">3<small>mi</small></span><span class="k" id="wdLongK">Long run</span></div>
+        </div>
+        <p class="wd-why" id="wdWhy"></p>
+        <p class="wd-banked" id="wdBanked"></p>
+        <div class="wd-nav">
+          <button class="btn btn-ghost" id="prevBtn">&larr; Previous week</button>
+          <button class="btn btn-ghost" id="nextBtn">Next week &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="prose" style="margin-top:18px">That shape is the whole point. The plan climbs for two or three weeks, then drops on purpose. The drop weeks are not days off from the plan — they <strong>are</strong> the plan. Fitness gets built during the hard weeks and collected during the easy ones.</p>
+    </div>
+  </section>
+
+  <!-- ============ FULL TABLE ============ -->
+  <section class="sec" id="all">
+    <div class="sec-head">
+      <p class="eyebrow">The whole summer</p>
+    <h2 id="tableTitle">All 11 weeks</h2>
+    <p class="lede">Every week you'll run, at a glance. Print it, screenshot it, or tap a week to see where it sits on the curve above.</p>
+    </div>
+
+    <div class="sec-body">
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Week</th><th>Miles</th><th>Per day</th><th>Long run</th><th>Banked</th><th>Notes</th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <button class="btn btn-primary printbtn" id="printBtn">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
+      Print this schedule</button>
+
+    </div>
+  </section>
+
+  <!-- ============ WEEKLY RHYTHM ============ -->
+  <section class="sec" id="rhythm">
+    <div class="sec-head">
+      <p class="eyebrow">Inside every week</p>
+    <h2>Miles are the frame, not the whole house</h2>
+    <p class="lede">The number on the chart tells you how far. These six habits are what turn those miles into speed in September. Do them all summer, even on the small weeks.</p>
+    </div>
+
+    <div class="sec-body">
+
+    <div class="grid2">
+      <div class="tile">
+        <span class="freq">5–6 days a week</span>
+        <h3>Easy running</h3>
+        <p>The large majority of your miles. Conversational — you should be able to talk in full sentences the whole way.</p>
+      </div>
+      <div class="tile">
+        <span class="freq">1 day a week</span>
+        <h3>Long run — 25% of the week</h3>
+        <p>Your single most valuable run. Same easy effort, just longer. Take a quarter of your weekly total.</p>
+        <a class="jump" href="#longrun">Work out your number &rarr;</a>
+      </div>
+      <div class="tile">
+        <span class="freq">3 days a week</span>
+        <h3>Strides or flys</h3>
+        <p>4 × 100m strides, or 4 × 30m flys. Fast and relaxed, full recovery between. Tacked onto the end of an easy run.</p>
+      </div>
+      <div class="tile">
+        <span class="freq">1 day a week</span>
+        <h3>One quality run</h3>
+        <p>Rotate through fartlek, progression, tempo, or a stamina run. One per week — not two, and never on a long-run day.</p>
+      </div>
+      <div class="tile">
+        <span class="freq">2 days a week</span>
+        <h3>Strength work</h3>
+        <p>The best-supported injury prevention there is. In the research, strength training cut sports injuries to less than a third. Lift on your harder days so easy days stay easy.</p>
+      </div>
+      <div class="tile">
+        <span class="freq">3 days a week</span>
+        <h3>Core X, hurdle mobility, bands</h3>
+        <p>Ten minutes, and a dynamic warmup before you run. This is the work people skip first and regret most.</p>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- ============ LONG RUN CALC ============ -->
+  <section class="sec" id="longrun">
+    <div class="sec-head">
+      <p class="eyebrow">The 25% rule</p>
+    <h2>How long is my long run?</h2>
+    <p class="lede">Take your weekly mileage and multiply by 0.25. That's it — the rule scales with you all summer, so you never have to guess.</p>
+    </div>
+
+    <div class="sec-body">
+
+    <div class="calc">
+      <div class="calc-row">
+        <div class="field">
+          <label for="mpw">Miles this week</label>
+          <input type="number" id="mpw" value="20" min="1" max="120" step="1" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="pace">Your easy pace (min/mile)</label>
+          <select id="pace">
+            <option value="6.5">6:30</option>
+            <option value="7">7:00</option>
+            <option value="7.5">7:30</option>
+            <option value="8">8:00</option>
+            <option value="8.5">8:30</option>
+            <option value="9" selected>9:00</option>
+            <option value="9.5">9:30</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-out">
+        <span class="big" id="lrMiles">5.0 mi</span>
+        <span class="lbl" id="lrTime">about 45 minutes</span>
+      </div>
+      <p class="calc-note">A long run should feel exactly like your easy days, just longer — if you finish it wrecked, it was too fast, not too far. The number of minutes will look different for everyone on this team depending on pace, and that is completely fine. Time on your feet is what builds the engine, not matching somebody else's clock.</p>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- ============ NEW RUNNER FAQ ============ -->
+  <section class="sec" id="faq">
+    <div class="sec-head">
+      <p class="eyebrow">New this year? Start here</p>
+    <h2>The questions everybody has</h2>
+    <p class="lede">Nobody tells first-year runners this stuff, so here it is up front.</p>
+    </div>
+
+    <div class="sec-body">
+
+    <div class="faq">
+      <details>
+        <summary>How fast should these miles be?</summary>
+        <div class="answer">
+          <p>Slower than you think — and that isn't softness, it's the mechanism. Easy aerobic running builds capillaries, mitochondria, and the heart's stroke volume, and it builds them without the recovery cost that hard running carries. You should be able to hold a full-sentence conversation the entire way.</p>
+          <p>The classic first-year mistake is running easy days moderately hard. Everything collapses into one gray middle speed, the easy days stop being restorative, and the one weekly workout has nowhere left to go. Keep the easy days genuinely easy so the hard day can actually be hard.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I walk?</summary>
+        <div class="answer">
+          <p>Yes. If you're new, run-walk is a completely legitimate way to hit these numbers — run four minutes, walk one, repeat. The aerobic stimulus is still there and the miles still count.</p>
+          <p>Most people drop the walk breaks within three or four weeks without ever forcing it.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I missed a few days. Do I make them up?</summary>
+        <div class="answer">
+          <p>No. Never stack missed miles onto the days that are left. The evidence on injury risk points at sudden spikes in load relative to what your body has actually been doing — cramming a lost week into three days is exactly that spike.</p>
+          <p>Missed a couple of days? Pick up with whatever's left of the week. Missed a full week or more? Restart at the last week you completed rather than jumping ahead to where the calendar says you should be.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>The cut-back weeks feel too easy. Can I run more?</summary>
+        <div class="answer">
+          <p>Don't. Training is a stimulus; the adaptation happens while you recover from it. Bone, tendon, and connective tissue remodel far more slowly than your cardiovascular system does, which is exactly why feeling good is not the same as being ready.</p>
+          <p>Trusting the down weeks is the biggest difference between runners who race well in October and runners who spend October in the training room.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Should I avoid the heat and humidity?</summary>
+        <div class="answer">
+          <p>No — and this is the one most people get backwards. Training in the heat is a stimulus, not just something to survive. Over roughly one to two weeks of regular heat exposure your body expands its blood plasma volume, starts sweating sooner and more efficiently, and drops your heart rate at any given pace.</p>
+          <p>That plasma expansion is a big part of why heat blocks get compared to altitude camps — both push on blood volume and oxygen delivery, just from different directions. Be honest about the limits, though: the performance benefit is best established for racing in the heat, and whether it transfers to cool-weather racing is still genuinely debated in the research. Either way, a 2:00 pm September meet in Wisconsin can be 85 degrees, so acclimating is race preparation.</p>
+          <p>How to actually do it: give it ten to fourteen days, and run by <em>effort</em> rather than pace. The same effort will be thirty to sixty-plus seconds per mile slower in heat and humidity — that's the physiology, not you being out of shape. Keep the hardest workouts and longest runs in the morning, and get the exposure on your easy days.</p>
+          <p>Where this stops being training: stop immediately for chills, goosebumps, a headache, confusion, nausea, or suddenly not sweating anymore. That's heat illness, it is a medical emergency and not a toughness test, and somebody needs to know right away.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I tell soreness from an injury?</summary>
+        <div class="answer">
+          <p>General, both-sides, dull, and better once you're warmed up is normal training soreness. Sharp, one spot you can cover with a fingertip, worse the longer you run, or changing how you stride — that one is not.</p>
+          <p>Stop, take a couple of easy days, and tell one of your coaches. A three-day problem you mention is far cheaper than a six-week problem you hid.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What shoes do I need, and when do I replace them?</summary>
+        <div class="answer">
+          <p>One pair of real running shoes, fitted at a running store. Pick by comfort — that's the most reliable guide anyone has found — not by looks, arch charts, or what a teammate wears.</p>
+          <p>The 300-to-500-mile replacement number is a manufacturer rule of thumb, not a strong research finding. What is measurable is that midsole foam loses a lot of its cushioning after a few hundred miles, and that changes how your legs absorb every step. If they feel flat, look creased through the midsole, or you're picking up new aches, they're done.</p>
+          <p>The better-supported move is rotating two pairs. A prospective study of recreational runners found notably lower injury rates among people using more than one pair, most likely because slightly different shoes vary where the stress lands. Two mid-priced pairs beat one expensive pair.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do I need to stretch?</summary>
+        <div class="answer">
+          <p>Not the way you were probably taught. Stretching programs have repeatedly failed to show a protective effect against injury — the meta-analysis that found strength training cut sports injuries to less than a third found no significant benefit from stretching in the same comparison.</p>
+          <p>What to do instead: a few minutes of dynamic warmup before you run — leg swings, skips, lunges, building into the first mile easy. Save longer static holds and mobility work for after a run or a separate time of day. Stretch because it feels good and keeps you moving well, not because you think it's protecting you.</p>
+          <p>If dynamic stretching is new to you, don't worry about getting it right off a page. We'll go through the routine together on our summer meet-up days so you know exactly what it looks like and can do it on your own the rest of the week.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do I really need the lifting and core work?</summary>
+        <div class="answer">
+          <p>This is the highest-return thing on the entire page. In the best available meta-analysis, strength training cut sports injuries to less than a third, and a follow-up found a dose-response relationship — more of it kept producing more protection.</p>
+          <p>The mechanism is straightforward: running is thousands of single-leg landings, and stronger muscle and tendon absorbs and returns that force instead of passing it into bone and cartilage. Ten to fifteen minutes, two or three times a week, is enough to matter. Put it on your harder days so your easy days stay easy.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How much sleep do I actually need?</summary>
+        <div class="answer">
+          <p>Eight to ten hours, and this is not a throwaway line. In a study of middle and high school athletes, those averaging under eight hours a night were roughly 1.7 times more likely to get injured — one of the strongest single predictors in the whole dataset.</p>
+          <p>Sleep is where growth hormone releases, glycogen refills, and tissue repairs. It's free, it's the most powerful recovery tool you have, and it's the first thing a teenager gives up. Phone out of the bedroom, consistent bedtime, and treat a bad sleep week as a reason to keep the running easy.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What am I actually eating and drinking?</summary>
+        <div class="answer">
+          <p>Enough. Under-fueling is the most common and most damaging mistake in high school distance running — when you chronically take in less energy than you burn, hormones, bone density, immune function, and performance all decline together, and in growing athletes the bone consequences can follow you for decades. More food is almost always the right answer during a summer like this.</p>
+          <p>Carbohydrate is the fuel that actually runs this engine, so eat it at breakfast and around your harder days. Get protein at every meal, and eat something within about an hour of finishing a long run.</p>
+          <p>For fluid, drink to thirst across the whole day rather than chugging right before you head out. On anything long or hot, carry water and add sodium — sports drink, salty food, an electrolyte tab. Forcing down huge volumes of plain water is its own hazard.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I'm starting late. Am I done for?</summary>
+        <div class="answer">
+          <p>Not at all. Start at Week 1 of the club below the one you were aiming for, and run the weeks in order from there. Consistent smaller weeks beat a panicked catch-up every time.</p>
+          <p>Six honest weeks of running will show up on the starting line. Six rushed weeks usually show up in the training room instead.</p>
+        </div>
+      </details>
+    </div>
+
+    <a class="why-link" href="why.html">Read the full science behind these answers in The Why &rarr;</a>
+        <p class="plan-note" style="margin-top:16px">Sources behind these answers: Lauersen et al., <em>Br J Sports Med</em> (2014, 2018) on strength training and injury; Malisoux et al., <em>Scand J Med Sci Sports</em> (2015) on shoe rotation; Milewski et al., <em>J Pediatr Orthop</em> (2014) on sleep and adolescent injury; Périard and colleagues on heat acclimation; and Steve Magness, <em>The Science of Running</em>, for the training-design principles.</p>
+
+
+    </div>
+  </section>
+
+  <!-- ============ GLOSSARY ============ -->
+  <section class="sec" id="glossary">
+    <div class="sec-head">
+      <p class="eyebrow">Decoder</p>
+    <h2>Words on the plan</h2>
+    </div>
+
+    <div class="sec-body">
+    <dl class="gloss">
+      <div><dt>mpd / mpw</dt><dd>Miles per day, miles per week.</dd></div>
+      <div><dt>Long run</dt><dd>The week's longest run, about 25% of the weekly total, at easy effort.</dd></div>
+      <div><dt>Strides</dt><dd>4 × 100m, relaxed and fast, full walk-back recovery. Form work, not a workout.</dd></div>
+      <div><dt>Flys</dt><dd>4 × 30m. Roll into it, hit near top speed for the middle, stay loose. Full recovery.</dd></div>
+      <div><dt>Fartlek</dt><dd>Swedish for "speed play." Alternating faster and easier segments by time — 1 on, 1 off.</dd></div>
+      <div><dt>Progression run</dt><dd>Start easy, finish faster. The last third is the quickest part.</dd></div>
+      <div><dt>Tempo</dt><dd>Sustained "comfortably hard" — around the fastest pace you could hold for an hour.</dd></div>
+      <div><dt>Stamina run</dt><dd>A steady run a notch quicker than easy, held long enough to be honest work.</dd></div>
+      <div><dt>Core X</dt><dd>The team's core circuit. Ten minutes, three times a week.</dd></div>
+      <div><dt>Bands</dt><dd>Resistance-band hip and glute work. Small muscles, big effect on staying healthy.</dd></div>
+      <div><dt>Cut-back week</dt><dd>A planned lower-mileage week. Built in on purpose so the training sticks.</dd></div>
+      <div><dt>Base</dt><dd>The aerobic foundation you build all summer. Everything in the fall is built on top of it.</dd></div>
+    </dl>
+
+    </div>
+  </section>
+
+  <!-- ============ CLOSER ============ -->
+  <section class="sec" id="log" style="border-top:none;padding-bottom:0">
+    <div class="closer">
+      <h2>Log your runs on Strava</h2>
+      <p>We'd love for you to log your runs this summer and follow your coaches. This isn't a requirement and nobody is checking up on you.</p>
+      <p>What it does do is let us see how your summer is going, so we can send a few words of encouragement when things start to feel hard. And at some point they will feel hard. That's not a sign you're doing it wrong — that's just what a real summer of training feels like, and it's a lot easier when somebody else can see the work you're putting in.</p>
+      <p class="strong">Show up in mid-August having done the hard part. Go Mustangs!</p>
+      <p>Season over? The <a href="winter.html">winter training guide</a> builds your off-season plan. Want the reasons behind all of this? Read <a href="why.html">The Why</a>.</p>
+    </div>
+    <p class="plan-note" style="text-align:center;margin-top:22px">Not sure which club to run? Ask your coaches before you start.</p>
+  </section>
+
+</div>
+
+<div class="pv-overlay" id="pvOverlay" hidden role="dialog" aria-modal="true" aria-label="Printable schedule">
+  <div class="pv-sheet">
+    <p class="pv-note" id="pvNote"></p>
+    <div class="pv-doc" id="pvDoc"></div>
+    <div class="pv-actions">
+      <button class="btn btn-primary" id="pvPrint">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
+        Print
+      </button>
+      <button class="btn btn-ghost" id="pvClose">Close</button>
+    </div>
+  </div>
+</div>
+
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <img src="img/lc-logo-sm.png" alt="Little Chute LC logo" width="240" height="198">
+      <div><b>Little Chute Cross Country</b>Mustangs. Rest, rebuild, get strong, race together.<br>Your coaches have the final say on training. This site is general guidance, not medical advice.</div>
+    </div>
+    <div>
+      <h4>The year</h4>
+      <ul>
+        <li><a href="fall.html">Fall season hub</a></li>
+        <li><a href="winter.html">Winter training plan</a></li>
+        <li><a href="summer.html">Summer mileage</a></li>
+        <li><a href="why.html">The Why: our science library</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>For families</h4>
+      <ul>
+        <li><a href="fall.html#calendar">Season calendar</a></li>
+        <li><a href="fall.html#meets">Meet information</a></li>
+        <li><a href="fall.html#parents">New to cross country?</a></li>
+        <li><a href="fall.html#contacts">Coaches and contacts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">Little Chute Cross Country &middot; Go Mustangs</div>
+</footer>
+
+<nav class="tabs" aria-label="Main"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Home</a><a href="fall.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Fall</a><a href="summer.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Summer</a><a href="winter.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7L3.3 17"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5"/></svg>Winter</a><a href="why.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/><path d="M9 8h6M9 12h4"/></svg>The Why</a></nav>
+
+<script src="js/site.js"></script>
+<script src="js/summer.js"></script>
+</body>
+</html>
