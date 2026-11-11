@@ -22,12 +22,12 @@
       '<summary><span><span class="q">' + esc(t.q) + '</span><span class="short">' + esc(t.short) + "</span>" +
       '<span class="evid ' + t.ev + '">' + EV[t.ev] + "</span></span></summary>" +
       '<div class="topic-body"><div class="topic-grid">' +
-      '<div class="wbox"><h4>What we do</h4><p>' + esc(t.doing) + "</p></div>" +
-      '<div class="wbox"><h4>Why</h4><p>' + esc(t.why) + "</p></div></div>" +
+      '<div class="wbox"><h3>What we do</h3><p>' + esc(t.doing) + "</p></div>" +
+      '<div class="wbox"><h3>Why</h3><p>' + esc(t.why) + "</p></div></div>" +
       '<div class="long">' + (t.more || []).map(function(p){ return "<p>" + p + "</p>"; }).join("") + "</div>" +
       (t.voice ? '<div class="voice"><b>' + esc(t.voice[0]) + "</b><p>" + esc(t.voice[1]) + "</p></div>" : "") +
       (used ? '<div class="usedin" aria-label="Where this shows up">' + used + "</div>" : "") +
-      (src ? '<div class="srcs"><h4>Sources</h4><ol>' + src + "</ol></div>" : "") +
+      (src ? '<div class="srcs"><h3>Sources</h3><ol>' + src + "</ol></div>" : "") +
       "</div></details>";
   }
 
@@ -40,7 +40,7 @@
       });
       if (!list.length) return;
       n += list.length;
-      html += '<p class="why-group">' + esc(g.title) + "</p>" + list.map(topicHtml).join("");
+      html += '<h2 class="why-group">' + esc(g.title) + "</h2>" + list.map(topicHtml).join("");
     });
     $("whyList").innerHTML = html || '<div class="empty"><b>Nothing matches that</b><p>Try a different word, or ask your coaches. If it\'s a good question, it belongs in here.</p></div>';
     $("whyCount").textContent = (query || group !== "all") ? n + (n === 1 ? " answer" : " answers") : W.topics.length + " questions answered";

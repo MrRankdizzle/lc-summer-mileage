@@ -132,7 +132,7 @@
     for (var a in attrs){ n.setAttribute(a, attrs[a]); }
     return n;
   }
-  var COLOR = { build:"#2575B5", cut:"#8CC4EE", peak:"#16244A", rest:"#8AA0B4" };
+  var COLOR = { build:"#1D66A5", cut:"#8CC4EE", peak:"#16244A", rest:"#8AA0B4" };
 
   function drawRidge(weeks){
     var svg = document.getElementById("ridge");
@@ -141,7 +141,7 @@
     // size the chart to the space it actually has, so type and strokes stay
     // the right size instead of scaling up like an image on big screens
     var avail = (svg.parentNode && svg.parentNode.clientWidth) || 0;
-    var W = Math.max(560, Math.min(1120, avail ? avail - 16 : 660));
+    var W = Math.max(320, Math.min(1120, avail ? avail - 16 : 660));
     var H = 190, padX = 26, top = 34, bottom = 154;
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     var max = Math.max.apply(null, weeks.map(function(w){ return w.m; }));
@@ -157,11 +157,11 @@
     var d = "M" + padX + "," + bottom;
     pts.forEach(function(p){ d += " L" + p.x.toFixed(1) + "," + p.y.toFixed(1); });
     d += " L" + (W-padX) + "," + bottom + " Z";
-    svg.appendChild(el("path", {d:d, fill:"#2575B5", "fill-opacity":".09"}));
+    svg.appendChild(el("path", {d:d, fill:"#1D66A5", "fill-opacity":".09"}));
 
     // ridge line
     var dl = pts.map(function(p, i){ return (i?"L":"M") + p.x.toFixed(1) + "," + p.y.toFixed(1); }).join(" ");
-    var line = el("path", {d:dl, fill:"none", stroke:"#2575B5", "stroke-width":2, "stroke-linejoin":"round", "stroke-linecap":"round"});
+    var line = el("path", {d:dl, fill:"none", stroke:"#1D66A5", "stroke-width":2, "stroke-linejoin":"round", "stroke-linecap":"round"});
     svg.appendChild(line);
 
     pts.forEach(function(p){
@@ -180,9 +180,9 @@
       var t = el("text", {
         x:p.x, y:p.y - 13, "text-anchor":"middle",
         "font-family":'Archivo, Helvetica Neue, Arial, sans-serif',
-        "font-size": on ? 19 : 13,
+        "font-size": on ? 20 : 14, "paint-order":"stroke", stroke:"#fff", "stroke-width":3.5, "stroke-linejoin":"round",
         "font-weight": on ? 800 : 600,
-        fill: on ? COLOR[kind] : "#6A7B95"
+        fill: on ? COLOR[kind] : "#566782"
       });
       t.textContent = p.w.m;
       svg.appendChild(t);
@@ -378,18 +378,18 @@
       '<title>' + state.club + ' Mile Club \u2014 Summer Mileage</title><style>' +
       'body{font-family:Archivo,Helvetica,Arial,sans-serif;color:#101C36;margin:32px;background:#fff}' +
       'h4{font-size:25px;margin:0 0 3px;color:#233766;letter-spacing:-.015em}' +
-      '.pv-sub{font-size:13px;color:#44546E;margin:0 0 18px}.pv-sub b{color:#101C36}' +
+      '.pv-sub{font-size:13px;color:#3A4963;margin:0 0 18px}.pv-sub b{color:#101C36}' +
       'table{border-collapse:collapse;width:100%;margin-bottom:22px}' +
-      'th{text-align:left;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#6A7B95;' +
+      'th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#566782;' +
       'padding:7px 9px;border-bottom:1.5px solid #233766}' +
       'td{padding:9px;border-bottom:1px solid #D6E2EF;font-size:13.5px}' +
       'td.wk{font-weight:700;white-space:nowrap}td.mi{font-weight:800;color:#233766}' +
-      'td.note{font-size:11.5px;color:#44546E;white-space:nowrap}td.blank{width:88px}' +
+      'td.note{font-size:12.5px;color:#3A4963;white-space:nowrap}td.blank{width:88px}' +
       'tr.cut td,tr.rest td{background:#F4FAFD}tr.peak td{background:#E8F1F8}' +
       '.pv-box{border:1px solid #D6E2EF;border-radius:8px;padding:14px 16px;margin-bottom:14px}' +
-      '.pv-box h5{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#6A7B95;margin:0 0 8px}' +
-      '.pv-box ul{margin:0;padding-left:17px;font-size:12.5px;line-height:1.75}' +
-      '.pv-foot{font-size:11px;color:#6A7B95;line-height:1.6;margin:0}' +
+      '.pv-box h5{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#566782;margin:0 0 8px}' +
+      '.pv-box ul{margin:0;padding-left:17px;font-size:13.5px;line-height:1.75}' +
+      '.pv-foot{font-size:12px;color:#566782;line-height:1.6;margin:0}' +
       '@media print{body{margin:12mm}.pv-box,table{page-break-inside:avoid}}' +
       '</style></head><body>' + scheduleMarkup() + '</body></html>';
   }

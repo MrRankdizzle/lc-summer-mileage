@@ -47,9 +47,9 @@
   var PHASES = {
     recharge: { label:"Recharge",         color:"#8AA0B4" },
     rebuild:  { label:"Rebuild",          color:"#8CC4EE" },
-    base:     { label:"Base",             color:"#2575B5" },
+    base:     { label:"Base",             color:"#1D66A5" },
     bridge:   { label:"Bridge to spring", color:"#16244A" },
-    maintain: { label:"In season",        color:"#2575B5" }
+    maintain: { label:"In season",        color:"#1D66A5" }
   };
 
   // which day does what, for each number of running days (index 0 = Monday)
@@ -640,13 +640,13 @@
       var cx = padX + stepW * (i + 0.5), on = i === sel;
       var h = w.m > 0 ? Math.max(8, (w.m / max) * (bottom - top)) : 5;
       var color = w.kind === "cut" ? "#8CC4EE" : PHASES[w.phase].color;
-      if (on) svg.appendChild(el("rect", { x:cx - stepW / 2 + 1, y:6, width:stepW - 2, height:bottom - 6, rx:8, fill:"#2575B5", "fill-opacity":".07" }));
+      if (on) svg.appendChild(el("rect", { x:cx - stepW / 2 + 1, y:6, width:stepW - 2, height:bottom - 6, rx:8, fill:"#1D66A5", "fill-opacity":".07" }));
       svg.appendChild(el("rect", { x:cx - bw / 2, y:bottom - h, width:bw, height:h, rx:Math.min(5, h / 2), fill:color, "fill-opacity": on ? 1 : .62 }));
       var t = el("text", {
         x:cx, y:bottom - h - 8, "text-anchor":"middle",
         "font-family":"Archivo, Helvetica Neue, Arial, sans-serif",
-        "font-size": on ? (stepW < 30 ? 14 : 17) : (stepW < 30 ? 8.5 : 12), "font-weight": on ? 800 : 600,
-        fill: on ? "#233766" : "#6A7B95"
+        "font-size": on ? (stepW < 30 ? 15 : 18) : (stepW < 30 ? 12 : 13), "font-weight": on ? 800 : 600,
+        fill: on ? "#233766" : "#566782"
       });
       t.textContent = w.m > 0 ? fmt(w.m) : "off";
       svg.appendChild(t);
@@ -686,7 +686,7 @@
     var used = {}; weeks.forEach(function(x){ used[x.phase] = 1; });
     $("pLegend").innerHTML = ["recharge","rebuild","base","bridge","maintain"].filter(function(k){ return used[k]; })
       .map(function(k){ return '<span><i style="background:' + PHASES[k].color + '"></i>' + PHASES[k].label + "</span>"; }).join("") +
-      (weeks.some(function(x){ return x.kind === "cut"; }) ? '<span><i style="background:#8CC4EE;outline:1.5px solid #2575B5;outline-offset:1px"></i>Lighter week</span>' : "");
+      (weeks.some(function(x){ return x.kind === "cut"; }) ? '<span><i style="background:#8CC4EE;outline:1.5px solid #1D66A5;outline-offset:1px"></i>Lighter week</span>' : "");
 
     $("pWeek").textContent = "Week " + w.n + " of " + weeks.length + " · " + shortDate(w.start) + " to " + shortDate(addDays(w.start, 6));
     var tag = $("pTag");

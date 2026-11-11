@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body data-page="winter">
@@ -144,7 +144,7 @@
           <div class="wd-nums">
             <div class="stat"><span class="v" id="pMiles"></span><span class="k">This week</span></div>
             <div class="stat"><span class="v" id="pLong"></span><span class="k">Long run</span></div>
-            <div class="stat"><span class="v" id="pKey" style="font-size:clamp(15px,3.6vw,19px);line-height:1.25;letter-spacing:-.01em"></span><span class="k">Key session</span></div>
+            <div class="stat"><span class="v" id="pKey" style="font-size:clamp(1.0625rem,3.6vw,1.3125rem);line-height:1.25;letter-spacing:-.01em"></span><span class="k">Key session</span></div>
           </div>
           <p class="wd-why" id="pWhy"></p>
           <ul class="days" id="pDays"></ul>
@@ -167,7 +167,7 @@
       <p class="pdf-msg" id="pdfMsg" role="status" hidden></p>
 
       <p class="subhead">Every week at a glance</p>
-      <div class="tablewrap ov">
+      <div class="tablewrap ov" tabindex="0" role="region" aria-label="Whole plan by week, table. Scroll sideways to see all of it">
         <table>
           <thead><tr><th>Week</th><th>Starts</th><th>Phase</th><th>Miles</th><th>Long run</th><th>Key session</th></tr></thead>
           <tbody id="pTbody"></tbody>
@@ -195,7 +195,7 @@
         <button type="button" data-gym="home" aria-pressed="true">At home, no equipment</button>
         <button type="button" data-gym="room" aria-pressed="false">Weight room</button>
       </div>
-      <div class="tablewrap mt">
+      <div class="tablewrap mt" tabindex="0" role="region" aria-label="Strength exercises, table. Scroll sideways to see all of it">
         <table>
           <thead><tr><th>Exercise</th><th>Early weeks</th><th>Once it's easy</th></tr></thead>
           <tbody id="sBody"></tbody>
@@ -453,7 +453,7 @@
       <div><b>Little Chute Cross Country</b>Mustangs. Rest, rebuild, get strong, race together.<br>Your coaches have the final say on training. This site is general guidance, not medical advice.</div>
     </div>
     <div>
-      <h4>The year</h4>
+      <h2 class="foot-h">The year</h2>
       <ul>
         <li><a href="fall.html">Fall season hub</a></li>
         <li><a href="winter.html">Winter training plan</a></li>
@@ -462,7 +462,7 @@
       </ul>
     </div>
     <div>
-      <h4>For families</h4>
+      <h2 class="foot-h">For families</h2>
       <ul>
         <li><a href="fall.html#calendar">Season calendar</a></li>
         <li><a href="fall.html#meets">Meet information</a></li>

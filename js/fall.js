@@ -139,7 +139,7 @@
     if (m.address || m.location) links.push(link("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(m.address || m.location), "Directions"));
     if (m.resultsUrl) links.push(link(m.resultsUrl, "Results"));
     if (m.infoUrl) links.push(link(m.infoUrl, "Meet info"));
-    return '<article class="meet"' + (x.d < today ? ' style="opacity:.7"' : "") + '><div class="meet-top"><time>' + esc(LC.longDate(x.d)) + "</time><h3>" + esc(m.name) + "</h3></div>" +
+    return '<article class="meet' + (x.d < today ? " past" : "") + '"><div class="meet-top"><time>' + esc(LC.longDate(x.d)) + "</time><h3>" + esc(m.name) + "</h3></div>" +
       '<div class="meet-body"><dl>' + rows.join("") + "</dl>" + (m.note ? '<p class="note">' + esc(m.note) + "</p>" : "") +
       (links.length ? '<div class="links">' + links.join("") + "</div>" : "") + "</div></article>";
   }).join("") + "</div>" : empty("Meet schedule coming soon", "Each meet will get a card here with race times, bus times, the address, and a link to results.");
@@ -155,7 +155,7 @@
     }
     return '<div class="fund">' + (f.when ? '<p class="when">' + esc(f.when) + "</p>" : "") + "<h3>" + esc(f.title) + "</h3>" +
       (f.body ? "<p>" + esc(f.body) + "</p>" : "") + meter +
-      (f.url ? '<p style="font-family:var(--display);font-size:13.5px;font-weight:700">' + link(f.url, "How to take part") + "</p>" : "") + "</div>";
+      (f.url ? '<p style="font-family:var(--display);font-size:1.0625rem;font-weight:700">' + link(f.url, "How to take part") + "</p>" : "") + "</div>";
   }).join("") : empty("No fundraisers posted yet", "When a fundraiser is running, you'll find the dates, the goal, and how to help right here.");
 
   // ----- contacts + links -----
